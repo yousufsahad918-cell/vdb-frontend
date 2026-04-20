@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { locationOptions } from "@/lib/locationOptions";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://vib-api.up.railway.app";
+const API_URL = "/api";
 
 interface Props {
   onBack: () => void;
