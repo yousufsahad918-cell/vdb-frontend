@@ -15,7 +15,9 @@ export async function POST(req: NextRequest) {
     const db = await getDb();
     const now = new Date();
     const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
-    const orderId = `VIB${now.getDate().toString().padStart(2,"0")}${(now.getMonth()+1).toString().padStart(2,"0")}${now.getFullYear().toString().slice(-2)}${rand}`;
+    const orderId = `VIB${now.getDate().toString().padStart(2, "0")}${(now.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}${now.getFullYear().toString().slice(-2)}${rand}`;
 
     const order = {
       order_id: orderId,
@@ -42,13 +44,17 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const status = searchParams.get("status");
-    const query = status ? { status } : {};
+    const limit = Math.min(Number(searchParams.get("limit") || "50"), 100);
+    const skip = Number(searchParams.get("skip") || "0");
 
+    const query = status ? { status } : {};
     const db = await getDb();
-    const orders = await db.collection("orders")
+    const orders = await db
+      .collection("orders")
       .find(query)
       .sort({ created_at: -1 })
-      .limit(100)
+      .skip(skip)
+      .limit(limit)
       .toArray();
 
     const serialized = orders.map((o: any) => ({
