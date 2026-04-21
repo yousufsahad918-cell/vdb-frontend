@@ -1,9 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const ADMIN_PASSWORD = "vib@admin2024";
 const PAGE_SIZE = 50;
+const AUTO_REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+
+// Cloudinary config — fill these in after creating your free account
+const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "";
+const CLOUDINARY_UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "";
 
 interface Order {
   _id: string;
@@ -135,6 +140,33 @@ export default function AdminPage() {
   const [flavourInput, setFlavourInput] = useState("");
   const [productSaving, setProductSaving] = useState(false);
   const [productMsg, setProductMsg] = useState("");
+  const [imageUploading, setImageUploading] = useState(false);
+  const autoRefreshRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-refresh every 5 minutes
+  useEffect(() => {
+    if (!authed) return;
+    autoRefreshRef.current = setInterval(() => {
+      fetchData(true);
+    }, AUTO_REFRESH_MS);
+    return () => {
+      if (autoRefreshRef.current) clearInterval(autoRefreshRef.current);
+    };
+  }, [authed]);
+
+  const [nextRefresh, setNextRefresh] = useState(AUTO_REFRESH_MS / 1000);
+
+  useEffect(() => {
+    if (!authed) return;
+    setNextRefresh(AUTO_REFRESH_MS / 1000);
+    const countdown = setInterval(() => {
+      setNextRefresh((prev) => {
+        if (prev <= 1) return AUTO_REFRESH_MS / 1000;
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(countdown);
+  }, [authed]);
 
   useEffect(() => {
     setPushEnabled(isPushEnabled());
@@ -202,6 +234,34 @@ export default function AdminPage() {
   const handleEnablePush = async () => {
     const ok = await registerPush();
     setPushEnabled(ok);
+  };
+
+  const handleImageUpload = async (file: File) => {
+    if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_UPLOAD_PRESET) {
+      setProductMsg("Cloudinary not configured. Add env vars or paste image URL manually.");
+      return;
+    }
+    setImageUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+    try {
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.secure_url) {
+        setProductForm((p) => ({ ...p, image_url: data.secure_url }));
+        setProductMsg("Image uploaded!");
+        setTimeout(() => setProductMsg(""), 2000);
+      } else {
+        setProductMsg("Upload failed. Try pasting a URL instead.");
+      }
+    } catch {
+      setProductMsg("Upload error. Paste image URL manually.");
+    }
+    setImageUploading(false);
   };
 
   const handleAddProduct = async () => {
@@ -314,14 +374,14 @@ export default function AdminPage() {
               {pushEnabled ? "🔔 Notifications ON" : "🔕 Enable Notifications"}
             </button>
             <button
-              onClick={() => fetchData(true)}
+              onClick={() => { fetchData(true); setNextRefresh(AUTO_REFRESH_MS / 1000); }}
               style={{
                 background: "var(--bg-3)", border: "1px solid var(--border)",
                 color: "var(--white)", borderRadius: 8, padding: "8px 16px",
                 cursor: "pointer", fontFamily: "var(--font-display)", fontSize: "0.85rem",
               }}
             >
-              🔄 Refresh
+              Refresh · {Math.floor(nextRefresh / 60)}:{String(nextRefresh % 60).padStart(2, "0")}
             </button>
           </div>
         </div>
@@ -577,15 +637,45 @@ export default function AdminPage() {
                   />
                 </div>
 
-                {/* Image URL */}
-                <div>
-                  <label style={labelStyle}>Image URL</label>
-                  <input
-                    placeholder="https://... or /products/name.jpg"
-                    value={productForm.image_url}
-                    onChange={(e) => setProductForm((p) => ({ ...p, image_url: e.target.value }))}
-                    style={inputStyle}
-                  />
+                {/* Image Upload */}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <label style={labelStyle}>Product Image</label>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                    <label style={{
+                      padding: "9px 16px", background: "var(--bg-3)",
+                      border: "1px solid var(--border)", borderRadius: 8,
+                      color: imageUploading ? "var(--muted)" : "var(--white)",
+                      cursor: imageUploading ? "not-allowed" : "pointer",
+                      fontSize: "0.82rem", fontFamily: "var(--font-display)", fontWeight: 600,
+                      whiteSpace: "nowrap",
+                    }}>
+                      {imageUploading ? "Uploading..." : "Upload Image"}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        disabled={imageUploading}
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleImageUpload(file);
+                        }}
+                      />
+                    </label>
+                    <span style={{ color: "var(--muted)", fontSize: "0.78rem" }}>or</span>
+                    <input
+                      placeholder="Paste image URL"
+                      value={productForm.image_url}
+                      onChange={(e) => setProductForm((p) => ({ ...p, image_url: e.target.value }))}
+                      style={{ ...inputStyle, flex: 1, minWidth: 160 }}
+                    />
+                  </div>
+                  {productForm.image_url && (
+                    <img
+                      src={productForm.image_url}
+                      alt="preview"
+                      style={{ marginTop: 8, height: 80, width: 80, objectFit: "cover", borderRadius: 8, border: "1px solid var(--border)" }}
+                    />
+                  )}
                 </div>
 
                 {/* Flavours */}
