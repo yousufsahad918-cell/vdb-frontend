@@ -26,11 +26,13 @@ export default function BlogIndex() {
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: 80 }}>
+      <style>{`
+        .blog-card { transition: border-color 0.2s; }
+        .blog-card:hover { border-color: var(--orange) !important; }
+      `}</style>
+
       {/* Hero */}
-      <section style={{
-        padding: "60px 20px 40px",
-        maxWidth: 900, margin: "0 auto", textAlign: "center",
-      }}>
+      <section style={{ padding: "60px 20px 40px", maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <p style={{
           fontSize: "0.78rem", color: "var(--orange)", fontWeight: 700,
           letterSpacing: "0.12em", textTransform: "uppercase",
@@ -53,14 +55,10 @@ export default function BlogIndex() {
 
         {/* Featured post */}
         <Link href={`/blog/${featured.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-          <div style={{
+          <div className="blog-card" style={{
             background: "var(--bg-2)", border: "1px solid var(--border)",
             borderRadius: 16, padding: "28px", marginBottom: 32,
-            transition: "border-color 0.2s",
-          }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--orange)")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-          >
+          }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
               <span style={{
                 background: (CATEGORY_COLORS[featured.category] || "#ff6a00") + "22",
@@ -99,21 +97,13 @@ export default function BlogIndex() {
         </Link>
 
         {/* Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-          gap: 16,
-        }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
           {rest.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-              <div style={{
+              <div className="blog-card" style={{
                 background: "var(--bg-2)", border: "1px solid var(--border)",
-                borderRadius: 14, padding: "20px", height: "100%",
-                boxSizing: "border-box", transition: "border-color 0.2s",
-              }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--orange)")}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-              >
+                borderRadius: 14, padding: "20px", height: "100%", boxSizing: "border-box",
+              }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
                   <span style={{
                     background: (CATEGORY_COLORS[post.category] || "#ff6a00") + "22",
@@ -124,9 +114,7 @@ export default function BlogIndex() {
                   }}>
                     {post.category}
                   </span>
-                  <span style={{ fontSize: "0.68rem", color: "var(--muted)" }}>
-                    {post.readTime} min
-                  </span>
+                  <span style={{ fontSize: "0.68rem", color: "var(--muted)" }}>{post.readTime} min</span>
                 </div>
                 <h3 style={{
                   fontFamily: "var(--font-display)", fontSize: "0.92rem",
