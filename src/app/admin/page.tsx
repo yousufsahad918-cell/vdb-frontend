@@ -131,7 +131,7 @@ export default function AdminPage() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [pushEnabled, setPushEnabled] = useState(false);
-  const [activeTab, setActiveTab] = useState<"orders" | "products">("orders");
+  const [activeTab, setActiveTab] = useState<"orders" | "products" | "accounts">("orders");
   const [orderCache, setOrderCache] = useState<Record<string, Order[]>>({});
 
   // Product form
@@ -142,6 +142,20 @@ export default function AdminPage() {
   const [productMsg, setProductMsg] = useState("");
   const [imageUploading, setImageUploading] = useState(false);
   const autoRefreshRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Accounts state
+  const [accountsTab, setAccountsTab] = useState<"customers" | "inventory" | "purchases" | "sales">("customers");
+  const [customers, setCustomers] = useState<any[]>([]);
+  const [selectedCustomer, setSelectedCustomer] = useState<any | null>(null);
+  const [customerOrders, setCustomerOrders] = useState<any[]>([]);
+  const [inventoryItems, setInventoryItems] = useState<any[]>([]);
+  const [purchases, setPurchases] = useState<any[]>([]);
+  const [salesData, setSalesData] = useState<any>(null);
+  const [salesRange, setSalesRange] = useState("7");
+  const [accountsLoading, setAccountsLoading] = useState(false);
+  const [purchaseForm, setPurchaseForm] = useState({ supplier: "", product_name: "", quantity: "", cost_per_unit: "", notes: "" });
+  const [purchaseSaving, setPurchaseSaving] = useState(false);
+  const [purchaseMsg, setPurchaseMsg] = useState("");
 
   // Auto-refresh every 5 minutes
   useEffect(() => {
@@ -202,12 +216,77 @@ export default function AdminPage() {
     setProducts(data.products || []);
   };
 
+  const fetchAccounts = async (tab = accountsTab) => {
+    setAccountsLoading(true);
+    if (tab === "customers") {
+      const res = await fetch("/api/accounts?section=customers");
+      const data = await res.json();
+      setCustomers(data.customers || []);
+    } else if (tab === "inventory") {
+      const res = await fetch("/api/accounts?section=inventory");
+      const data = await res.json();
+      setInventoryItems(data.items || []);
+    } else if (tab === "purchases") {
+      const res = await fetch("/api/accounts?section=purchases");
+      const data = await res.json();
+      setPurchases(data.purchases || []);
+    } else if (tab === "sales") {
+      const res = await fetch(`/api/accounts?section=sales&range=${salesRange}`);
+      const data = await res.json();
+      setSalesData(data);
+    }
+    setAccountsLoading(false);
+  };
+
+  const fetchCustomerOrders = async (phone: string) => {
+    const res = await fetch(`/api/accounts?section=customer_orders&phone=${phone}`);
+    const data = await res.json();
+    setCustomerOrders(data.orders || []);
+  };
+
+  const updateInventory = async (productId: string, stockCount: number, reorderLevel: number) => {
+    await fetch("/api/accounts?section=inventory", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product_id: productId, stock_count: stockCount, reorder_level: reorderLevel }),
+    });
+    fetchAccounts("inventory");
+  };
+
+  const handleAddPurchase = async () => {
+    if (!purchaseForm.product_name || !purchaseForm.quantity || !purchaseForm.cost_per_unit) {
+      setPurchaseMsg("Product, quantity and cost are required.");
+      return;
+    }
+    setPurchaseSaving(true);
+    const res = await fetch("/api/accounts?section=purchases", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(purchaseForm),
+    });
+    if (res.ok) {
+      setPurchaseMsg("Purchase logged!");
+      setPurchaseForm({ supplier: "", product_name: "", quantity: "", cost_per_unit: "", notes: "" });
+      fetchAccounts("purchases");
+    } else {
+      setPurchaseMsg("Failed to save.");
+    }
+    setPurchaseSaving(false);
+    setTimeout(() => setPurchaseMsg(""), 3000);
+  };
+
   useEffect(() => {
     if (authed) {
       fetchData(true);
       fetchProducts();
     }
   }, [authed, filter]);
+
+  useEffect(() => {
+    if (authed && activeTab === "accounts") {
+      fetchAccounts(accountsTab);
+    }
+  }, [authed, activeTab, accountsTab, salesRange]);
 
   const loadMore = async () => {
     const nextPage = page + 1;
@@ -415,7 +494,7 @@ export default function AdminPage() {
 
         {/* Tab switcher */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
-          {(["orders", "products"] as const).map((tab) => (
+          {(["orders", "products", "accounts"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -429,7 +508,7 @@ export default function AdminPage() {
                 textTransform: "capitalize",
               }}
             >
-              {tab === "orders" ? "📦 Orders" : "🛍 Products"}
+              {tab === "orders" ? "📦 Orders" : tab === "products" ? "🛍 Products" : "📊 Accounts"}
             </button>
           ))}
         </div>
@@ -806,6 +885,308 @@ export default function AdminPage() {
             )}
           </div>
         )}
+
+        {/* ── ACCOUNTS TAB ── */}
+        {activeTab === "accounts" && (
+          <div>
+            {/* Sub-tab switcher */}
+            <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+              {(["customers", "inventory", "purchases", "sales"] as const).map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setAccountsTab(t)}
+                  style={{
+                    padding: "7px 16px", borderRadius: 20,
+                    background: accountsTab === t ? "var(--orange)" : "var(--bg-3)",
+                    border: accountsTab === t ? "none" : "1px solid var(--border)",
+                    color: accountsTab === t ? "#fff" : "var(--muted)",
+                    cursor: "pointer", fontSize: "0.8rem",
+                    fontFamily: "var(--font-display)", fontWeight: 700,
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {t === "customers" ? "Customers" : t === "inventory" ? "Inventory" : t === "purchases" ? "Purchases" : "Sales"}
+                </button>
+              ))}
+            </div>
+
+            {accountsLoading && (
+              <p style={{ color: "var(--muted)", textAlign: "center", padding: 40 }}>Loading...</p>
+            )}
+
+            {/* ── CUSTOMERS ── */}
+            {!accountsLoading && accountsTab === "customers" && (
+              <div>
+                {selectedCustomer ? (
+                  <div>
+                    <button
+                      onClick={() => { setSelectedCustomer(null); setCustomerOrders([]); }}
+                      style={{ ...backBtnStyle, marginBottom: 16 }}
+                    >
+                      ← Back to Customers
+                    </button>
+                    <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: 16, marginBottom: 16 }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem" }}>{selectedCustomer.name}</p>
+                      <p style={{ fontSize: "0.82rem", color: "var(--muted)", marginTop: 4 }}>
+                        {selectedCustomer.phone} · {selectedCustomer.order_count} orders · Rs.{selectedCustomer.total_spent?.toLocaleString()} total spent
+                      </p>
+                      <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 2 }}>
+                        Areas: {selectedCustomer.locations?.join(", ")}
+                      </p>
+                    </div>
+                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", marginBottom: 10, color: "var(--muted)" }}>ORDER HISTORY</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      {customerOrders.map((o: any) => (
+                        <div key={o._id} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "12px 14px" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 6 }}>
+                            <div>
+                              <span style={{ fontSize: "0.8rem", fontFamily: "var(--font-display)", fontWeight: 700 }}>{o.order_id}</span>
+                              <span style={{ marginLeft: 8, fontSize: "0.72rem", color: STATUS_COLORS[o.status], fontFamily: "var(--font-display)" }}>{STATUS_LABELS[o.status]}</span>
+                              <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 3 }}>{o.items?.map((i: any) => `${i.name} x${i.quantity}`).join(", ")}</p>
+                              <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{o.sub_location}, {o.main_location}</p>
+                            </div>
+                            <div style={{ textAlign: "right" }}>
+                              <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)" }}>Rs.{o.total?.toLocaleString()}</p>
+                              <p style={{ fontSize: "0.72rem", color: "var(--muted)" }}>{new Date(o.created_at).toLocaleDateString("en-IN")}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <p style={{ fontSize: "0.8rem", color: "var(--muted)", marginBottom: 12 }}>{customers.length} unique customers</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      {customers.map((c) => (
+                        <div
+                          key={c.phone}
+                          onClick={() => { setSelectedCustomer(c); fetchCustomerOrders(c.phone); }}
+                          style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: "14px 16px", cursor: "pointer" }}
+                        >
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+                            <div>
+                              <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9rem" }}>{c.name}</p>
+                              <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 2 }}>{c.phone} · {c.locations?.join(", ")}</p>
+                              <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: 1 }}>Last order: {c.last_order ? new Date(c.last_order).toLocaleDateString("en-IN") : "—"}</p>
+                            </div>
+                            <div style={{ textAlign: "right" }}>
+                              <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "1rem" }}>Rs.{c.total_spent?.toLocaleString()}</p>
+                              <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{c.order_count} orders</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ── INVENTORY ── */}
+            {!accountsLoading && accountsTab === "inventory" && (
+              <div>
+                <p style={{ fontSize: "0.8rem", color: "var(--muted)", marginBottom: 12 }}>Click stock count to edit. Low stock shown in red.</p>
+                {inventoryItems.length === 0 ? (
+                  <p style={{ color: "var(--muted)", fontSize: "0.85rem" }}>No products found. Add products in the Products tab first.</p>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    {inventoryItems.map((item) => (
+                      <InventoryRow key={item._id} item={item} onSave={updateInventory} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ── PURCHASES ── */}
+            {!accountsLoading && accountsTab === "purchases" && (
+              <div>
+                {/* Add purchase form */}
+                <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, padding: 20, marginBottom: 24 }}>
+                  <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 700, marginBottom: 14 }}>Log Purchase</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    <div>
+                      <label style={labelStyle}>Supplier</label>
+                      <input placeholder="e.g. Elfbar Distributor" value={purchaseForm.supplier}
+                        onChange={(e) => setPurchaseForm(p => ({ ...p, supplier: e.target.value }))} style={inputStyle} />
+                    </div>
+                    <div>
+                      <label style={labelStyle}>Product Name *</label>
+                      <input placeholder="e.g. Elfbar Raya D3" value={purchaseForm.product_name}
+                        onChange={(e) => setPurchaseForm(p => ({ ...p, product_name: e.target.value }))} style={inputStyle} />
+                    </div>
+                    <div>
+                      <label style={labelStyle}>Quantity *</label>
+                      <input type="number" placeholder="10" value={purchaseForm.quantity}
+                        onChange={(e) => setPurchaseForm(p => ({ ...p, quantity: e.target.value }))} style={inputStyle} />
+                    </div>
+                    <div>
+                      <label style={labelStyle}>Cost per Unit (Rs.) *</label>
+                      <input type="number" placeholder="2000" value={purchaseForm.cost_per_unit}
+                        onChange={(e) => setPurchaseForm(p => ({ ...p, cost_per_unit: e.target.value }))} style={inputStyle} />
+                    </div>
+                    <div style={{ gridColumn: "1 / -1" }}>
+                      <label style={labelStyle}>Notes</label>
+                      <input placeholder="Optional notes" value={purchaseForm.notes}
+                        onChange={(e) => setPurchaseForm(p => ({ ...p, notes: e.target.value }))} style={inputStyle} />
+                    </div>
+                  </div>
+                  {purchaseForm.quantity && purchaseForm.cost_per_unit && (
+                    <p style={{ fontSize: "0.8rem", color: "#10b981", marginTop: 8 }}>
+                      Total cost: Rs.{(Number(purchaseForm.quantity) * Number(purchaseForm.cost_per_unit)).toLocaleString()}
+                    </p>
+                  )}
+                  {purchaseMsg && <p style={{ fontSize: "0.82rem", color: purchaseMsg === "Purchase logged!" ? "#10b981" : "#ef4444", marginTop: 8 }}>{purchaseMsg}</p>}
+                  <button onClick={handleAddPurchase} disabled={purchaseSaving}
+                    style={{ marginTop: 14, padding: "11px 24px", background: "var(--orange)", border: "none", borderRadius: 8, color: "#fff", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9rem", cursor: purchaseSaving ? "not-allowed" : "pointer", opacity: purchaseSaving ? 0.7 : 1 }}>
+                    {purchaseSaving ? "Saving..." : "Log Purchase →"}
+                  </button>
+                </div>
+
+                {/* Purchase history */}
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 700, marginBottom: 12 }}>Purchase History</h2>
+                {purchases.length === 0 ? (
+                  <p style={{ color: "var(--muted)", fontSize: "0.85rem" }}>No purchases logged yet.</p>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    {purchases.map((p) => (
+                      <div key={p._id} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "12px 16px" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 6 }}>
+                          <div>
+                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem" }}>{p.product_name}</p>
+                            <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 2 }}>{p.supplier} · Qty: {p.quantity} · Rs.{p.cost_per_unit}/unit</p>
+                            {p.notes && <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{p.notes}</p>}
+                          </div>
+                          <div style={{ textAlign: "right" }}>
+                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#10b981" }}>Rs.{p.total_cost?.toLocaleString()}</p>
+                            <p style={{ fontSize: "0.72rem", color: "var(--muted)" }}>{p.date ? new Date(p.date).toLocaleDateString("en-IN") : "—"}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ── SALES ── */}
+            {!accountsLoading && accountsTab === "sales" && salesData && (
+              <div>
+                {/* Range selector */}
+                <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+                  {[["7", "7 Days"], ["14", "14 Days"], ["30", "30 Days"]].map(([val, label]) => (
+                    <button key={val} onClick={() => setSalesRange(val)}
+                      style={{ padding: "6px 14px", borderRadius: 20, background: salesRange === val ? "var(--orange)" : "var(--bg-3)", border: salesRange === val ? "none" : "1px solid var(--border)", color: salesRange === val ? "#fff" : "var(--muted)", cursor: "pointer", fontSize: "0.8rem", fontFamily: "var(--font-display)", fontWeight: 600 }}>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Stats */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12, marginBottom: 24 }}>
+                  {[
+                    { label: "Revenue", value: `Rs.${salesData.stats?.total_revenue?.toLocaleString()}`, color: "#10b981" },
+                    { label: "Orders", value: salesData.stats?.total_orders, color: "var(--orange)" },
+                    { label: "Avg Order", value: `Rs.${salesData.stats?.avg_order?.toLocaleString()}`, color: "#3b82f6" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: "16px 12px", textAlign: "center" }}>
+                      <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 800, color: s.color }}>{s.value}</div>
+                      <div style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: 4 }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Daily breakdown */}
+                <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--muted)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.08em" }}>Daily Breakdown</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 24 }}>
+                  {salesData.daily?.length === 0 && <p style={{ color: "var(--muted)", fontSize: "0.85rem" }}>No sales in this period.</p>}
+                  {[...salesData.daily].reverse().map((d: any) => (
+                    <div key={d.date} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div>
+                        <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>{new Date(d.date).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}</p>
+                        <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{d.orders} orders</p>
+                      </div>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#10b981" }}>Rs.{d.revenue?.toLocaleString()}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Top products */}
+                <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--muted)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.08em" }}>Top Products</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {salesData.top_products?.map((p: any, i: number) => (
+                    <div key={p.name} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                        <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "0.9rem" }}>#{i + 1}</span>
+                        <div>
+                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>{p.name}</p>
+                          <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{p.qty} units sold</p>
+                        </div>
+                      </div>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#10b981" }}>Rs.{p.revenue?.toLocaleString()}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Inventory Row (needs local state for editing) ────────────────────────────
+function InventoryRow({ item, onSave }: { item: any; onSave: (id: string, stock: number, reorder: number) => void }) {
+  const [stock, setStock] = useState(item.stock_count);
+  const [reorder, setReorder] = useState(item.reorder_level);
+  const [editing, setEditing] = useState(false);
+  const isLow = stock <= reorder;
+
+  return (
+    <div style={{ background: "var(--bg-2)", border: `1px solid ${isLow ? "#ef4444" : "var(--border)"}`, borderRadius: 12, padding: "14px 16px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+        <div>
+          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9rem" }}>
+            {item.name}
+            {isLow && <span style={{ marginLeft: 8, fontSize: "0.7rem", color: "#ef4444", fontWeight: 700 }}>LOW STOCK</span>}
+          </p>
+          <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 2 }}>{item.category} · Rs.{item.price?.toLocaleString()}</p>
+        </div>
+        {editing ? (
+          <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+            <div>
+              <label style={{ ...labelStyle, marginBottom: 2 }}>Stock</label>
+              <input type="number" value={stock} onChange={(e) => setStock(Number(e.target.value))}
+                style={{ ...inputStyle, width: 70, padding: "6px 8px" }} />
+            </div>
+            <div>
+              <label style={{ ...labelStyle, marginBottom: 2 }}>Reorder at</label>
+              <input type="number" value={reorder} onChange={(e) => setReorder(Number(e.target.value))}
+                style={{ ...inputStyle, width: 70, padding: "6px 8px" }} />
+            </div>
+            <button onClick={() => { onSave(item._id, stock, reorder); setEditing(false); }}
+              style={{ padding: "6px 12px", background: "#10b98122", border: "1px solid #10b98144", color: "#10b981", borderRadius: 8, cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)", fontWeight: 700, marginTop: 18 }}>
+              Save
+            </button>
+            <button onClick={() => setEditing(false)}
+              style={{ padding: "6px 12px", background: "var(--bg-3)", border: "1px solid var(--border)", color: "var(--muted)", borderRadius: 8, cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)", marginTop: 18 }}>
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.1rem", color: isLow ? "#ef4444" : "#10b981" }}>{stock}</p>
+              <p style={{ fontSize: "0.72rem", color: "var(--muted)" }}>reorder at {reorder}</p>
+            </div>
+            <button onClick={() => setEditing(true)}
+              style={{ padding: "6px 12px", background: "var(--bg-3)", border: "1px solid var(--border)", color: "var(--muted)", borderRadius: 8, cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)" }}>
+              Edit
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -822,4 +1203,11 @@ const inputStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   display: "block", fontSize: "0.75rem", color: "var(--muted)",
   marginBottom: 5, fontFamily: "var(--font-display)", fontWeight: 600,
+};
+
+const backBtnStyle: React.CSSProperties = {
+  padding: "7px 14px", background: "var(--bg-3)",
+  border: "1px solid var(--border)", borderRadius: 8,
+  color: "var(--muted)", cursor: "pointer",
+  fontSize: "0.82rem", fontFamily: "var(--font-display)", fontWeight: 600,
 };
