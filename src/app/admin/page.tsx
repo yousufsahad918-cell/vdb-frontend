@@ -59,25 +59,25 @@ const CATEGORIES = ["Vape", "Tobacco", "Accessory", "Other"];
 
 function buildWhatsAppMessage(order: Order): string {
   const items = order.items
-    .map((i) => `• ${i.name}${i.flavour ? ` (${i.flavour})` : ""} ×${i.quantity}`)
+    .map((i) => `- ${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity}`)
     .join("\n");
 
-  const message = `Hey ${order.customer_name}! 👋
+  const message = `Hey ${order.customer_name}!
 
-*Order Confirmed — ${order.order_id}*
+*Order Received — ${order.order_id}*
 
 Thanks for ordering from Vape Bangalore! Here's a summary of your order:
 
 ${items}
-*Total: ₹${order.total.toLocaleString()}*
+*Total: Rs.${order.total.toLocaleString()}*
 
-📍 *Delivery to:* ${order.sub_location}, ${order.main_location}
+*Delivery to:* ${order.sub_location}, ${order.main_location}
 
-Could you drop us your *current/precise location* (Google Maps pin)? This helps us dispatch faster.
+We will shortly confirm your order. Could you also share your *current/precise location* (Google Maps pin)? This helps us dispatch faster.
 
-🚫 *Note:* COD is temporarily disabled. Your order will be dispatched via *Porter or Rapido*. We'll share the *tracking ID* as soon as the booking is confirmed.
+*Note:* COD is temporarily disabled. Your order will be dispatched via *Porter or Rapido*. We will share the *tracking ID* as soon as the booking is confirmed.
 
-If you have any questions, just reply here! 🙌`;
+If you have any questions, just reply here!`;
 
   return encodeURIComponent(message);
 }
@@ -127,6 +127,7 @@ export default function AdminPage() {
   const [hasMore, setHasMore] = useState(false);
   const [pushEnabled, setPushEnabled] = useState(false);
   const [activeTab, setActiveTab] = useState<"orders" | "products">("orders");
+  const [orderCache, setOrderCache] = useState<Record<string, Order[]>>({});
 
   // Product form
   const [products, setProducts] = useState<Product[]>([]);
@@ -140,6 +141,10 @@ export default function AdminPage() {
   }, []);
 
   const fetchData = useCallback(async (resetPage = true) => {
+    // Show cached data instantly while fetching fresh
+    if (orderCache[filter]) {
+      setOrders(orderCache[filter]);
+    }
     setLoading(true);
     const currentPage = resetPage ? 1 : page;
     if (resetPage) setPage(1);
@@ -151,11 +156,13 @@ export default function AdminPage() {
     const ordersData = await ordersRes.json();
     const dashData = await dashRes.json();
     const fetched = ordersData.orders || [];
-    setOrders(resetPage ? fetched : (prev) => [...prev, ...fetched]);
+    const merged = resetPage ? fetched : [...(orderCache[filter] || []), ...fetched];
+    setOrders(merged);
+    setOrderCache((prev) => ({ ...prev, [filter]: merged }));
     setHasMore(fetched.length === PAGE_SIZE);
     setDashboard(dashData);
     setLoading(false);
-  }, [filter, page]);
+  }, [filter, page, orderCache]);
 
   const fetchProducts = async () => {
     const res = await fetch("/api/products");
