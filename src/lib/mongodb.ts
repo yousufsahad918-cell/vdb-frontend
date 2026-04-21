@@ -1,31 +1,30 @@
 import { MongoClient } from "mongodb";
 
-const MONGO_URL = process.env.MONGO_URL!;
+const MONGO_URL = process.env.MONGO_URL || "";
 const DB_NAME = "vibdb";
 
-if (!MONGO_URL) throw new Error("MONGO_URL environment variable not set");
-
-let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
 declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-if (process.env.NODE_ENV === "development") {
-  if (!global._mongoClientPromise) {
-    client = new MongoClient(MONGO_URL);
-    global._mongoClientPromise = client.connect();
+function getClientPromise() {
+  if (!MONGO_URL) {
+    throw new Error("MONGO_URL environment variable not set");
   }
-  clientPromise = global._mongoClientPromise;
-} else {
-  client = new MongoClient(MONGO_URL);
-  clientPromise = client.connect();
+  if (process.env.NODE_ENV === "development") {
+    if (!global._mongoClientPromise) {
+      const client = new MongoClient(MONGO_URL);
+      global._mongoClientPromise = client.connect();
+    }
+    return global._mongoClientPromise;
+  }
+  const client = new MongoClient(MONGO_URL);
+  return client.connect();
 }
 
 export async function getDb() {
-  const client = await clientPromise;
+  const client = await getClientPromise();
   return client.db(DB_NAME);
 }
-
-export default clientPromise;

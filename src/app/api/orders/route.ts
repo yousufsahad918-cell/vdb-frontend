@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
-import { v4 as uuidv4 } from "uuid";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,7 +14,8 @@ export async function POST(req: NextRequest) {
 
     const db = await getDb();
     const now = new Date();
-    const orderId = `VIB${now.getDate().toString().padStart(2,"0")}${(now.getMonth()+1).toString().padStart(2,"0")}${now.getFullYear().toString().slice(-2)}${uuidv4().slice(0,4).toUpperCase()}`;
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+    const orderId = `VIB${now.getDate().toString().padStart(2,"0")}${(now.getMonth()+1).toString().padStart(2,"0")}${now.getFullYear().toString().slice(-2)}${rand}`;
 
     const order = {
       order_id: orderId,
@@ -49,7 +51,7 @@ export async function GET(req: NextRequest) {
       .limit(100)
       .toArray();
 
-    const serialized = orders.map(o => ({
+    const serialized = orders.map((o: any) => ({
       ...o,
       _id: o._id.toString(),
       created_at: o.created_at?.toISOString(),
