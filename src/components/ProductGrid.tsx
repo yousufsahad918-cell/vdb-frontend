@@ -69,12 +69,12 @@ export default function ProductGrid() {
                     <h3 className="product-name">{product.name}</h3>
                     <p className="product-desc">{product.description}</p>
 
-                    {/* Flavour selector — tap one, can switch anytime */}
+                    {/* Flavour selector — horizontal scroll on mobile */}
                     <div style={{ marginBottom: 10, marginTop: 6 }}>
                       <p style={{ fontSize: "0.72rem", fontWeight: 600, color: "var(--muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                         Select Flavour
                       </p>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                      <div className="flavour-scroll">
                         {product.flavours.map((flavour) => {
                           const isSelected = selectedFlavour === flavour;
                           return (
@@ -85,17 +85,18 @@ export default function ProductGrid() {
                                 [product.name]: isSelected ? "" : flavour,
                               }))}
                               style={{
-                                padding: "4px 8px",
+                                padding: "5px 10px",
                                 borderRadius: 6,
                                 border: isSelected ? "1.5px solid var(--orange)" : "1px solid var(--border)",
                                 background: isSelected ? "var(--orange-glow)" : "var(--bg-3)",
                                 color: isSelected ? "var(--orange)" : "var(--muted)",
-                                fontSize: "0.7rem",
+                                fontSize: "0.72rem",
                                 fontFamily: "var(--font-body)",
                                 fontWeight: 500,
                                 cursor: "pointer",
                                 transition: "all 0.15s",
                                 whiteSpace: "nowrap",
+                                flexShrink: 0,
                                 WebkitTapHighlightColor: "transparent",
                               }}
                             >

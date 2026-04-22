@@ -559,6 +559,59 @@ a:active {
   z-index: 500;
 }
 
+/* ── HERO BUTTONS ────────────────────────────────────────────────────────── */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #fff;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.btn-whatsapp:hover { opacity: 0.88; }
+
+@media (max-width: 480px) {
+  .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-whatsapp,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ── FLAVOUR PILLS — horizontal scroll on mobile ─────────────────────────── */
+.flavour-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+  flex-wrap: nowrap;
+}
+
+.flavour-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── BLOG CARDS ──────────────────────────────────────────────────────────── */
 .blog-card {
   transition: border-color 0.2s;
@@ -596,6 +649,7 @@ article strong {
   color: var(--white);
   font-weight: 700;
 }
+
 
 /* ── MOBILE RESPONSIVE ───────────────────────────────────────────────────── */
 @media (max-width: 600px) {

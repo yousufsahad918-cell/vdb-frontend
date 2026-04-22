@@ -1,11 +1,17 @@
 "use client";
 
-import { WHATSAPP_URL, SHOP_URL } from "@/lib/locations";
+import { WHATSAPP_URL } from "@/lib/locations";
 
 export default function StickyButtons() {
   return (
     <>
-      {/* Right side — WhatsApp */}
+      <style>{`
+        @media (max-width: 768px) {
+          .sticky-whatsapp, .sticky-shop { display: none !important; }
+        }
+      `}</style>
+
+      {/* Right side — WhatsApp — desktop only */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
@@ -24,7 +30,7 @@ export default function StickyButtons() {
           letterSpacing: "0.04em",
           padding: "8px 16px",
           borderRadius: "8px 8px 0 0",
-          zIndex: 9999,
+          zIndex: 500,
           whiteSpace: "nowrap",
           display: "flex",
           alignItems: "center",
@@ -33,14 +39,12 @@ export default function StickyButtons() {
           textTransform: "uppercase",
         }}
       >
-        💬 Quick Order
+        Quick Order
       </a>
 
-      {/* Left side — Shop Now */}
+      {/* Left side — Shop Now — desktop only */}
       <a
-        href={SHOP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/#products"
         className="sticky-shop"
         style={{
           position: "fixed",
@@ -55,7 +59,7 @@ export default function StickyButtons() {
           letterSpacing: "0.04em",
           padding: "8px 16px",
           borderRadius: "8px 8px 0 0",
-          zIndex: 9999,
+          zIndex: 500,
           whiteSpace: "nowrap",
           display: "flex",
           alignItems: "center",
@@ -64,7 +68,7 @@ export default function StickyButtons() {
           textTransform: "uppercase",
         }}
       >
-        ⚡ Shop Now
+        Shop Now
       </a>
     </>
   );
