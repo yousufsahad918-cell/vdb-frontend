@@ -5,9 +5,37 @@ import { useCart } from "@/lib/cart";
 import { locationOptions } from "@/lib/locationOptions";
 
 const API_URL = "/api";
+const ADMIN_PHONE = "916282878843";
 
 interface Props {
   onBack: () => void;
+}
+
+function buildWhatsAppMessage(
+  name: string,
+  phone: string,
+  location: string,
+  items: { name: string; quantity: number; price: number; flavour?: string }[],
+  total: number
+): string {
+  const itemLines = items
+    .map((i) => `- ${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity} = Rs.${(i.price * i.quantity).toLocaleString()}`)
+    .join("\n");
+
+  const message = `Hi! I want to place an order.
+
+*Name:* ${name}
+*Phone:* ${phone}
+*Delivery Location:* ${location}
+
+*Items:*
+${itemLines}
+
+*Total: Rs.${total.toLocaleString()}*
+
+Please confirm my order. Thank you!`;
+
+  return encodeURIComponent(message);
 }
 
 export default function CheckoutForm({ onBack }: Props) {
@@ -17,8 +45,6 @@ export default function CheckoutForm({ onBack }: Props) {
   const [locationSearch, setLocationSearch] = useState("");
   const [selectedLocation, setSelectedLocation] = useState<{ label: string; sublocation: string; mainLocation: string } | null>(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [orderId, setOrderId] = useState<string | null>(null);
   const [error, setError] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -37,81 +63,28 @@ export default function CheckoutForm({ onBack }: Props) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const handleSubmit = async () => {
+  const handleWhatsApp = () => {
     if (!name.trim()) { setError("Please enter your name"); return; }
     if (!phone.trim() || phone.length < 10) { setError("Please enter a valid phone number"); return; }
-    
-    // Accept either a selected location OR free text typed in
-    const finalLocation = selectedLocation 
-      ? { label: selectedLocation.label, sublocation: selectedLocation.sublocation, mainLocation: selectedLocation.mainLocation }
-      : locationSearch.trim() 
-        ? { label: locationSearch.trim(), sublocation: locationSearch.trim(), mainLocation: "Other" }
-        : null;
+
+    const finalLocation = selectedLocation
+      ? selectedLocation.label
+      : locationSearch.trim() || null;
 
     if (!finalLocation) { setError("Please enter your delivery location"); return; }
 
-    setLoading(true);
     setError("");
 
-    try {
-      const res = await fetch(`${API_URL}/orders`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          customer_name: name,
-          customer_phone: phone,
-          main_location: finalLocation.mainLocation,
-          sub_location: finalLocation.sublocation,
-          items: items.map((i) => ({
-            product_id: i.product_id,
-            name: i.name,
-            price: i.price,
-            quantity: i.quantity,
-            image: i.image,
-          })),
-          total,
-        }),
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        setOrderId(data.order_id);
-        clearCart();
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      setError("Could not connect. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (orderId) {
-    return (
-      <div style={{ padding: "40px 20px", textAlign: "center" }}>
-        <div style={{ fontSize: "3.5rem", marginBottom: 16 }}>✅</div>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 800, marginBottom: 8 }}>
-          Order Placed!
-        </h2>
-        <p style={{ color: "var(--muted)", marginBottom: 16, fontSize: "0.9rem" }}>
-          Your order has been received. We'll contact you shortly.
-        </p>
-        <div style={{
-          background: "var(--bg-3)", borderRadius: 12, padding: "16px",
-          border: "1px solid var(--border)", marginBottom: 24,
-        }}>
-          <p style={{ fontSize: "0.8rem", color: "var(--muted)", marginBottom: 4 }}>Order ID</p>
-          <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.1rem", color: "var(--orange)" }}>
-            {orderId}
-          </p>
-        </div>
-        <p style={{ fontSize: "0.82rem", color: "var(--muted)" }}>
-          Save your order ID for tracking. Our team will call you at {phone} to confirm delivery.
-        </p>
-      </div>
+    const msg = buildWhatsAppMessage(
+      name,
+      phone,
+      finalLocation,
+      items.map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
+      total
     );
-  }
+
+    window.open(`https://wa.me/${ADMIN_PHONE}?text=${msg}`, "_blank");
+  };
 
   const inputStyle = {
     width: "100%", padding: "12px 14px",
@@ -223,7 +196,7 @@ export default function CheckoutForm({ onBack }: Props) {
             borderRadius: 8, marginTop: 4, padding: "10px 14px",
             fontSize: "0.82rem", color: "var(--muted)",
           }}>
-            No match found — your typed location "<strong style={{color: "var(--white)"}}>{locationSearch}</strong>" will be used for delivery.
+            No match found — your typed location "<strong style={{ color: "var(--white)" }}>{locationSearch}</strong>" will be used for delivery.
           </div>
         )}
         {selectedLocation && (
@@ -258,8 +231,8 @@ export default function CheckoutForm({ onBack }: Props) {
             display: "flex", justifyContent: "space-between",
             fontSize: "0.85rem", marginBottom: 8, color: "var(--text)",
           }}>
-            <span>{item.name} × {item.quantity}</span>
-            <span style={{ fontWeight: 600 }}>₹{(item.price * item.quantity).toLocaleString()}</span>
+            <span>{item.name} x {item.quantity}</span>
+            <span style={{ fontWeight: 600 }}>Rs.{(item.price * item.quantity).toLocaleString()}</span>
           </div>
         ))}
         <div style={{
@@ -268,7 +241,7 @@ export default function CheckoutForm({ onBack }: Props) {
         }}>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>Total</span>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "1.1rem" }}>
-            ₹{total.toLocaleString()}
+            Rs.{total.toLocaleString()}
           </span>
         </div>
       </div>
@@ -277,22 +250,27 @@ export default function CheckoutForm({ onBack }: Props) {
         <p style={{ color: "#ef4444", fontSize: "0.85rem", textAlign: "center" }}>{error}</p>
       )}
 
+      {/* WhatsApp Order Button */}
       <button
-        onClick={handleSubmit}
-        disabled={loading}
+        onClick={handleWhatsApp}
         style={{
           width: "100%", padding: "14px",
-          background: loading ? "var(--muted)" : "var(--orange)",
+          background: "#25d366",
           border: "none", borderRadius: 10, color: "#fff",
           fontFamily: "var(--font-display)", fontWeight: 700,
-          fontSize: "1rem", cursor: loading ? "not-allowed" : "pointer",
+          fontSize: "1rem", cursor: "pointer",
+          display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
         }}
       >
-        {loading ? "Placing Order..." : "Place Order →"}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.855L0 24l6.29-1.49A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.884.937-3.638-.234-.374A9.818 9.818 0 0112 2.182c5.424 0 9.818 4.394 9.818 9.818 0 5.425-4.394 9.818-9.818 9.818z"/>
+        </svg>
+        Complete Order on WhatsApp
       </button>
 
       <p style={{ fontSize: "0.78rem", color: "var(--muted)", textAlign: "center" }}>
-        Cash on delivery · We'll call to confirm · 20-30 min delivery
+        Tap above to send your order via WhatsApp. We will confirm and dispatch immediately.
       </p>
     </div>
   );
