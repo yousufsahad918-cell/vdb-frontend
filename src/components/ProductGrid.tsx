@@ -10,6 +10,7 @@ interface ProductOverride {
   tag: string;
   flavours: string[];
   in_stock: boolean;
+  price?: number;
 }
 
 const TAG_COLORS: Record<string, { bg: string; color: string }> = {
