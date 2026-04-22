@@ -155,6 +155,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* FAQ Schema for Google AI Overviews / Gemini */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Where can I buy vape in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "You can buy vape in Bangalore through VapeInBangalore.in — we offer fast delivery across 20+ areas including BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Electronic City, and more. Order on WhatsApp for same-day delivery." } },
+          { "@type": "Question", "name": "How long does vape delivery take in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "Vape delivery in Bangalore typically takes 20-60 minutes depending on your location. We cover all major areas and dispatch via Porter or Rapido for fast, discreet delivery." } },
+          { "@type": "Question", "name": "Which vapes are available for delivery in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "We deliver top brands including Elfbar Raya D1, Elfbar Raya D3, Elfbar Raya D3 Pro, and Elfbar Ice King. All products are available in multiple flavours and delivered to your door in Bangalore." } },
+          { "@type": "Question", "name": "Is vape delivery available near me in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we deliver vapes across 20+ Bangalore neighbourhoods including BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City, Marathahalli, Hebbal, Yelahanka, Jayanagar, JP Nagar, and more." } },
+          { "@type": "Question", "name": "How do I order vape online in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "You can order vape online in Bangalore by visiting VapeInBangalore.in, selecting your product and flavour, and completing checkout. You can also WhatsApp us directly at +91 6282878843 to place an order." } },
+        ]
+      })}} />
     </>
   );
 }
