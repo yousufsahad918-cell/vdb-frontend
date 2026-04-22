@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useCart } from "@/lib/cart";
 import { locationOptions } from "@/lib/locationOptions";
+import { useRouter } from "next/navigation";
 
 const API_URL = "/api";
 const ADMIN_PHONE = "916282878843";
@@ -39,7 +40,8 @@ Please confirm my order. Thank you!`;
 }
 
 export default function CheckoutForm({ onBack }: Props) {
-  const { items, total, clearCart } = useCart();
+  const { items, total, clearCart, setIsOpen } = useCart();
+  const router = useRouter();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [locationSearch, setLocationSearch] = useState("");
@@ -84,6 +86,11 @@ export default function CheckoutForm({ onBack }: Props) {
     );
 
     window.open(`https://wa.me/${ADMIN_PHONE}?text=${msg}`, "_blank");
+
+    // Reset — clear cart, close drawer, go home
+    clearCart();
+    setIsOpen(false);
+    router.push("/");
   };
 
   const inputStyle = {
