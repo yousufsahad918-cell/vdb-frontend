@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { WHATSAPP_URL } from "@/lib/locations";
 import { useCart } from "@/lib/cart";
 
 export default function Nav() {
@@ -15,13 +14,13 @@ export default function Nav() {
           <span className="nav-logo-dot">●</span>
           <span className="nav-logo-blr">BANGALORE</span>
         </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Link
             href="/blog"
             style={{
               color: "var(--muted)", fontFamily: "var(--font-display)",
-              fontWeight: 600, fontSize: "0.82rem",
-              padding: "8px 10px", borderRadius: 8,
+              fontWeight: 600, fontSize: "0.85rem",
+              padding: "8px 12px", borderRadius: 8,
               WebkitTapHighlightColor: "transparent",
             }}
           >
@@ -30,18 +29,22 @@ export default function Nav() {
           <button
             onClick={() => setIsOpen(true)}
             style={{
-              position: "relative", background: "var(--bg-3)",
-              border: "1px solid var(--border)", color: "var(--white)",
-              borderRadius: 8, padding: "8px 14px", cursor: "pointer",
-              fontFamily: "var(--font-display)", fontWeight: 600,
+              position: "relative",
+              background: itemCount > 0 ? "var(--orange)" : "var(--bg-3)",
+              border: itemCount > 0 ? "none" : "1px solid var(--border)",
+              color: "#fff",
+              borderRadius: 8, padding: "8px 16px", cursor: "pointer",
+              fontFamily: "var(--font-display)", fontWeight: 700,
               fontSize: "0.85rem", display: "flex", alignItems: "center", gap: 6,
               WebkitTapHighlightColor: "transparent",
+              boxShadow: itemCount > 0 ? "0 0 12px rgba(255,92,0,0.5)" : "none",
+              transition: "all 0.2s",
             }}
           >
             Cart
             {itemCount > 0 && (
               <span style={{
-                background: "var(--orange)", color: "#fff",
+                background: "#fff", color: "var(--orange)",
                 borderRadius: "50%", width: 18, height: 18,
                 fontSize: "0.7rem", fontWeight: 800,
                 display: "flex", alignItems: "center", justifyContent: "center",
@@ -50,15 +53,6 @@ export default function Nav() {
               </span>
             )}
           </button>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-cta"
-            style={{ WebkitTapHighlightColor: "transparent" } as React.CSSProperties}
-          >
-            Order Now →
-          </a>
         </div>
       </div>
     </nav>
