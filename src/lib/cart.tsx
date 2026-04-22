@@ -44,7 +44,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...item, quantity: 1 }];
     });
-    setIsOpen(true);
+    // Cart stays closed — toast + sticky footer handle the UX
   };
 
   const removeFromCart = (product_id: string, flavour: string) => {
