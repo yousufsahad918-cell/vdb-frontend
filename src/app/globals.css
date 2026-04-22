@@ -137,8 +137,38 @@ a:active {
 
 /* ── HERO ────────────────────────────────────────────────────────────────── */
 .hero {
-  padding: 32px 0 24px;
+  padding: 20px 0 16px;
   text-align: center;
+  animation: heroSlideUp 1.2s ease forwards;
+  animation-delay: 2.5s;
+  position: relative;
+}
+
+@keyframes heroSlideUp {
+  0% { transform: translateY(0); opacity: 1; max-height: 500px; }
+  100% { transform: translateY(-20px); opacity: 0; max-height: 0; padding: 0; overflow: hidden; }
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.hero-sub {
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.6rem; }
+  .hero-sub { font-size: 0.82rem; }
+  .stats-bar { display: none; }
 }
 
 .hero h1 {

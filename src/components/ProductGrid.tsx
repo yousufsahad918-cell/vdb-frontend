@@ -43,10 +43,12 @@ export default function ProductGrid() {
     if (override && !override.in_stock) return;
     const flavour = selectedFlavours[product.name];
     if (!flavour) { setFlavourSheet(product.name); return; }
+    const basePrice = parseInt(product.price.replace(/[₹,]/g, ""));
+    const finalPrice = override?.price || basePrice;
     addToCart({
       product_id: product.name.toLowerCase().replace(/\s+/g, "-"),
       name: product.name,
-      price: parseInt(product.price.replace(/[₹,]/g, "")),
+      price: finalPrice,
       image: product.image,
       puffs: product.puffs,
       flavour,
@@ -106,7 +108,9 @@ export default function ProductGrid() {
                     <h3 className="product-name">{product.name}</h3>
 
                     <div className="product-pricing" style={{ margin: "6px 0 8px" }}>
-                      <span className="product-price">{product.price}</span>
+                      <span className="product-price">
+                        {override?.price ? `₹${override.price.toLocaleString()}` : product.price}
+                      </span>
                       <span className="product-original">{product.originalPrice}</span>
                     </div>
 
