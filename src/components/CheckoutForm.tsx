@@ -65,23 +65,47 @@ export default function CheckoutForm({ onBack }: Props) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const handleWhatsApp = () => {
+  const handleWhatsApp = async () => {
     if (!name.trim()) { setError("Please enter your name"); return; }
     if (!phone.trim() || phone.length < 10) { setError("Please enter a valid phone number"); return; }
 
     const finalLocation = selectedLocation
-      ? selectedLocation.label
-      : locationSearch.trim() || null;
+      ? { label: selectedLocation.label, sublocation: selectedLocation.sublocation, mainLocation: selectedLocation.mainLocation }
+      : locationSearch.trim()
+        ? { label: locationSearch.trim(), sublocation: locationSearch.trim(), mainLocation: "Other" }
+        : null;
 
     if (!finalLocation) { setError("Please enter your delivery location"); return; }
 
     setError("");
 
+    // Save to MongoDB silently in background — don't await, don't block
+    fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customer_name: name,
+        customer_phone: phone,
+        main_location: finalLocation.mainLocation,
+        sub_location: finalLocation.sublocation,
+        items: items.map((i) => ({
+          product_id: i.product_id,
+          name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+          flavour: i.flavour,
+          image: i.image,
+        })),
+        total,
+        source: "whatsapp",
+      }),
+    }).catch(() => {}); // silent fail — WhatsApp still opens even if DB save fails
+
     const msg = buildWhatsAppMessage(
       name,
       phone,
-      finalLocation,
-      items.map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
+      finalLocation.label,
+      items.map((i) => ({ name: i.name, quantity: i.quantity, price: i.price, flavour: i.flavour })),
       total
     );
 
