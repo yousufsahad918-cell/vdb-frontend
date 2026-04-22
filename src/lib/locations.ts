@@ -136,4 +136,4 @@ export const WHATSAPP_URL =
   "https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
 
 export const SHOP_URL =
-  "https://vapedeliverybangalore.com/?utm_source=vib&utm_medium=seo&utm_campaign=bangalore";
+  "/#products";
