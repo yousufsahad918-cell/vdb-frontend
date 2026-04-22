@@ -16,6 +16,17 @@ export default function Nav() {
           <span className="nav-logo-blr">BANGALORE</span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Link
+            href="/blog"
+            style={{
+              color: "var(--muted)", fontFamily: "var(--font-display)",
+              fontWeight: 600, fontSize: "0.82rem",
+              padding: "8px 10px", borderRadius: 8,
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            Blog
+          </Link>
           <button
             onClick={() => setIsOpen(true)}
             style={{
@@ -24,9 +35,10 @@ export default function Nav() {
               borderRadius: 8, padding: "8px 14px", cursor: "pointer",
               fontFamily: "var(--font-display)", fontWeight: 600,
               fontSize: "0.85rem", display: "flex", alignItems: "center", gap: 6,
+              WebkitTapHighlightColor: "transparent",
             }}
           >
-            🛒 Cart
+            Cart
             {itemCount > 0 && (
               <span style={{
                 background: "var(--orange)", color: "#fff",
@@ -38,7 +50,13 @@ export default function Nav() {
               </span>
             )}
           </button>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="nav-cta">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-cta"
+            style={{ WebkitTapHighlightColor: "transparent" } as React.CSSProperties}
+          >
             Order Now →
           </a>
         </div>
