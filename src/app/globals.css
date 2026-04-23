@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  --bg: #0a0a0a;
-  --bg-2: #111111;
-  --bg-3: #1a1a1a;
-  --border: #222222;
-  --orange: #ff5c00;
-  --orange-dim: #cc4900;
-  --orange-glow: rgba(255, 92, 0, 0.15);
-  --white: #f5f5f5;
-  --muted: #888888;
-  --text: #e8e8e8;
+  --bg: #12141a;
+  --bg-2: #1a1d26;
+  --bg-3: #22263a;
+  --border: #22252e;
+  --orange: #f8c105;
+  --orange-dim: #d4a204;
+  --orange-glow: rgba(248, 193, 5, 0.12);
+  --white: #e8eaf0;
+  --muted: #6b6e7a;
+  --text: #d4d6e0;
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --btn-text: #1a1200;
 }
 
 *, *::before, *::after {
@@ -120,7 +121,7 @@ a:active {
 
 .nav-cta {
   background: var(--orange);
-  color: #fff;
+  color: var(--btn-text);
   padding: 8px 16px;
   border-radius: 8px;
   font-family: var(--font-display);
@@ -133,6 +134,19 @@ a:active {
 
 .nav-cta:hover {
   background: var(--orange-dim);
+}
+
+/* Cart blink animation */
+@keyframes cartBlink {
+  0%   { background: var(--orange); box-shadow: 0 0 0 0 rgba(248,193,5,0.7); }
+  30%  { background: var(--orange); box-shadow: 0 0 0 8px rgba(248,193,5,0); }
+  60%  { background: var(--orange); box-shadow: 0 0 0 0 rgba(248,193,5,0.5); }
+  80%  { background: var(--orange); box-shadow: 0 0 0 6px rgba(248,193,5,0); }
+  100% { background: var(--orange); box-shadow: none; }
+}
+
+.cart-blink {
+  animation: cartBlink 0.8s ease forwards;
 }
 
 /* ── HERO ────────────────────────────────────────────────────────────────── */
@@ -211,7 +225,7 @@ a:active {
 
 .btn-primary {
   background: var(--orange);
-  color: #fff;
+  color: var(--btn-text);
   padding: 13px 28px;
   border-radius: 10px;
   font-family: var(--font-display);
