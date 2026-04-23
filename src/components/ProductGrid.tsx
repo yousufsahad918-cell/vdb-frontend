@@ -170,8 +170,6 @@ export default function ProductGrid() {
 
   return (
     <>
-  return (
-    <>
       {/* ── PRODUCT SIDEBAR — right side, brand categories ── */}
       <div className="product-sidebar">
         <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`}>
