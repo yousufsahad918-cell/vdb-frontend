@@ -652,66 +652,71 @@ a:active {
 /* ── PRODUCT SIDEBAR ─────────────────────────────────────────────────────── */
 .product-sidebar {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   z-index: 400;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 .sidebar-panel {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-left: none;
-  border-radius: 0 12px 12px 0;
-  padding: 10px 6px;
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  padding: 10px 8px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   max-height: 70vh;
   overflow-y: auto;
   scrollbar-width: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: right center;
 }
 
 .sidebar-panel::-webkit-scrollbar { display: none; }
 
 .sidebar-panel.closed {
-  transform: translateX(-100%);
+  transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
 }
 
 .sidebar-toggle {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  width: 20px;
-  height: 48px;
+  background: var(--orange);
+  border: none;
+  border-radius: 10px 0 0 10px;
+  width: 24px;
+  height: 90px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--muted);
-  font-size: 0.7rem;
+  gap: 4px;
   flex-shrink: 0;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
 }
 
-.sidebar-toggle:hover { background: var(--bg-3); }
+.sidebar-toggle:hover { opacity: 0.85; }
 
 .sidebar-item {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
+  width: 56px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-3);
   transition: border-color 0.2s;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  gap: 4px;
 }
 
 .sidebar-item:hover { border-color: var(--orange); }

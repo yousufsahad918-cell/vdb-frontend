@@ -153,61 +153,71 @@ export default function ProductGrid() {
 
   const sheetProduct = products.find(p => p.name === flavourSheet);
 
+  // Brand categories
+  const CATEGORIES = [
+    { label: "Raya", match: (n: string) => n.includes("Raya") && !n.includes("Pro") },
+    { label: "D3 Pro", match: (n: string) => n.includes("Pro") },
+    { label: "Ice", match: (n: string) => n.includes("Ice") },
+    { label: "BC", match: (n: string) => n.includes("BC") },
+    { label: "Other", match: (n: string) => !n.includes("Raya") && !n.includes("Pro") && !n.includes("Ice") && !n.includes("BC") },
+  ];
+
+  const scrollToCategory = (matchFn: (n: string) => boolean) => {
+    const product = products.find(p => matchFn(p.name));
+    if (product) scrollToProduct(product.name);
+    setSidebarOpen(false);
+  };
+
   return (
     <>
-      {/* ── PRODUCT SIDEBAR ── */}
+  return (
+    <>
+      {/* ── PRODUCT SIDEBAR — right side, brand categories ── */}
       <div className="product-sidebar">
         <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`}>
-          {products.map(p => {
-            const override = getOverride(p.name);
+          {CATEGORIES.map(cat => {
+            const firstProduct = products.find(p => cat.match(p.name));
+            if (!firstProduct) return null;
+            const override = getOverride(firstProduct.name);
             const isOut = override && !override.in_stock;
             return (
               <div
-                key={p.name}
-                className={`sidebar-item ${activeProduct === p.name ? "active" : ""}`}
-                onClick={() => scrollToProduct(p.name)}
-                title={p.name}
-                style={{ position: "relative", opacity: isOut ? 0.4 : 1 }}
+                key={cat.label}
+                className={`sidebar-item ${activeProduct === firstProduct.name ? "active" : ""}`}
+                onClick={() => scrollToCategory(cat.match)}
+                style={{ opacity: isOut ? 0.5 : 1 }}
               >
-                <Image src={p.image} alt={p.name} fill style={{ objectFit: "contain", padding: 4 }} />
+                <div style={{ position: "relative", width: 44, height: 44, borderRadius: 6, overflow: "hidden", background: "var(--bg-2)" }}>
+                  <Image src={firstProduct.image} alt={cat.label} fill style={{ objectFit: "contain", padding: 2 }} />
+                </div>
+                <span style={{ fontSize: "0.6rem", color: "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, textAlign: "center", lineHeight: 1.2 }}>
+                  {cat.label}
+                </span>
               </div>
             );
           })}
         </div>
-        {/* Yellow toggle tab with rotated label */}
+
+        {/* Yellow toggle tab */}
         <div
           className="sidebar-toggle"
           onClick={() => setSidebarOpen(o => !o)}
-          style={{
-            background: "var(--orange)",
-            border: "none",
-            borderRadius: "0 10px 10px 0",
-            width: 22,
-            height: 80,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            gap: 4,
-          }}
         >
           <span style={{
             writingMode: "vertical-rl",
             textOrientation: "mixed",
             transform: "rotate(180deg)",
-            fontSize: "0.58rem",
+            fontSize: "0.55rem",
             fontFamily: "var(--font-display)",
             fontWeight: 800,
             color: "var(--btn-text)",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            lineHeight: 1,
           }}>
-            Products
+            Brands
           </span>
-          <span style={{ color: "var(--btn-text)", fontSize: "0.75rem", fontWeight: 700 }}>
-            {sidebarOpen ? "‹" : "›"}
+          <span style={{ color: "var(--btn-text)", fontSize: "0.8rem", fontWeight: 700 }}>
+            {sidebarOpen ? "›" : "‹"}
           </span>
         </div>
       </div>
