@@ -656,30 +656,33 @@ export default function AdminPage() {
             {/* Inventory */}
             {!accountsLoading && accountsTab === "inventory" && (
               <div>
-                {inventoryItems.length === 0 ? (
-                  <p style={{ color: "var(--muted)", fontSize: "0.82rem" }}>No inventory items. Add products and set stock in Products tab.</p>
-                ) : (
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    {inventoryItems.map((item: any) => {
-                      const isLow = item.stock_count <= item.reorder_level;
-                      return (
-                        <div key={item._id} style={{ background: "var(--bg-2)", border: `1px solid ${isLow ? "#ef4444" : "var(--border)"}`, borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <div>
-                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>
-                              {item.name}
-                              {isLow && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#ef4444", fontWeight: 700 }}>LOW</span>}
-                            </p>
-                            <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{item.category}</p>
-                          </div>
-                          <div style={{ textAlign: "right" }}>
-                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: isLow ? "#ef4444" : "#10b981" }}>{item.stock_count}</p>
-                            <p style={{ fontSize: "0.65rem", color: "var(--muted)" }}>reorder at {item.reorder_level}</p>
-                          </div>
+                <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginBottom: 10 }}>
+                  Stock counts update automatically when orders are confirmed.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {hardcodedProducts.map((product: any) => {
+                    const inv = inventoryItems.find((i: any) => i.name === product.name || i.product_name === product.name);
+                    const stock = inv?.stock_count ?? 0;
+                    const reorder = inv?.reorder_level ?? 5;
+                    const isLow = stock <= reorder;
+                    return (
+                      <div key={product.name} style={{ background: "var(--bg-2)", border: `1px solid ${isLow && stock > 0 ? "#f59e0b" : stock === 0 ? "#ef4444" : "var(--border)"}`, borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div>
+                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>
+                            {product.name}
+                            {stock === 0 && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#ef4444", fontWeight: 700 }}>OUT</span>}
+                            {stock > 0 && isLow && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#f59e0b", fontWeight: 700 }}>LOW</span>}
+                          </p>
+                          <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{product.price} · reorder at {reorder}</p>
                         </div>
-                      );
-                    })}
-                  </div>
-                )}
+                        <div style={{ textAlign: "right" }}>
+                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.1rem", color: stock === 0 ? "#ef4444" : isLow ? "#f59e0b" : "#10b981" }}>{stock}</p>
+                          <p style={{ fontSize: "0.65rem", color: "var(--muted)" }}>units</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
