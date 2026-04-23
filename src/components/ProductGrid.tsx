@@ -55,32 +55,37 @@ export default function ProductGrid() {
       .catch(() => {});
   }, []);
 
-  // WhatsApp float — hidden initially, appears with label after 30s
+  // WhatsApp float — hidden initially, appears with label after 15s
   useEffect(() => {
     const t = setTimeout(() => {
       setShowWA(true);
       setShowWALabel(true);
       setTimeout(() => setShowWALabel(false), 3500);
-    }, 30000);
+    }, 15000);
     return () => clearTimeout(t);
   }, []);
 
-  // Hero scroll cancel — add .hidden class on scroll
+  // Hero — slide up and scroll to products after 2.5s, cancel if user scrolls first
   useEffect(() => {
     let cancelled = false;
+
     const heroTimer = setTimeout(() => {
       if (!cancelled) {
         const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) hero.classList.add("hidden");
+        if (hero) hero.classList.add("slide-up");
+        setTimeout(() => {
+          const productsEl = document.getElementById("products");
+          if (productsEl) productsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
       }
     }, 2500);
 
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 20) {
         cancelled = true;
         clearTimeout(heroTimer);
         const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) hero.classList.add("hidden");
+        if (hero) { hero.classList.remove("slide-up"); hero.classList.add("hidden"); }
       }
     };
 

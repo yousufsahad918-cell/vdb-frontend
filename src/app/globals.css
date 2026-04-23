@@ -154,19 +154,24 @@ a:active {
   padding: 20px 0 16px;
   text-align: center;
   position: relative;
-  transition: opacity 0.4s ease, max-height 0.6s ease, padding 0.4s ease;
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.7s ease;
 }
 
-.hero.hidden {
-  opacity: 0;
-  max-height: 0;
-  padding: 0;
-  overflow: hidden;
+.hero.slide-up {
+  transform: translateY(-60px);
+  opacity: 0.15;
   pointer-events: none;
 }
 
+.hero.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  margin-bottom: -100px;
+}
+
 .hero h1 {
-  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 10px;
@@ -182,8 +187,8 @@ a:active {
 }
 
 @media (max-width: 480px) {
-  .hero h1 { font-size: 1.5rem; }
-  .hero-sub { font-size: 0.82rem; }
+  .hero h1 { font-size: 1.45rem; }
+  .hero-sub { font-size: 0.8rem; }
   .stats-bar { display: none; }
 }
 
@@ -659,6 +664,12 @@ a:active {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
+  opacity: 0.5;
+  transition: opacity 0.25s;
+}
+
+.product-sidebar:hover {
+  opacity: 1;
 }
 
 .sidebar-panel {
@@ -670,11 +681,12 @@ a:active {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 70vh;
+  max-height: 60vh;
   overflow-y: auto;
   scrollbar-width: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: right center;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.4);
 }
 
 .sidebar-panel::-webkit-scrollbar { display: none; }
@@ -689,8 +701,8 @@ a:active {
   background: var(--orange);
   border: none;
   border-radius: 10px 0 0 10px;
-  width: 24px;
-  height: 90px;
+  width: 22px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -698,19 +710,21 @@ a:active {
   cursor: pointer;
   gap: 4px;
   flex-shrink: 0;
-  transition: opacity 0.2s;
+  transition: box-shadow 0.2s;
+  box-shadow: -2px 0 12px rgba(248,193,5,0.25);
 }
 
-.sidebar-toggle:hover { opacity: 0.85; }
+.product-sidebar:hover .sidebar-toggle {
+  box-shadow: -2px 0 24px rgba(248,193,5,0.6);
+}
 
 .sidebar-item {
   width: 56px;
   border-radius: 10px;
   border: 1px solid var(--border);
-  overflow: hidden;
   cursor: pointer;
   background: var(--bg-3);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -719,36 +733,44 @@ a:active {
   gap: 4px;
 }
 
-.sidebar-item:hover { border-color: var(--orange); }
-.sidebar-item.active { border-color: var(--orange); border-width: 2px; }
+.sidebar-item:hover {
+  border-color: var(--orange);
+  box-shadow: 0 0 10px rgba(248,193,5,0.25);
+}
+
+.sidebar-item.active {
+  border-color: var(--orange);
+  border-width: 2px;
+  box-shadow: 0 0 16px rgba(248,193,5,0.4);
+}
 
 /* ── WHATSAPP FLOAT ──────────────────────────────────────────────────────── */
 .wa-float {
   position: fixed;
-  bottom: 100px;
-  right: 18px;
+  bottom: 20px;
+  right: 16px;
   z-index: 600;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
   gap: 8px;
-  cursor: pointer;
   text-decoration: none;
 }
 
 @keyframes waAppear {
-  from { opacity: 0; transform: scale(0.7) translateY(10px); }
+  from { opacity: 0; transform: scale(0.6) translateY(12px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .wa-float-icon {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
   flex-shrink: 0;
 }
 
@@ -766,7 +788,7 @@ a:active {
 }
 
 @keyframes fadeInOut {
-  0%   { opacity: 0; transform: translateX(8px); }
+  0%   { opacity: 0; transform: translateX(6px); }
   15%  { opacity: 1; transform: translateX(0); }
   75%  { opacity: 1; }
   100% { opacity: 0; }

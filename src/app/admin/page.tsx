@@ -148,7 +148,7 @@ export default function AdminPage() {
   const [hasMore, setHasMore] = useState(false);
   const [page, setPage] = useState(1);
   const [orderCache, setOrderCache] = useState<Record<string, Order[]>>({});
-  const [activeTab, setActiveTab] = useState<"orders" | "products" | "customers">("orders");
+  const [activeTab, setActiveTab] = useState<"orders" | "products" | "customers" | "accounts">("orders");
   const [nextRefresh, setNextRefresh] = useState(AUTO_REFRESH_MS / 1000);
   const autoRefreshRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -161,6 +161,17 @@ export default function AdminPage() {
   const [selectedCustomer, setSelectedCustomer] = useState<any | null>(null);
   const [customerOrders, setCustomerOrders] = useState<any[]>([]);
   const [customersLoading, setCustomersLoading] = useState(false);
+
+  // Accounts
+  const [accountsTab, setAccountsTab] = useState<"sales" | "purchases" | "inventory">("sales");
+  const [salesData, setSalesData] = useState<any>(null);
+  const [salesRange, setSalesRange] = useState("7");
+  const [purchases, setPurchases] = useState<any[]>([]);
+  const [inventoryItems, setInventoryItems] = useState<any[]>([]);
+  const [accountsLoading, setAccountsLoading] = useState(false);
+  const [purchaseForm, setPurchaseForm] = useState({ supplier: "", product_name: "", quantity: "", cost_per_unit: "", notes: "" });
+  const [purchaseSaving, setPurchaseSaving] = useState(false);
+  const [purchaseMsg, setPurchaseMsg] = useState("");
 
   // ── Session persistence ───────────────────────────────────────────────────
   useEffect(() => {
@@ -237,6 +248,33 @@ export default function AdminPage() {
     setCustomerOrders(d.orders || []);
   };
 
+  const fetchAccounts = async (tab = accountsTab) => {
+    setAccountsLoading(true);
+    if (tab === "sales") {
+      const r = await fetch(`/api/accounts?section=sales&range=${salesRange}`);
+      const d = await r.json(); setSalesData(d);
+    } else if (tab === "purchases") {
+      const r = await fetch("/api/accounts?section=purchases");
+      const d = await r.json(); setPurchases(d.purchases || []);
+    } else if (tab === "inventory") {
+      const r = await fetch("/api/accounts?section=inventory");
+      const d = await r.json(); setInventoryItems(d.items || []);
+    }
+    setAccountsLoading(false);
+  };
+
+  const handleAddPurchase = async () => {
+    if (!purchaseForm.product_name || !purchaseForm.quantity || !purchaseForm.cost_per_unit) {
+      setPurchaseMsg("Fill all required fields."); return;
+    }
+    setPurchaseSaving(true);
+    const res = await fetch("/api/accounts?section=purchases", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(purchaseForm) });
+    if (res.ok) { setPurchaseMsg("Logged!"); setPurchaseForm({ supplier: "", product_name: "", quantity: "", cost_per_unit: "", notes: "" }); fetchAccounts("purchases"); }
+    else setPurchaseMsg("Failed.");
+    setPurchaseSaving(false);
+    setTimeout(() => setPurchaseMsg(""), 2500);
+  };
+
   useEffect(() => {
     if (authed) { fetchData(true); fetchProductOverrides(); }
   }, [authed, filter]);
@@ -244,6 +282,10 @@ export default function AdminPage() {
   useEffect(() => {
     if (authed && activeTab === "customers" && customers.length === 0) fetchCustomers();
   }, [authed, activeTab]);
+
+  useEffect(() => {
+    if (authed && activeTab === "accounts") fetchAccounts(accountsTab);
+  }, [authed, activeTab, accountsTab, salesRange]);
 
   const updateStatus = async (orderId: string, status: string) => {
     await fetch(`/api/orders/${orderId}`, {
@@ -323,11 +365,11 @@ export default function AdminPage() {
         )}
 
         {/* Tab bar */}
-        <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
-          {(["orders", "products", "customers"] as const).map(tab => (
+        <div style={{ display: "flex", gap: 6, marginBottom: 16, overflowX: "auto" }}>
+          {(["orders", "products", "customers", "accounts"] as const).map(tab => (
             <button key={tab} onClick={() => setActiveTab(tab)}
-              style={{ flex: 1, padding: "9px 4px", borderRadius: 10, background: activeTab === tab ? "var(--orange)" : "var(--bg-3)", border: activeTab === tab ? "none" : "1px solid var(--border)", color: activeTab === tab ? "#fff" : "var(--muted)", cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "capitalize" }}>
-              {tab}
+              style={{ flex: "0 0 auto", padding: "8px 14px", borderRadius: 10, background: activeTab === tab ? "var(--orange)" : "var(--bg-3)", border: activeTab === tab ? "none" : "1px solid var(--border)", color: activeTab === tab ? "var(--btn-text)" : "var(--muted)", cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "capitalize", whiteSpace: "nowrap" }}>
+              {tab === "orders" ? "📦 Orders" : tab === "products" ? "🛍 Products" : tab === "customers" ? "👥 Customers" : "📊 Accounts"}
             </button>
           ))}
         </div>
@@ -505,6 +547,138 @@ export default function AdminPage() {
                       ))}
                     </div>
                   </>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── ACCOUNTS ── */}
+        {activeTab === "accounts" && (
+          <div>
+            <div style={{ display: "flex", gap: 6, marginBottom: 16, overflowX: "auto" }}>
+              {(["sales", "purchases", "inventory"] as const).map(t => (
+                <button key={t} onClick={() => { setAccountsTab(t); fetchAccounts(t); }}
+                  style={{ padding: "7px 14px", borderRadius: 20, background: accountsTab === t ? "var(--orange)" : "var(--bg-3)", border: accountsTab === t ? "none" : "1px solid var(--border)", color: accountsTab === t ? "var(--btn-text)" : "var(--muted)", cursor: "pointer", fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "capitalize", whiteSpace: "nowrap", flexShrink: 0 }}>
+                  {t}
+                </button>
+              ))}
+            </div>
+
+            {accountsLoading && <p style={{ color: "var(--muted)", textAlign: "center", padding: 24 }}>Loading...</p>}
+
+            {/* Sales */}
+            {!accountsLoading && accountsTab === "sales" && (
+              <div>
+                <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+                  {[["7","7d"],["14","14d"],["30","30d"]].map(([v,l]) => (
+                    <button key={v} onClick={() => { setSalesRange(v); fetchAccounts("sales"); }}
+                      style={{ padding: "5px 12px", borderRadius: 20, background: salesRange === v ? "var(--orange)" : "var(--bg-3)", border: salesRange === v ? "none" : "1px solid var(--border)", color: salesRange === v ? "var(--btn-text)" : "var(--muted)", cursor: "pointer", fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 600 }}>
+                      {l}
+                    </button>
+                  ))}
+                </div>
+                {salesData && (
+                  <>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginBottom: 16 }}>
+                      {[
+                        { label: "Revenue", value: `₹${salesData.stats?.total_revenue?.toLocaleString()}`, color: "#10b981" },
+                        { label: "Orders", value: salesData.stats?.total_orders, color: "var(--orange)" },
+                        { label: "Avg", value: `₹${salesData.stats?.avg_order?.toLocaleString()}`, color: "#3b82f6" },
+                      ].map(s => (
+                        <div key={s.label} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 8px", textAlign: "center" }}>
+                          <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 800, color: s.color }}>{s.value}</div>
+                          <div style={{ fontSize: "0.65rem", color: "var(--muted)", marginTop: 2 }}>{s.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                      {[...( salesData.daily || [])].reverse().map((d: any) => (
+                        <div key={d.date} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <div>
+                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>{new Date(d.date).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })}</p>
+                            <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{d.orders} orders</p>
+                          </div>
+                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#10b981", fontSize: "0.9rem" }}>₹{d.revenue?.toLocaleString()}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {!salesData && !accountsLoading && (
+                  <button onClick={() => fetchAccounts("sales")} style={{ padding: "10px 20px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, cursor: "pointer" }}>Load Sales</button>
+                )}
+              </div>
+            )}
+
+            {/* Purchases */}
+            {!accountsLoading && accountsTab === "purchases" && (
+              <div>
+                <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: 14, marginBottom: 16 }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", marginBottom: 10 }}>Log Purchase</p>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
+                    {[["Supplier","supplier","Supplier"],["Product *","product_name","Product name"],["Qty *","quantity","10"],["Cost/Unit *","cost_per_unit","2000"]].map(([label,key,ph]) => (
+                      <div key={key}>
+                        <p style={{ fontSize: "0.68rem", color: "var(--muted)", marginBottom: 3, fontFamily: "var(--font-display)", fontWeight: 600 }}>{label}</p>
+                        <input placeholder={ph} value={(purchaseForm as any)[key]}
+                          onChange={e => setPurchaseForm(p => ({ ...p, [key]: e.target.value }))}
+                          type={key === "quantity" || key === "cost_per_unit" ? "number" : "text"}
+                          style={{ width: "100%", padding: "8px 10px", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--white)", fontSize: "0.82rem", outline: "none", boxSizing: "border-box" as const }} />
+                      </div>
+                    ))}
+                  </div>
+                  {purchaseForm.quantity && purchaseForm.cost_per_unit && (
+                    <p style={{ fontSize: "0.75rem", color: "#10b981", marginBottom: 8 }}>Total: ₹{(Number(purchaseForm.quantity) * Number(purchaseForm.cost_per_unit)).toLocaleString()}</p>
+                  )}
+                  {purchaseMsg && <p style={{ fontSize: "0.75rem", color: purchaseMsg === "Logged!" ? "#10b981" : "#ef4444", marginBottom: 6 }}>{purchaseMsg}</p>}
+                  <button onClick={handleAddPurchase} disabled={purchaseSaving}
+                    style={{ padding: "9px 20px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer" }}>
+                    {purchaseSaving ? "Saving..." : "Log →"}
+                  </button>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {purchases.map((p: any) => (
+                    <div key={p._id} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "10px 12px", display: "flex", justifyContent: "space-between" }}>
+                      <div>
+                        <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>{p.product_name}</p>
+                        <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{p.supplier} · {p.quantity} units · ₹{p.cost_per_unit}/unit</p>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#10b981", fontSize: "0.88rem" }}>₹{p.total_cost?.toLocaleString()}</p>
+                        <p style={{ fontSize: "0.65rem", color: "var(--muted)" }}>{p.date ? new Date(p.date).toLocaleDateString("en-IN") : "—"}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Inventory */}
+            {!accountsLoading && accountsTab === "inventory" && (
+              <div>
+                {inventoryItems.length === 0 ? (
+                  <p style={{ color: "var(--muted)", fontSize: "0.82rem" }}>No inventory items. Add products and set stock in Products tab.</p>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    {inventoryItems.map((item: any) => {
+                      const isLow = item.stock_count <= item.reorder_level;
+                      return (
+                        <div key={item._id} style={{ background: "var(--bg-2)", border: `1px solid ${isLow ? "#ef4444" : "var(--border)"}`, borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <div>
+                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>
+                              {item.name}
+                              {isLow && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#ef4444", fontWeight: 700 }}>LOW</span>}
+                            </p>
+                            <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{item.category}</p>
+                          </div>
+                          <div style={{ textAlign: "right" }}>
+                            <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: isLow ? "#ef4444" : "#10b981" }}>{item.stock_count}</p>
+                            <p style={{ fontSize: "0.65rem", color: "var(--muted)" }}>reorder at {item.reorder_level}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
             )}
