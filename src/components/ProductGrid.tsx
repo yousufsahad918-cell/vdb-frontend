@@ -83,44 +83,6 @@ export default function ProductGrid() {
     return () => window.removeEventListener("scroll", handleSidebarVisibility);
   }, []);
 
-  // Hero — collapse after 2.5s, cancel if user scrolls first
-  useEffect(() => {
-    let cancelled = false;
-
-    const heroTimer = setTimeout(() => {
-      if (!cancelled) {
-        const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) {
-          hero.classList.add("slide-up");
-          // After animation completes, set display:none to fully collapse space
-          setTimeout(() => {
-            if (hero) hero.classList.add("hidden");
-          }, 650);
-          // Scroll to products
-          setTimeout(() => {
-            const productsEl = document.getElementById("products");
-            if (productsEl) productsEl.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 300);
-        }
-      }
-    }, 2500);
-
-    const handleScroll = () => {
-      if (window.scrollY > 20 && !cancelled) {
-        cancelled = true;
-        clearTimeout(heroTimer);
-        const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) hero.classList.add("hidden");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      clearTimeout(heroTimer);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const getOverride = (name: string) => overrides.find(o => o.product_name === name);
 
   const handleAddToCart = (product: typeof products[0]) => {
@@ -200,8 +162,31 @@ export default function ProductGrid() {
 
   return (
     <>
-      {/* ── PRODUCT SIDEBAR — right side, brand categories ── */}
+      {/* ── PRODUCT SIDEBAR — right edge, brands ── */}
       <div className="product-sidebar">
+        {/* Toggle tab — always visible on right edge */}
+        <div
+          className="sidebar-toggle"
+          onClick={() => setSidebarOpen(o => !o)}
+        >
+          <span style={{
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
+            transform: "rotate(180deg)",
+            fontSize: "0.55rem",
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            color: "var(--btn-text)",
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+          }}>
+            Brands
+          </span>
+          <span style={{ color: "var(--btn-text)", fontSize: "0.8rem", fontWeight: 700 }}>
+            {sidebarOpen ? "›" : "‹"}
+          </span>
+        </div>
+        {/* Panel — slides in from right when open */}
         <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`}>
           {CATEGORIES.map(cat => {
             const firstProduct = products.find(p => cat.match(p.name));
@@ -224,29 +209,6 @@ export default function ProductGrid() {
               </div>
             );
           })}
-        </div>
-
-        {/* Yellow toggle tab */}
-        <div
-          className="sidebar-toggle"
-          onClick={() => setSidebarOpen(o => !o)}
-        >
-          <span style={{
-            writingMode: "vertical-rl",
-            textOrientation: "mixed",
-            transform: "rotate(180deg)",
-            fontSize: "0.55rem",
-            fontFamily: "var(--font-display)",
-            fontWeight: 800,
-            color: "var(--btn-text)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-          }}>
-            Brands
-          </span>
-          <span style={{ color: "var(--btn-text)", fontSize: "0.8rem", fontWeight: 700 }}>
-            {sidebarOpen ? "›" : "‹"}
-          </span>
         </div>
       </div>
 

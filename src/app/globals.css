@@ -154,20 +154,6 @@ a:active {
   padding: 20px 0 16px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-}
-
-.hero.slide-up {
-  animation: heroCollapse 0.6s ease forwards;
-}
-
-.hero.hidden {
-  display: none;
-}
-
-@keyframes heroCollapse {
-  0%   { max-height: 600px; opacity: 1; padding: 20px 0 16px; }
-  100% { max-height: 0; opacity: 0; padding: 0; }
 }
 
 .hero h1 {
@@ -663,7 +649,7 @@ a:active {
   z-index: 400;
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -676,6 +662,28 @@ a:active {
 
 .product-sidebar.visible:hover {
   opacity: 1;
+}
+
+.sidebar-toggle {
+  background: var(--orange);
+  border: none;
+  border-radius: 10px 0 0 10px;
+  width: 22px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 4px;
+  flex-shrink: 0;
+  order: 2;
+  transition: box-shadow 0.2s;
+  box-shadow: -2px 0 12px rgba(248,193,5,0.25);
+}
+
+.product-sidebar.visible:hover .sidebar-toggle {
+  box-shadow: -2px 0 24px rgba(248,193,5,0.6);
 }
 
 .sidebar-panel {
@@ -693,35 +701,18 @@ a:active {
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: right center;
   box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+  order: 1;
 }
 
 .sidebar-panel::-webkit-scrollbar { display: none; }
 
 .sidebar-panel.closed {
-  transform: translateX(calc(100% + 22px));
+  transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
-}
-
-.sidebar-toggle {
-  background: var(--orange);
+  width: 0;
+  padding: 0;
   border: none;
-  border-radius: 10px 0 0 10px;
-  width: 22px;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  gap: 4px;
-  flex-shrink: 0;
-  transition: box-shadow 0.2s;
-  box-shadow: -2px 0 12px rgba(248,193,5,0.25);
-}
-
-.product-sidebar.visible:hover .sidebar-toggle {
-  box-shadow: -2px 0 24px rgba(248,193,5,0.6);
 }
 
 .sidebar-item {
