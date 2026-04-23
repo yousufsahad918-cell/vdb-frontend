@@ -9,14 +9,17 @@ import CartDrawer from "@/components/CartDrawer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://vapeinbangalore.in"),
   title: {
-    default: "Buy Vape in Bangalore – 20-30 Min Delivery | VapeInBangalore.in",
-    template: "%s | Vape in Bangalore",
+    default: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
+    template: "%s | VapeInBangalore",
   },
   description:
-    "Buy vape in Bangalore with 20-30 minute delivery. Best disposable vapes, pod systems & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas.",
+    "Buy vape in Bangalore with 30 min delivery. Best disposable vapes & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
   keywords: [
@@ -28,14 +31,22 @@ export const metadata: Metadata = {
     "best vape bangalore",
     "vape shop bangalore",
     "order vape bangalore",
+    "elfbar bangalore",
+    "vape online bangalore",
   ],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://vapeinbangalore.in",
-    siteName: "Vape in Bangalore",
-    title: "Buy Vape in Bangalore – 20-30 Min Delivery",
-    description: "Fast, discreet vape delivery across all of Bangalore. 20+ areas covered.",
+    siteName: "VapeInBangalore",
+    title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
+    description: "Fast, discreet vape delivery across all of Bangalore. 20+ areas covered. Order on WhatsApp.",
+    images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeInBangalore — Fast Delivery" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
+    description: "Fast, discreet vape delivery across Bangalore. Order on WhatsApp.",
   },
   robots: { index: true, follow: true },
 };
@@ -43,6 +54,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#f8c105" />
+      </head>
       <body>
         <CartProvider>
           <Nav />
