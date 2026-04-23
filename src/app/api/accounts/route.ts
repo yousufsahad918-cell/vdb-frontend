@@ -56,20 +56,16 @@ export async function GET(req: NextRequest) {
 
     // ── INVENTORY ─────────────────────────────────────────────────────────────
     if (section === "inventory") {
-      const products = await db.collection("products").find({}).toArray();
       const inventory = await db.collection("inventory").find({}).toArray();
-      const inventoryMap = Object.fromEntries(
-        inventory.map((i: any) => [i.product_id, i])
-      );
       return NextResponse.json({
-        items: products.map((p: any) => ({
-          _id: p._id.toString(),
-          name: p.name,
-          category: p.category,
-          price: p.price,
-          in_stock: p.in_stock,
-          stock_count: inventoryMap[p._id.toString()]?.stock_count ?? 0,
-          reorder_level: inventoryMap[p._id.toString()]?.reorder_level ?? 5,
+        items: inventory.map((i: any) => ({
+          _id: i._id.toString(),
+          name: i.product_name || i.product_id,
+          product_name: i.product_name || i.product_id,
+          category: i.category || "Vape",
+          price: i.price || 0,
+          stock_count: i.stock_count ?? 0,
+          reorder_level: i.reorder_level ?? 5,
         })),
       });
     }
@@ -194,12 +190,14 @@ export async function POST(req: NextRequest) {
     }
 
     if (section === "inventory") {
-      const { product_id, stock_count, reorder_level } = body;
+      const { product_id, product_name, stock_count, reorder_level } = body;
+      const key = product_name || product_id;
       await db.collection("inventory").updateOne(
-        { product_id },
+        { $or: [{ product_name: key }, { product_id: key }] },
         {
           $set: {
-            product_id,
+            product_name: key,
+            product_id: key,
             stock_count: Number(stock_count),
             reorder_level: Number(reorder_level ?? 5),
             updated_at: new Date(),

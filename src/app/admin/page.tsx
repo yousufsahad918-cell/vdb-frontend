@@ -58,6 +58,76 @@ function buildWhatsAppMessage(order: Order): string {
   return encodeURIComponent(`Hey ${order.customer_name}!\n\n*Order Received — ${order.order_id}*\n\nThanks for ordering from Vape Bangalore!\n\n${items}\n*Total: Rs.${order.total.toLocaleString()}*\n\n*Delivery to:* ${order.sub_location}, ${order.main_location}\n\nWe will shortly confirm your order. Could you share your *current location* (Google Maps pin)?\n\n*Note:* COD is temporarily disabled. Order will be dispatched via *Porter or Rapido*. Tracking ID will be shared once confirmed.`);
 }
 
+// ─── Inventory Edit Row ───────────────────────────────────────────────────────
+function InventoryEditRow({ productName, price, stock, reorder, isLow, isOut, onSave }: {
+  productName: string; price: string; stock: number; reorder: number;
+  isLow: boolean; isOut: boolean;
+  onSave: (name: string, stock: number, reorder: number) => void;
+}) {
+  const [editing, setEditing] = useState(false);
+  const [newStock, setNewStock] = useState(stock);
+  const [newReorder, setNewReorder] = useState(reorder);
+  const [saving, setSaving] = useState(false);
+
+  const borderColor = isOut ? "#ef4444" : isLow ? "#f59e0b" : "var(--border)";
+  const stockColor = isOut ? "#ef4444" : isLow ? "#f59e0b" : "#10b981";
+
+  const handleSave = async () => {
+    setSaving(true);
+    await onSave(productName, newStock, newReorder);
+    setSaving(false);
+    setEditing(false);
+  };
+
+  return (
+    <div style={{ background: "var(--bg-2)", border: `1px solid ${borderColor}`, borderRadius: 10, padding: "12px 14px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+        <div>
+          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>
+            {productName}
+            {isOut && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#ef4444", fontWeight: 700 }}>OUT</span>}
+            {isLow && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#f59e0b", fontWeight: 700 }}>LOW</span>}
+          </p>
+          <p style={{ fontSize: "0.7rem", color: "var(--muted)", marginTop: 2 }}>{price}</p>
+        </div>
+        {!editing ? (
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.2rem", color: stockColor }}>{stock}</p>
+              <p style={{ fontSize: "0.62rem", color: "var(--muted)" }}>reorder at {reorder}</p>
+            </div>
+            <button onClick={() => { setNewStock(stock); setNewReorder(reorder); setEditing(true); }}
+              style={{ padding: "6px 12px", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--muted)", cursor: "pointer", fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 600 }}>
+              Edit
+            </button>
+          </div>
+        ) : (
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 8, flexWrap: "wrap" }}>
+            <div>
+              <p style={{ fontSize: "0.65rem", color: "var(--muted)", marginBottom: 3, fontFamily: "var(--font-display)", fontWeight: 600 }}>Stock</p>
+              <input type="number" value={newStock} onChange={e => setNewStock(Number(e.target.value))} min={0}
+                style={{ width: 72, padding: "7px 8px", background: "var(--bg-3)", border: "1px solid var(--orange)", borderRadius: 8, color: "var(--white)", fontSize: "0.9rem", fontFamily: "var(--font-display)", fontWeight: 700, outline: "none", textAlign: "center" }} />
+            </div>
+            <div>
+              <p style={{ fontSize: "0.65rem", color: "var(--muted)", marginBottom: 3, fontFamily: "var(--font-display)", fontWeight: 600 }}>Reorder at</p>
+              <input type="number" value={newReorder} onChange={e => setNewReorder(Number(e.target.value))} min={0}
+                style={{ width: 72, padding: "7px 8px", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--white)", fontSize: "0.9rem", outline: "none", textAlign: "center" }} />
+            </div>
+            <button onClick={handleSave} disabled={saving}
+              style={{ padding: "7px 14px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", cursor: "pointer", fontSize: "0.78rem", fontFamily: "var(--font-display)", fontWeight: 700 }}>
+              {saving ? "..." : "Save"}
+            </button>
+            <button onClick={() => setEditing(false)}
+              style={{ padding: "7px 10px", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--muted)", cursor: "pointer", fontSize: "0.78rem" }}>
+              ✕
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── Product Override Row ─────────────────────────────────────────────────────
 function ProductOverrideRow({ product, override, onSave }: {
   product: { name: string; flavours: string[]; price: string };
@@ -657,29 +727,33 @@ export default function AdminPage() {
             {!accountsLoading && accountsTab === "inventory" && (
               <div>
                 <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginBottom: 10 }}>
-                  Stock counts update automatically when orders are confirmed.
+                  Tap Edit to update stock. Counts auto-deduct when orders are confirmed.
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {hardcodedProducts.map((product: any) => {
                     const inv = inventoryItems.find((i: any) => i.name === product.name || i.product_name === product.name);
                     const stock = inv?.stock_count ?? 0;
                     const reorder = inv?.reorder_level ?? 5;
-                    const isLow = stock <= reorder;
+                    const isLow = stock > 0 && stock <= reorder;
+                    const isOut = stock === 0;
                     return (
-                      <div key={product.name} style={{ background: "var(--bg-2)", border: `1px solid ${isLow && stock > 0 ? "#f59e0b" : stock === 0 ? "#ef4444" : "var(--border)"}`, borderRadius: 10, padding: "10px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <div>
-                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem" }}>
-                            {product.name}
-                            {stock === 0 && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#ef4444", fontWeight: 700 }}>OUT</span>}
-                            {stock > 0 && isLow && <span style={{ marginLeft: 6, fontSize: "0.65rem", color: "#f59e0b", fontWeight: 700 }}>LOW</span>}
-                          </p>
-                          <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{product.price} · reorder at {reorder}</p>
-                        </div>
-                        <div style={{ textAlign: "right" }}>
-                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.1rem", color: stock === 0 ? "#ef4444" : isLow ? "#f59e0b" : "#10b981" }}>{stock}</p>
-                          <p style={{ fontSize: "0.65rem", color: "var(--muted)" }}>units</p>
-                        </div>
-                      </div>
+                      <InventoryEditRow
+                        key={product.name}
+                        productName={product.name}
+                        price={product.price}
+                        stock={stock}
+                        reorder={reorder}
+                        isLow={isLow}
+                        isOut={isOut}
+                        onSave={async (name, newStock, newReorder) => {
+                          await fetch("/api/accounts?section=inventory", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ product_name: name, stock_count: newStock, reorder_level: newReorder }),
+                          });
+                          fetchAccounts("inventory");
+                        }}
+                      />
                     );
                   })}
                 </div>
