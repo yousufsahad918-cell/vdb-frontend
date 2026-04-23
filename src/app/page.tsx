@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { locations, WHATSAPP_URL } from "@/lib/locations";
 import ProductGrid from "@/components/ProductGrid";
+import ProductTicker from "@/components/ProductTicker";
 
 export const metadata: Metadata = {
   title: "Buy Vape in Bangalore – 20-30 Min Delivery | VapeInBangalore.in",
@@ -53,23 +54,10 @@ export default function HomePage() {
               Browse Products →
             </a>
           </div>
-
-          <div className="stats-bar">
-            <div className="stat-item">
-              <span className="stat-num">20–30</span>
-              <span className="stat-label">Min Delivery</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-num">20+</span>
-              <span className="stat-label">Areas in Bangalore</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-num">1000+</span>
-              <span className="stat-label">Happy Customers</span>
-            </div>
-          </div>
         </div>
       </section>
+
+      <ProductTicker />
 
       {/* PRODUCTS */}
       <ProductGrid />
