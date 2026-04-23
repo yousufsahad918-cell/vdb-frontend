@@ -231,6 +231,9 @@ export default function AdminPage() {
   const [selectedCustomer, setSelectedCustomer] = useState<any | null>(null);
   const [customerOrders, setCustomerOrders] = useState<any[]>([]);
   const [customersLoading, setCustomersLoading] = useState(false);
+  const [customersSubTab, setCustomersSubTab] = useState<"list" | "notify">("list");
+  const [notifyRequests, setNotifyRequests] = useState<any[]>([]);
+  const [notifyLoading, setNotifyLoading] = useState(false);
 
   // Accounts
   const [accountsTab, setAccountsTab] = useState<"sales" | "purchases" | "inventory">("sales");
@@ -312,6 +315,14 @@ export default function AdminPage() {
     setCustomersLoading(false);
   };
 
+  const fetchNotifyRequests = async () => {
+    setNotifyLoading(true);
+    const r = await fetch("/api/notify-requests");
+    const d = await r.json();
+    setNotifyRequests(d.requests || []);
+    setNotifyLoading(false);
+  };
+
   const fetchCustomerOrders = async (phone: string) => {
     const r = await fetch(`/api/accounts?section=customer_orders&phone=${phone}`);
     const d = await r.json();
@@ -351,6 +362,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (authed && activeTab === "customers" && customers.length === 0) fetchCustomers();
+    if (authed && activeTab === "customers") fetchNotifyRequests();
   }, [authed, activeTab]);
 
   useEffect(() => {
@@ -553,6 +565,59 @@ export default function AdminPage() {
         {/* ── CUSTOMERS ── */}
         {activeTab === "customers" && (
           <div>
+            {/* Sub-tab: Customers / Notify Requests */}
+            {!selectedCustomer && (
+              <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
+                <button onClick={() => setCustomersSubTab("list")}
+                  style={{ padding: "6px 14px", borderRadius: 20, background: customersSubTab === "list" ? "var(--orange)" : "var(--bg-3)", border: customersSubTab === "list" ? "none" : "1px solid var(--border)", color: customersSubTab === "list" ? "var(--btn-text)" : "var(--muted)", cursor: "pointer", fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 700 }}>
+                  Customers
+                </button>
+                <button onClick={() => setCustomersSubTab("notify")}
+                  style={{ padding: "6px 14px", borderRadius: 20, background: customersSubTab === "notify" ? "var(--orange)" : "var(--bg-3)", border: customersSubTab === "notify" ? "none" : "1px solid var(--border)", color: customersSubTab === "notify" ? "var(--btn-text)" : "var(--muted)", cursor: "pointer", fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 700, display: "flex", alignItems: "center", gap: 5 }}>
+                  Notify Requests
+                  {notifyRequests.length > 0 && (
+                    <span style={{ background: "#ef4444", color: "#fff", borderRadius: "50%", width: 16, height: 16, fontSize: "0.6rem", fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {notifyRequests.length}
+                    </span>
+                  )}
+                </button>
+              </div>
+            )}
+
+            {/* Notify Requests list */}
+            {customersSubTab === "notify" && !selectedCustomer && (
+              <div>
+                {notifyLoading ? (
+                  <p style={{ color: "var(--muted)", textAlign: "center", padding: 24, fontSize: "0.85rem" }}>Loading...</p>
+                ) : notifyRequests.length === 0 ? (
+                  <p style={{ color: "var(--muted)", fontSize: "0.85rem", textAlign: "center", padding: 24 }}>No notify requests yet.</p>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    {notifyRequests.map((req: any) => (
+                      <div key={req._id} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 10, padding: "12px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
+                        <div>
+                          <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--orange)" }}>{req.product_name}</p>
+                          <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 2 }}>{req.phone}</p>
+                          <p style={{ fontSize: "0.68rem", color: "var(--muted)", marginTop: 1 }}>
+                            {req.created_at ? new Date(req.created_at).toLocaleString("en-IN", { dateStyle: "short", timeStyle: "short" }) : "—"}
+                          </p>
+                        </div>
+                        <a
+                          href={`https://wa.me/91${req.phone?.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi! ${req.product_name} is back in stock. Visit vapeinbangalore.in to order now!`)}`}
+                          target="_blank" rel="noopener noreferrer"
+                          style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "7px 12px", background: "#25d36622", border: "1px solid #25d36644", color: "#25d366", borderRadius: 8, fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 700, textDecoration: "none", flexShrink: 0 }}>
+                          Notify
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Customers list */}
+            {customersSubTab === "list" && (
+            <div>
             {selectedCustomer ? (
               <div>
                 <button onClick={() => { setSelectedCustomer(null); setCustomerOrders([]); }}
@@ -620,6 +685,8 @@ export default function AdminPage() {
                 )}
               </div>
             )}
+            </div>
+            )} {/* close customersSubTab === "list" */}
           </div>
         )}
 
