@@ -94,13 +94,13 @@ export default function HeroSection() {
       {/* Delivery image — slides in after 4s, buttons BELOW */}
       {mounted && (
         <div className={`hero-img-block${showImage ? " show" : ""}`}>
-          {/* Image */}
-          <div style={{ position: "relative", width: "100%", aspectRatio: "4/3" }}>
+          {/* Image — full, no crop */}
+          <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
             <Image
               src="/hero-delivery.png"
               alt="VapeInBangalore — 30-45 Min Delivery Across Bangalore"
               fill
-              style={{ objectFit: "cover", objectPosition: "center top" }}
+              style={{ objectFit: "contain", objectPosition: "center", background: "#0a0a0a" }}
               priority
               sizes="100vw"
             />
