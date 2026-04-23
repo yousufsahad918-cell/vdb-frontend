@@ -265,13 +265,19 @@ export default function ProductGrid() {
                     transition: "outline 0.3s ease",
                   }}
                 >
-                  <div className="product-image" style={{ position: "relative", height: 180, overflow: "hidden", background: "#0d0f14" }}>
-                    <Image src={product.image} alt={product.name} fill style={{ objectFit: "contain", padding: 8 }} sizes="(max-width: 640px) 50vw, 33vw" />
+                  <div className="product-image" style={{ position: "relative", height: 180, overflow: "hidden", background: "#0d0f14", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      style={{ objectFit: "contain", objectPosition: "center", padding: 10 }}
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                    />
                     <div className="product-discount">{product.discount}</div>
                     <div className="product-puffs">{product.puffs}</div>
                     {isOutOfStock && (
                       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <span style={{ color: "#ef4444", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.05em" }}>STOCK OUT</span>
+                        <span style={{ color: "var(--orange)", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.08em", textShadow: "0 0 12px rgba(248,193,5,0.6)" }}>STOCK OUT</span>
                       </div>
                     )}
                   </div>
@@ -302,7 +308,7 @@ export default function ProductGrid() {
                     {isOutOfStock ? (
                       <button
                         onClick={() => { setNotifyProduct(product.name); setNotifyPhone(""); setNotifyDone(false); }}
-                        style={{ width: "100%", padding: "10px", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer" }}
+                        style={{ width: "100%", padding: "10px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", WebkitTapHighlightColor: "transparent" }}
                       >
                         Notify Me When Available
                       </button>
