@@ -11,7 +11,7 @@ export default function ProductTicker() {
     <div style={{
       overflow: "hidden",
       width: "100%",
-      padding: "12px 0",
+      padding: "16px 0",
       background: "var(--bg-2)",
       borderTop: "1px solid var(--border)",
       borderBottom: "1px solid var(--border)",
@@ -24,9 +24,9 @@ export default function ProductTicker() {
         }
         .ticker-track {
           display: flex;
-          gap: 16px;
+          gap: 20px;
           width: max-content;
-          animation: ticker 18s linear infinite;
+          animation: ticker 22s linear infinite;
         }
         .ticker-track:hover {
           animation-play-state: paused;
@@ -54,9 +54,9 @@ export default function ProductTicker() {
             }}
           >
             <div style={{
-              width: 64,
-              height: 64,
-              borderRadius: 10,
+              width: 100,
+              height: 100,
+              borderRadius: 12,
               overflow: "hidden",
               background: "var(--bg-3)",
               border: "1px solid var(--border)",
@@ -67,17 +67,17 @@ export default function ProductTicker() {
                 src={product.image}
                 alt={product.name}
                 fill
-                style={{ objectFit: "contain", padding: 4 }}
-                sizes="64px"
+                style={{ objectFit: "contain", padding: 6 }}
+                sizes="100px"
               />
             </div>
             <span style={{
-              fontSize: "0.62rem",
+              fontSize: "0.68rem",
               color: "var(--muted)",
               fontFamily: "var(--font-display)",
               fontWeight: 600,
               whiteSpace: "nowrap",
-              maxWidth: 64,
+              maxWidth: 100,
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}>
