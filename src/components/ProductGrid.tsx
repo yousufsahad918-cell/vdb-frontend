@@ -65,7 +65,25 @@ export default function ProductGrid() {
     return () => clearTimeout(t);
   }, []);
 
-  // Hero — slide up and scroll to products after 2.5s, cancel if user scrolls first
+  // Show sidebar only when products section is scrolled into view
+  useEffect(() => {
+    const handleSidebarVisibility = () => {
+      const productsEl = document.getElementById("products");
+      const sidebar = document.querySelector(".product-sidebar") as HTMLElement;
+      if (!productsEl || !sidebar) return;
+      const rect = productsEl.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        sidebar.classList.add("visible");
+      } else {
+        sidebar.classList.remove("visible");
+      }
+    };
+    window.addEventListener("scroll", handleSidebarVisibility, { passive: true });
+    handleSidebarVisibility();
+    return () => window.removeEventListener("scroll", handleSidebarVisibility);
+  }, []);
+
+  // Hero — collapse and scroll to products after 2.5s, cancel if user scrolls first
   useEffect(() => {
     let cancelled = false;
 
@@ -85,7 +103,7 @@ export default function ProductGrid() {
         cancelled = true;
         clearTimeout(heroTimer);
         const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) { hero.classList.remove("slide-up"); hero.classList.add("hidden"); }
+        if (hero) hero.classList.add("hidden");
       }
     };
 
