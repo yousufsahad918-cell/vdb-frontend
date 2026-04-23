@@ -154,24 +154,20 @@ a:active {
   padding: 20px 0 16px;
   text-align: center;
   position: relative;
-  transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.5s ease;
-  max-height: 600px;
   overflow: hidden;
 }
 
 .hero.slide-up {
-  max-height: 0;
-  opacity: 0;
-  padding: 0;
-  pointer-events: none;
+  animation: heroCollapse 0.6s ease forwards;
 }
 
 .hero.hidden {
-  max-height: 0;
-  opacity: 0;
-  padding: 0;
-  pointer-events: none;
-  margin: 0;
+  display: none;
+}
+
+@keyframes heroCollapse {
+  0%   { max-height: 600px; opacity: 1; padding: 20px 0 16px; }
+  100% { max-height: 0; opacity: 0; padding: 0; }
 }
 
 .hero h1 {
@@ -674,12 +670,84 @@ a:active {
 }
 
 .product-sidebar.visible {
-  opacity: 0.5;
+  opacity: 0.55;
   pointer-events: auto;
 }
 
 .product-sidebar.visible:hover {
   opacity: 1;
+}
+
+.sidebar-panel {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 55vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: right center;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+}
+
+.sidebar-panel::-webkit-scrollbar { display: none; }
+
+.sidebar-panel.closed {
+  transform: translateX(calc(100% + 22px));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-toggle {
+  background: var(--orange);
+  border: none;
+  border-radius: 10px 0 0 10px;
+  width: 22px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 4px;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s;
+  box-shadow: -2px 0 12px rgba(248,193,5,0.25);
+}
+
+.product-sidebar.visible:hover .sidebar-toggle {
+  box-shadow: -2px 0 24px rgba(248,193,5,0.6);
+}
+
+.sidebar-item {
+  width: 56px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--bg-3);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  gap: 4px;
+}
+
+.sidebar-item:hover {
+  border-color: var(--orange);
+  box-shadow: 0 0 10px rgba(248,193,5,0.25);
+}
+
+.sidebar-item.active {
+  border-color: var(--orange);
+  border-width: 2px;
+  box-shadow: 0 0 16px rgba(248,193,5,0.4);
 }
 
 .sidebar-panel {

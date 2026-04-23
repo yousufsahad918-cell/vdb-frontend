@@ -83,23 +83,30 @@ export default function ProductGrid() {
     return () => window.removeEventListener("scroll", handleSidebarVisibility);
   }, []);
 
-  // Hero — collapse and scroll to products after 2.5s, cancel if user scrolls first
+  // Hero — collapse after 2.5s, cancel if user scrolls first
   useEffect(() => {
     let cancelled = false;
 
     const heroTimer = setTimeout(() => {
       if (!cancelled) {
         const hero = document.querySelector(".hero") as HTMLElement;
-        if (hero) hero.classList.add("slide-up");
-        setTimeout(() => {
-          const productsEl = document.getElementById("products");
-          if (productsEl) productsEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 300);
+        if (hero) {
+          hero.classList.add("slide-up");
+          // After animation completes, set display:none to fully collapse space
+          setTimeout(() => {
+            if (hero) hero.classList.add("hidden");
+          }, 650);
+          // Scroll to products
+          setTimeout(() => {
+            const productsEl = document.getElementById("products");
+            if (productsEl) productsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 300);
+        }
       }
     }, 2500);
 
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 20 && !cancelled) {
         cancelled = true;
         clearTimeout(heroTimer);
         const hero = document.querySelector(".hero") as HTMLElement;
