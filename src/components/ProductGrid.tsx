@@ -309,7 +309,7 @@ export default function ProductGrid() {
                     ) : (
                       <button
                         onClick={() => handleAddToCart(product)}
-                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : selectedFlavour ? "var(--orange)" : "var(--bg-3)", border: selectedFlavour ? "none" : "1px solid var(--border)", borderRadius: 8, color: justAdded ? "#fff" : selectedFlavour ? "var(--btn-text)" : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", transition: "all 0.2s", WebkitTapHighlightColor: "transparent" }}
+                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--orange)", border: "none", borderRadius: 8, color: justAdded ? "#fff" : "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", cursor: "pointer", transition: "all 0.2s", WebkitTapHighlightColor: "transparent" }}
                       >
                         {justAdded ? "Added!" : selectedFlavour ? "+ Add to Cart" : "Select Flavour"}
                       </button>
