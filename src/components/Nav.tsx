@@ -97,7 +97,15 @@ export default function Nav() {
     prevCount.current = itemCount;
   }, [itemCount]);
 
-  const scrollToProduct = (matchFn: (n: string) => boolean) => {
+  const touchStartY = useRef(0);
+
+  const handleBrandTap = (groupBrand: string) => {
+    setExpandedBrand(expandedBrand === groupBrand ? null : groupBrand);
+  };
+
+  const handleItemTap = (matchFn: (n: string) => boolean) => {
+    scrollToProduct(matchFn);
+  };
     const product = products.find(p => matchFn(p.name));
     if (!product) return;
     setBrandsOpen(false);
@@ -212,18 +220,27 @@ export default function Nav() {
             </div>
 
             {/* Scrollable brand list */}
-            <div style={{ overflowY: "auto", padding: "10px 16px 40px", flex: 1 }}>
+            <div
+              style={{ overflowY: "auto", padding: "10px 16px 40px", flex: 1 }}
+              onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
+            >
               {BRAND_GROUPS.map(group => (
                 <div key={group.brand} style={{ marginBottom: 6 }}>
                   {/* Brand header */}
                   <div
-                    onPointerDown={() => setExpandedBrand(expandedBrand === group.brand ? null : group.brand)}
+                    onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
+                    onTouchEnd={e => {
+                      const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+                      if (dy < 8) setExpandedBrand(expandedBrand === group.brand ? null : group.brand);
+                    }}
+                    onClick={() => setExpandedBrand(expandedBrand === group.brand ? null : group.brand)}
                     style={{
                       display: "flex", justifyContent: "space-between", alignItems: "center",
                       padding: "12px 14px", borderRadius: 10, cursor: "pointer",
                       background: expandedBrand === group.brand ? group.color + "18" : "var(--bg-3)",
                       border: `1px solid ${expandedBrand === group.brand ? group.color + "55" : "var(--border)"}`,
-                      touchAction: "manipulation",
+                      touchAction: "pan-y",
+                      userSelect: "none",
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -246,12 +263,18 @@ export default function Nav() {
                       {group.items.map(item => (
                         <div
                           key={item.label}
-                          onPointerDown={() => scrollToProduct(item.match)}
+                          onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
+                          onTouchEnd={e => {
+                            const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+                            if (dy < 8) scrollToProduct(item.match);
+                          }}
+                          onClick={() => scrollToProduct(item.match)}
                           style={{
                             padding: "10px 14px", borderRadius: 8, cursor: "pointer",
                             background: "var(--bg-2)", border: "1px solid var(--border)",
                             display: "flex", alignItems: "center", gap: 8,
-                            touchAction: "manipulation",
+                            touchAction: "pan-y",
+                            userSelect: "none",
                           }}
                         >
                           <span style={{ width: 4, height: 4, borderRadius: "50%", background: group.color, flexShrink: 0 }} />
