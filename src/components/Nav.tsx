@@ -18,7 +18,7 @@ const BRAND_GROUPS = [
       { label: "Raya SOBO", match: (n: string) => n.includes("SOBO") },
       { label: "Trio", match: (n: string) => n.includes("Trio") },
       { label: "MoonNight 40K", match: (n: string) => n.includes("MoonNight") },
-      { label: "Elfliq Nic Salts — Refill", match: (n: string) => n.includes("Elfliq") },
+      { label: "Elfliq Nic Salts", match: (n: string) => n.includes("Elfliq") },
     ],
   },
   {
@@ -87,6 +87,7 @@ export default function Nav() {
   const [blinking, setBlinking] = useState(false);
   const [brandsOpen, setBrandsOpen] = useState(false);
   const [expandedBrand, setExpandedBrand] = useState<string | null>(null);
+  const touchStartY = useRef(0);
 
   useEffect(() => {
     if (itemCount > prevCount.current) {
@@ -97,15 +98,7 @@ export default function Nav() {
     prevCount.current = itemCount;
   }, [itemCount]);
 
-  const touchStartY = useRef(0);
-
-  const handleBrandTap = (groupBrand: string) => {
-    setExpandedBrand(expandedBrand === groupBrand ? null : groupBrand);
-  };
-
-  const handleItemTap = (matchFn: (n: string) => boolean) => {
-    scrollToProduct(matchFn);
-  };
+  const scrollToProduct = (matchFn: (n: string) => boolean) => {
     const product = products.find(p => matchFn(p.name));
     if (!product) return;
     setBrandsOpen(false);
@@ -122,6 +115,20 @@ export default function Nav() {
     }, 350);
   };
 
+  const handleBrandTouch = (brand: string) => (e: React.TouchEvent) => {
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+    if (dy < 8) setExpandedBrand(prev => prev === brand ? null : brand);
+  };
+
+  const handleItemTouch = (matchFn: (n: string) => boolean) => (e: React.TouchEvent) => {
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+    if (dy < 8) scrollToProduct(matchFn);
+  };
+
+  const recordTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
   return (
     <>
       <nav className="nav">
@@ -132,23 +139,19 @@ export default function Nav() {
             <span className="nav-logo-blr">BANGALORE</span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            {/* Blog link */}
-            <Link
-              href="/blog"
-              style={{
-                color: "var(--muted)", fontFamily: "var(--font-display)",
-                fontWeight: 600, fontSize: "0.82rem",
-                padding: "8px 10px", borderRadius: 8,
-                WebkitTapHighlightColor: "transparent",
-                touchAction: "manipulation",
-              }}
-            >
+
+            <Link href="/blog" style={{
+              color: "var(--muted)", fontFamily: "var(--font-display)",
+              fontWeight: 600, fontSize: "0.82rem",
+              padding: "8px 10px", borderRadius: 8,
+              WebkitTapHighlightColor: "transparent",
+              touchAction: "manipulation",
+            }}>
               Blog
             </Link>
 
-            {/* Brands button */}
             <button
-              onPointerDown={() => setBrandsOpen(true)}
+              onClick={() => setBrandsOpen(true)}
               style={{
                 background: "var(--bg-3)", border: "1px solid var(--border)",
                 color: "var(--white)", borderRadius: 8, padding: "8px 12px",
@@ -157,13 +160,11 @@ export default function Nav() {
                 WebkitTapHighlightColor: "transparent", touchAction: "manipulation",
               }}
             >
-              <span style={{ fontSize: "0.75rem" }}>☰</span>
-              Brands
+              <span>☰</span> Brands
             </button>
 
-            {/* Cart button */}
             <button
-              onPointerDown={() => setIsOpen(true)}
+              onClick={() => setIsOpen(true)}
               className={blinking ? "cart-blink" : ""}
               style={{
                 position: "relative",
@@ -197,7 +198,7 @@ export default function Nav() {
       {brandsOpen && (
         <>
           <div
-            onPointerDown={() => setBrandsOpen(false)}
+            onClick={() => setBrandsOpen(false)}
             style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 10020, backdropFilter: "blur(4px)" }}
           />
           <div style={{
@@ -207,40 +208,33 @@ export default function Nav() {
             zIndex: 10021, maxHeight: "80vh", display: "flex", flexDirection: "column",
             animation: "sheetUp 0.3s ease",
           }}>
-            {/* Handle + header */}
             <div style={{ padding: "14px 20px 10px", borderBottom: "1px solid var(--border)", flexShrink: 0 }}>
               <div style={{ width: 40, height: 4, background: "var(--border)", borderRadius: 2, margin: "0 auto 12px" }} />
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem" }}>Browse by Brand</p>
                 <button
-                  onPointerDown={() => setBrandsOpen(false)}
+                  onClick={() => setBrandsOpen(false)}
                   style={{ background: "var(--bg-3)", border: "1px solid var(--border)", color: "var(--muted)", borderRadius: 8, padding: "6px 10px", cursor: "pointer", touchAction: "manipulation" }}
                 >✕</button>
               </div>
             </div>
 
-            {/* Scrollable brand list */}
             <div
               style={{ overflowY: "auto", padding: "10px 16px 40px", flex: 1 }}
-              onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
+              onTouchStart={recordTouchStart}
             >
               {BRAND_GROUPS.map(group => (
                 <div key={group.brand} style={{ marginBottom: 6 }}>
-                  {/* Brand header */}
                   <div
-                    onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
-                    onTouchEnd={e => {
-                      const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
-                      if (dy < 8) setExpandedBrand(expandedBrand === group.brand ? null : group.brand);
-                    }}
-                    onClick={() => setExpandedBrand(expandedBrand === group.brand ? null : group.brand)}
+                    onTouchStart={recordTouchStart}
+                    onTouchEnd={handleBrandTouch(group.brand)}
+                    onClick={() => setExpandedBrand(prev => prev === group.brand ? null : group.brand)}
                     style={{
                       display: "flex", justifyContent: "space-between", alignItems: "center",
                       padding: "12px 14px", borderRadius: 10, cursor: "pointer",
                       background: expandedBrand === group.brand ? group.color + "18" : "var(--bg-3)",
                       border: `1px solid ${expandedBrand === group.brand ? group.color + "55" : "var(--border)"}`,
-                      touchAction: "pan-y",
-                      userSelect: "none",
+                      touchAction: "pan-y", userSelect: "none",
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -257,24 +251,19 @@ export default function Nav() {
                     </span>
                   </div>
 
-                  {/* Product list */}
                   {expandedBrand === group.brand && (
                     <div style={{ paddingLeft: 10, paddingTop: 4, display: "flex", flexDirection: "column", gap: 4 }}>
                       {group.items.map(item => (
                         <div
                           key={item.label}
-                          onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
-                          onTouchEnd={e => {
-                            const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
-                            if (dy < 8) scrollToProduct(item.match);
-                          }}
+                          onTouchStart={recordTouchStart}
+                          onTouchEnd={handleItemTouch(item.match)}
                           onClick={() => scrollToProduct(item.match)}
                           style={{
                             padding: "10px 14px", borderRadius: 8, cursor: "pointer",
                             background: "var(--bg-2)", border: "1px solid var(--border)",
                             display: "flex", alignItems: "center", gap: 8,
-                            touchAction: "pan-y",
-                            userSelect: "none",
+                            touchAction: "pan-y", userSelect: "none",
                           }}
                         >
                           <span style={{ width: 4, height: 4, borderRadius: "50%", background: group.color, flexShrink: 0 }} />
