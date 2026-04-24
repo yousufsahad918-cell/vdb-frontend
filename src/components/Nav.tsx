@@ -124,6 +124,20 @@ export default function Nav() {
             <span className="nav-logo-blr">BANGALORE</span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            {/* Blog link */}
+            <Link
+              href="/blog"
+              style={{
+                color: "var(--muted)", fontFamily: "var(--font-display)",
+                fontWeight: 600, fontSize: "0.82rem",
+                padding: "8px 10px", borderRadius: 8,
+                WebkitTapHighlightColor: "transparent",
+                touchAction: "manipulation",
+              }}
+            >
+              Blog
+            </Link>
+
             {/* Brands button */}
             <button
               onPointerDown={() => setBrandsOpen(true)}
