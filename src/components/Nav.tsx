@@ -138,14 +138,15 @@ export default function Nav() {
             <span className="nav-logo-dot">●</span>
             <span className="nav-logo-blr">BANGALORE</span>
           </Link>
-          <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
 
             <Link href="/blog" style={{
               color: "var(--muted)", fontFamily: "var(--font-display)",
-              fontWeight: 600, fontSize: "0.82rem",
-              padding: "8px 10px", borderRadius: 8,
+              fontWeight: 600, fontSize: "0.78rem",
+              padding: "7px 8px", borderRadius: 8,
               WebkitTapHighlightColor: "transparent",
               touchAction: "manipulation",
+              flexShrink: 0,
             }}>
               Blog
             </Link>
@@ -154,10 +155,11 @@ export default function Nav() {
               onClick={() => setBrandsOpen(true)}
               style={{
                 background: "var(--bg-3)", border: "1px solid var(--border)",
-                color: "var(--white)", borderRadius: 8, padding: "8px 12px",
+                color: "var(--white)", borderRadius: 8, padding: "7px 10px",
                 cursor: "pointer", fontFamily: "var(--font-display)", fontWeight: 700,
-                fontSize: "0.8rem", display: "flex", alignItems: "center", gap: 5,
+                fontSize: "0.78rem", display: "flex", alignItems: "center", gap: 4,
                 WebkitTapHighlightColor: "transparent", touchAction: "manipulation",
+                flexShrink: 0,
               }}
             >
               <span>☰</span> Brands
@@ -171,19 +173,20 @@ export default function Nav() {
                 background: itemCount > 0 ? "var(--orange)" : "var(--bg-3)",
                 border: itemCount > 0 ? "none" : "1px solid var(--border)",
                 color: itemCount > 0 ? "var(--btn-text)" : "var(--white)",
-                borderRadius: 8, padding: "8px 14px", cursor: "pointer",
+                borderRadius: 8, padding: "7px 12px", cursor: "pointer",
                 fontFamily: "var(--font-display)", fontWeight: 700,
-                fontSize: "0.85rem", display: "flex", alignItems: "center", gap: 6,
+                fontSize: "0.78rem", display: "flex", alignItems: "center", gap: 5,
                 WebkitTapHighlightColor: "transparent", touchAction: "manipulation",
                 transition: "background 0.2s, color 0.2s",
+                flexShrink: 0,
               }}
             >
               Cart
               {itemCount > 0 && (
                 <span style={{
                   background: "var(--btn-text)", color: "var(--orange)",
-                  borderRadius: "50%", width: 18, height: 18,
-                  fontSize: "0.7rem", fontWeight: 800,
+                  borderRadius: "50%", width: 16, height: 16,
+                  fontSize: "0.65rem", fontWeight: 800,
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   {itemCount}
