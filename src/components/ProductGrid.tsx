@@ -254,7 +254,7 @@ export default function ProductGrid() {
   const [filterFn, setFilterFn] = useState<((name: string) => boolean) | null>(null);
   const filteredProducts = filterFn ? products.filter(p => filterFn(p.name)) : products;
 
-  const [expandedBrand, setExpandedBrand] = useState<string | null>("Elfbar");
+  const [expandedBrand, setExpandedBrand] = useState<string | null>(null);
 
   const scrollToProduct2 = (matchFn: (n: string) => boolean) => {
     const product = products.find(p => matchFn(p.name));
@@ -355,16 +355,17 @@ export default function ProductGrid() {
         </a>
       )}
 
-      {/* ── CATEGORY FILTER BAR ── */}
-      <CategoryFilterBar onFilter={(fn) => setFilterFn(() => fn)} />
-
       {/* ── PRODUCTS SECTION ── */}
       <section className="section" id="products" style={{ paddingTop: 20 }}>
         <div className="container">
           <p className="section-label">Products</p>
           <h2>Top Selling Vapes in Bangalore</h2>
-          <p style={{ marginBottom: 20 }}>Select your flavour and add to cart — delivered in 20-30 mins.</p>
+          <p style={{ marginBottom: 14 }}>Select your flavour and add to cart — delivered in 20-30 mins.</p>
 
+          {/* ── FILTER BAR — between heading and cards ── */}
+          <CategoryFilterBar onFilter={(fn) => setFilterFn(() => fn)} />
+
+          <div style={{ height: 16 }} />
           <div className="product-grid">
             {filteredProducts.map((product, index) => {
               const override = getOverride(product.name);
