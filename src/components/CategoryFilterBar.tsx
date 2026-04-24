@@ -67,6 +67,8 @@ export default function CategoryFilterBar({ onFilter }: Props) {
           overflowX: "auto",
           scrollbarWidth: "none",
           paddingBottom: 4,
+          touchAction: "pan-x",
+          WebkitOverflowScrolling: "touch" as any,
         }}
       >
         {FILTERS.map(filter => {
@@ -75,14 +77,13 @@ export default function CategoryFilterBar({ onFilter }: Props) {
           return (
             <button
               key={filter.id}
-              onTouchStart={() => handleClick(filter)}
-              onClick={() => handleClick(filter)}
+              onPointerDown={(e) => { e.preventDefault(); handleClick(filter); }}
               style={{
                 flexShrink: 0,
                 display: "flex",
                 alignItems: "center",
                 gap: 5,
-                padding: "8px 14px",
+                padding: "10px 16px",
                 borderRadius: 30,
                 border: isActive
                   ? `1.5px solid ${filter.color}`
@@ -91,14 +92,16 @@ export default function CategoryFilterBar({ onFilter }: Props) {
                 color: isActive ? filter.color : "var(--muted)",
                 fontFamily: "var(--font-display)",
                 fontWeight: 700,
-                fontSize: "0.78rem",
+                fontSize: "0.8rem",
                 cursor: "pointer",
-                transition: "all 0.2s",
+                transition: "background 0.15s, color 0.15s, border-color 0.15s",
                 WebkitTapHighlightColor: "transparent",
                 boxShadow: isActive ? `0 0 14px ${filter.color}30` : "none",
                 whiteSpace: "nowrap",
                 touchAction: "manipulation",
                 userSelect: "none",
+                minHeight: 44,
+                WebkitUserSelect: "none",
               }}
             >
               {isActive && (
