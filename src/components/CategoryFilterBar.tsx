@@ -75,6 +75,7 @@ export default function CategoryFilterBar({ onFilter }: Props) {
           return (
             <button
               key={filter.id}
+              onTouchStart={() => handleClick(filter)}
               onClick={() => handleClick(filter)}
               style={{
                 flexShrink: 0,
@@ -96,6 +97,8 @@ export default function CategoryFilterBar({ onFilter }: Props) {
                 WebkitTapHighlightColor: "transparent",
                 boxShadow: isActive ? `0 0 14px ${filter.color}30` : "none",
                 whiteSpace: "nowrap",
+                touchAction: "manipulation",
+                userSelect: "none",
               }}
             >
               {isActive && (
