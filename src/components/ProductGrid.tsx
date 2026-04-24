@@ -1,7 +1,7 @@
 "use client";
 
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { useState, useRef, useEffect, useCallback } from "react";
 import { products } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -145,13 +145,26 @@ export default function ProductGrid() {
 
   const sheetProduct = products.find(p => p.name === flavourSheet);
 
-  // Brand categories
+  // Brand categories — organised by brand
   const CATEGORIES = [
-    { label: "Raya", match: (n: string) => n.includes("Raya") && !n.includes("Pro") },
-    { label: "D3 Pro", match: (n: string) => n.includes("Pro") },
-    { label: "Ice", match: (n: string) => n.includes("Ice") },
-    { label: "BC", match: (n: string) => n.includes("BC") },
-    { label: "Other", match: (n: string) => !n.includes("Raya") && !n.includes("Pro") && !n.includes("Ice") && !n.includes("BC") },
+    { label: "Elfbar\n600", match: (n: string) => n === "Elfbar 600" },
+    { label: "Raya\nD1", match: (n: string) => n === "Elfbar Raya D1" },
+    { label: "Raya\nD3", match: (n: string) => n === "Elfbar Raya D3" },
+    { label: "D3\nPro", match: (n: string) => n === "Elfbar D3 Pro" },
+    { label: "Ice\nKing", match: (n: string) => n.includes("Ice King") },
+    { label: "BC\n10000", match: (n: string) => n.includes("BC") },
+    { label: "SOBO", match: (n: string) => n.includes("SOBO") },
+    { label: "Trio", match: (n: string) => n.includes("Trio") },
+    { label: "Moon\nNight", match: (n: string) => n.includes("MoonNight") },
+    { label: "Elfliq\nRefill", match: (n: string) => n.includes("Elfliq") },
+    { label: "Lost\nMT35K", match: (n: string) => n.includes("MT35000") },
+    { label: "Lost\nMO10K", match: (n: string) => n.includes("MO10000") },
+    { label: "Nasty\nBolt", match: (n: string) => n.includes("Nasty") },
+    { label: "IGET", match: (n: string) => n.includes("IGET") },
+    { label: "Yuoto", match: (n: string) => n.includes("Yuoto") },
+    { label: "Pod\nSalt", match: (n: string) => n.includes("Pod Salt") },
+    { label: "ZYN &\nVelo", match: (n: string) => n.includes("ZYN") || n.includes("Velo") },
+    { label: "Tobacco", match: (n: string) => ["Amber", "Drum", "Golden", "American"].some(t => n.includes(t)) },
   ];
 
   const scrollToCategory = (matchFn: (n: string) => boolean) => {
@@ -241,7 +254,7 @@ export default function ProductGrid() {
           <p style={{ marginBottom: 20 }}>Select your flavour and add to cart — delivered in 20-30 mins.</p>
 
           <div className="product-grid">
-            {products.map(product => {
+            {products.map((product, index) => {
               const override = getOverride(product.name);
               const flavourList = override?.flavours?.length ? override.flavours : product.flavours;
               const isOutOfStock = override && !override.in_stock;
@@ -254,7 +267,7 @@ export default function ProductGrid() {
                 ? `₹${override.price.toLocaleString()}`
                 : product.price;
 
-              return (
+              const card = (
                 <div
                   key={product.name}
                   className="product-card"
@@ -322,6 +335,32 @@ export default function ProductGrid() {
                     )}
                   </div>
                 </div>
+              );
+
+              return (
+                <React.Fragment key={product.name}>
+                  {card}
+                  {index === 3 && (
+                    <div key="bundle-banner" style={{ gridColumn: "1 / -1", borderRadius: 14, overflow: "hidden", position: "relative", cursor: "pointer" }}
+                      onClick={() => window.open(`https://wa.me/916282878843?text=${encodeURIComponent("Hi! I want the Elfbar Raya D1 Bundle — Buy 2 @ ₹3,999. Please confirm flavours and availability.")}`, "_blank")}
+                    >
+                      <div style={{ position: "relative", width: "100%", aspectRatio: "4/3" }}>
+                        <img src="/products/raya-d1-bundle.png" alt="Elfbar Raya D1 Bundle Deal — Buy 2 @ ₹3,999" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                      </div>
+                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "16px" }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--orange)", borderRadius: 20, padding: "4px 12px", width: "fit-content", marginBottom: 8 }}>
+                          <span style={{ fontSize: "0.72rem", fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--btn-text)" }}>🔥 BUNDLE DEAL</span>
+                        </div>
+                        <p style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "1.1rem", color: "#fff", marginBottom: 2 }}>Elfbar Raya D1 — Buy 2 @ ₹3,999</p>
+                        <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.8)", marginBottom: 10 }}>Save ₹1,199 · Mix any 2 flavours</p>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#25d366", borderRadius: 8, padding: "9px 16px", width: "fit-content" }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.855L0 24l6.29-1.49A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.884.937-3.638-.234-.374A9.818 9.818 0 0112 2.182c5.424 0 9.818 4.394 9.818 9.818 0 5.425-4.394 9.818-9.818 9.818z"/></svg>
+                          <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "#fff" }}>Order Bundle on WhatsApp →</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </React.Fragment>
               );
             })}
           </div>
