@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { products } from "@/lib/products";
 import { useCart } from "@/lib/cart";
+import CategoryFilterBar from "@/components/CategoryFilterBar";
 
 interface ProductOverride {
   product_name: string;
@@ -250,6 +251,9 @@ export default function ProductGrid() {
     },
   ];
 
+  const [filterFn, setFilterFn] = useState<((name: string) => boolean) | null>(null);
+  const filteredProducts = filterFn ? products.filter(p => filterFn(p.name)) : products;
+
   const [expandedBrand, setExpandedBrand] = useState<string | null>("Elfbar");
 
   const scrollToProduct2 = (matchFn: (n: string) => boolean) => {
@@ -351,15 +355,18 @@ export default function ProductGrid() {
         </a>
       )}
 
+      {/* ── CATEGORY FILTER BAR ── */}
+      <CategoryFilterBar onFilter={(fn) => setFilterFn(() => fn)} />
+
       {/* ── PRODUCTS SECTION ── */}
-      <section className="section" id="products" style={{ paddingTop: 28 }}>
+      <section className="section" id="products" style={{ paddingTop: 20 }}>
         <div className="container">
           <p className="section-label">Products</p>
           <h2>Top Selling Vapes in Bangalore</h2>
           <p style={{ marginBottom: 20 }}>Select your flavour and add to cart — delivered in 20-30 mins.</p>
 
           <div className="product-grid">
-            {products.map((product, index) => {
+            {filteredProducts.map((product, index) => {
               const override = getOverride(product.name);
               const flavourList = override?.flavours?.length ? override.flavours : product.flavours;
               const isOutOfStock = override && !override.in_stock;
@@ -428,7 +435,7 @@ export default function ProductGrid() {
                         onClick={() => { setNotifyProduct(product.name); setNotifyPhone(""); setNotifyDone(false); }}
                         style={{ width: "100%", padding: "10px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", WebkitTapHighlightColor: "transparent" }}
                       >
-                        Notify Me When Available
+                        🔔 Notify Me
                       </button>
                     ) : (
                       <button
