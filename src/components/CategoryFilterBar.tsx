@@ -66,12 +66,9 @@ export default function CategoryFilterBar({ onFilter }: Props) {
           gap: 8,
           overflowX: "auto",
           scrollbarWidth: "none",
-          padding: "4px 16px 8px",
+          padding: "4px 40px 8px 16px",
           touchAction: "pan-x",
           WebkitOverflowScrolling: "touch" as any,
-          margin: "0 -16px",
-          paddingLeft: 16,
-          paddingRight: 16,
         }}
       >
         {FILTERS.map(filter => {
