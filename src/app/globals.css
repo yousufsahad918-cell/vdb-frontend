@@ -691,16 +691,17 @@ a:active {
   border: 1px solid var(--border);
   border-right: none;
   border-radius: 12px 0 0 12px;
-  padding: 10px 8px;
+  padding: 8px 6px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  max-height: 55vh;
+  gap: 2px;
+  max-height: 70vh;
   overflow-y: auto;
   scrollbar-width: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: right center;
   box-shadow: -4px 0 20px rgba(0,0,0,0.5);
+  width: 120px;
   order: 1;
 }
 

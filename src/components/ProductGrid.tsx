@@ -16,13 +16,26 @@ interface ProductOverride {
 const ADMIN_PHONE = "916282878843";
 
 const TAG_COLORS: Record<string, { bg: string; color: string }> = {
-  "Fast Selling":   { bg: "#f59e0b22", color: "#f59e0b" },
-  "New Arrival":    { bg: "#3b82f622", color: "#3b82f6" },
-  "Stock Out":      { bg: "#ef444422", color: "#ef4444" },
-  "Limited Stock":  { bg: "#8b5cf622", color: "#8b5cf6" },
-  "Best Value":     { bg: "#10b98122", color: "#10b981" },
-  "People's Choice":{ bg: "#f8c10522", color: "#c49a04" },
-  "Low Stock":      { bg: "#ef444422", color: "#ef4444" },
+  "Fast Selling":    { bg: "#f59e0b22", color: "#f59e0b" },
+  "New Arrival":     { bg: "#3b82f622", color: "#3b82f6" },
+  "Stock Out":       { bg: "#ef444422", color: "#ef4444" },
+  "Limited Stock":   { bg: "#8b5cf622", color: "#8b5cf6" },
+  "Best Value":      { bg: "#10b98122", color: "#10b981" },
+  "People's Choice": { bg: "#f8c10522", color: "#c49a04" },
+  "Low Stock":       { bg: "#ef444422", color: "#ef4444" },
+  "POD DEVICE":      { bg: "#06b6d422", color: "#06b6d4" },
+  "FLAGSHIP":        { bg: "#f8c10522", color: "#c49a04" },
+  "TOP OF LINE":     { bg: "#a855f722", color: "#a855f7" },
+  "LATEST GEN":      { bg: "#10b98122", color: "#10b981" },
+  "LATEST KOKO":     { bg: "#2dd4bf22", color: "#0d9488" },
+  "SPECIAL EDITION": { bg: "#f9731622", color: "#f97316" },
+  "SMOKE-FREE":      { bg: "#3b82f622", color: "#3b82f6" },
+  "TOBACCO":         { bg: "#78350f22", color: "#a16207" },
+  "REFILL LIQUID":   { bg: "#10b98122", color: "#10b981" },
+  "MOST POWERFUL":   { bg: "#7c3aed22", color: "#7c3aed" },
+  "GOOD VALUE":      { bg: "#10b98122", color: "#10b981" },
+  "BEGINNER PICK":   { bg: "#ec489922", color: "#ec4899" },
+  "ONLY FEW LEFT":   { bg: "#ef444422", color: "#ef4444" },
 };
 
 function buildNotifyWAMessage(productName: string, phone: string): string {
@@ -145,29 +158,101 @@ export default function ProductGrid() {
 
   const sheetProduct = products.find(p => p.name === flavourSheet);
 
-  // Brand categories — organised by brand
-  const CATEGORIES = [
-    { label: "Elfbar\n600", match: (n: string) => n === "Elfbar 600" },
-    { label: "Raya\nD1", match: (n: string) => n === "Elfbar Raya D1" },
-    { label: "Raya\nD3", match: (n: string) => n === "Elfbar Raya D3" },
-    { label: "D3\nPro", match: (n: string) => n === "Elfbar D3 Pro" },
-    { label: "Ice\nKing", match: (n: string) => n.includes("Ice King") },
-    { label: "BC\n10000", match: (n: string) => n.includes("BC") },
-    { label: "SOBO", match: (n: string) => n.includes("SOBO") },
-    { label: "Trio", match: (n: string) => n.includes("Trio") },
-    { label: "Moon\nNight", match: (n: string) => n.includes("MoonNight") },
-    { label: "Elfliq\nRefill", match: (n: string) => n.includes("Elfliq") },
-    { label: "Lost\nMT35K", match: (n: string) => n.includes("MT35000") },
-    { label: "Lost\nMO10K", match: (n: string) => n.includes("MO10000") },
-    { label: "Nasty\nBolt", match: (n: string) => n.includes("Nasty") },
-    { label: "IGET", match: (n: string) => n.includes("IGET") },
-    { label: "Yuoto", match: (n: string) => n.includes("Yuoto") },
-    { label: "Pod\nSalt", match: (n: string) => n.includes("Pod Salt") },
-    { label: "ZYN &\nVelo", match: (n: string) => n.includes("ZYN") || n.includes("Velo") },
-    { label: "Tobacco", match: (n: string) => ["Amber", "Drum", "Golden", "American"].some(t => n.includes(t)) },
+  // Hierarchical brand groups
+  const BRAND_GROUPS = [
+    {
+      brand: "Elfbar",
+      color: "#f8c105",
+      products: [
+        { label: "600", match: (n: string) => n === "Elfbar 600" },
+        { label: "Raya D1", match: (n: string) => n === "Elfbar Raya D1" },
+        { label: "Raya D3", match: (n: string) => n === "Elfbar Raya D3" },
+        { label: "D3 Pro", match: (n: string) => n === "Elfbar D3 Pro" },
+        { label: "Ice King", match: (n: string) => n.includes("Ice King") },
+        { label: "BC 10000", match: (n: string) => n.includes("BC") },
+        { label: "Raya SOBO", match: (n: string) => n.includes("SOBO") },
+        { label: "Trio", match: (n: string) => n.includes("Trio") },
+        { label: "MoonNight", match: (n: string) => n.includes("MoonNight") },
+        { label: "Elfliq Refill", match: (n: string) => n.includes("Elfliq") },
+      ],
+    },
+    {
+      brand: "Lost Mary",
+      color: "#06b6d4",
+      products: [
+        { label: "MT35000", match: (n: string) => n.includes("MT35000") },
+        { label: "MO10000", match: (n: string) => n.includes("MO10000") },
+      ],
+    },
+    {
+      brand: "Nasty",
+      color: "#eab308",
+      products: [
+        { label: "Bolt WTF 50K", match: (n: string) => n.includes("Nasty") },
+      ],
+    },
+    {
+      brand: "IGET",
+      color: "#7dd3fc",
+      products: [
+        { label: "Astro B18000", match: (n: string) => n.includes("IGET") },
+      ],
+    },
+    {
+      brand: "Yuoto",
+      color: "#ef4444",
+      products: [
+        { label: "Beyonder", match: (n: string) => n.includes("Yuoto") },
+      ],
+    },
+    {
+      brand: "Pod Salt",
+      color: "#f97316",
+      products: [
+        { label: "Hit The Spot", match: (n: string) => n.includes("Hit The Spot") },
+        { label: "Core Nic Salt", match: (n: string) => n.includes("Core") },
+      ],
+    },
+    {
+      brand: "Caliburn",
+      color: "#a78bfa",
+      products: [
+        { label: "KOKO GK3", match: (n: string) => n.includes("KOKO GK3") },
+        { label: "G3 Lite", match: (n: string) => n === "Caliburn G3 Lite" },
+        { label: "G3 Lite KOKO", match: (n: string) => n === "Caliburn G3 Lite KOKO" },
+        { label: "G3 Pro KOKO", match: (n: string) => n.includes("G3 Pro") },
+        { label: "G4", match: (n: string) => n === "Caliburn G4" },
+        { label: "G4 Mini", match: (n: string) => n.includes("G4 Mini") },
+        { label: "G4 Pro", match: (n: string) => n === "Caliburn G4 Pro" },
+        { label: "G4 Pro KOKO", match: (n: string) => n.includes("G4 Pro KOKO") },
+        { label: "G5 Lite", match: (n: string) => n === "Caliburn G5 Lite" },
+        { label: "G5 Lite SE", match: (n: string) => n.includes("G5 Lite SE") },
+        { label: "G5 Lite KOKO", match: (n: string) => n.includes("G5 Lite KOKO") },
+      ],
+    },
+    {
+      brand: "Pouches",
+      color: "#3b82f6",
+      products: [
+        { label: "ZYN Cool Mint", match: (n: string) => n.includes("ZYN") },
+        { label: "Velo Peppermint", match: (n: string) => n.includes("Velo") },
+      ],
+    },
+    {
+      brand: "Tobacco",
+      color: "#a16207",
+      products: [
+        { label: "Amber Leaf", match: (n: string) => n.includes("Amber") },
+        { label: "Drum Bright Blue", match: (n: string) => n.includes("Drum") },
+        { label: "Golden Virginia", match: (n: string) => n.includes("Golden") },
+        { label: "American Spirit", match: (n: string) => n.includes("American") },
+      ],
+    },
   ];
 
-  const scrollToCategory = (matchFn: (n: string) => boolean) => {
+  const [expandedBrand, setExpandedBrand] = useState<string | null>("Elfbar");
+
+  const scrollToProduct2 = (matchFn: (n: string) => boolean) => {
     const product = products.find(p => matchFn(p.name));
     if (product) scrollToProduct(product.name);
     setSidebarOpen(false);
@@ -175,53 +260,73 @@ export default function ProductGrid() {
 
   return (
     <>
-      {/* ── PRODUCT SIDEBAR — right edge, brands ── */}
+      {/* ── PRODUCT SIDEBAR — right edge, hierarchical brands ── */}
       <div className="product-sidebar">
-        {/* Toggle tab — always visible on right edge */}
-        <div
-          className="sidebar-toggle"
-          onClick={() => setSidebarOpen(o => !o)}
-        >
-          <span style={{
-            writingMode: "vertical-rl",
-            textOrientation: "mixed",
-            transform: "rotate(180deg)",
-            fontSize: "0.55rem",
-            fontFamily: "var(--font-display)",
-            fontWeight: 800,
-            color: "var(--btn-text)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-          }}>
+        {/* Toggle tab */}
+        <div className="sidebar-toggle" onClick={() => setSidebarOpen(o => !o)}>
+          <span style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: "0.55rem", fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--btn-text)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
             Brands
           </span>
           <span style={{ color: "var(--btn-text)", fontSize: "0.8rem", fontWeight: 700 }}>
             {sidebarOpen ? "›" : "‹"}
           </span>
         </div>
-        {/* Panel — slides in from right when open */}
-        <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`}>
-          {CATEGORIES.map(cat => {
-            const firstProduct = products.find(p => cat.match(p.name));
-            if (!firstProduct) return null;
-            const override = getOverride(firstProduct.name);
-            const isOut = override && !override.in_stock;
-            return (
+
+        {/* Panel */}
+        <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`} style={{ width: 110, padding: "8px 6px" }}>
+          {BRAND_GROUPS.map(group => (
+            <div key={group.brand}>
+              {/* Brand header */}
               <div
-                key={cat.label}
-                className={`sidebar-item ${activeProduct === firstProduct.name ? "active" : ""}`}
-                onClick={() => scrollToCategory(cat.match)}
-                style={{ opacity: isOut ? 0.5 : 1 }}
+                onClick={() => setExpandedBrand(expandedBrand === group.brand ? null : group.brand)}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  padding: "7px 8px", cursor: "pointer", borderRadius: 8,
+                  background: expandedBrand === group.brand ? group.color + "22" : "transparent",
+                  border: expandedBrand === group.brand ? `1px solid ${group.color}44` : "1px solid transparent",
+                  marginBottom: 2,
+                }}
               >
-                <div style={{ position: "relative", width: 44, height: 44, borderRadius: 6, overflow: "hidden", background: "var(--bg-2)" }}>
-                  <Image src={firstProduct.image} alt={cat.label} fill style={{ objectFit: "contain", padding: 2 }} />
-                </div>
-                <span style={{ fontSize: "0.6rem", color: "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, textAlign: "center", lineHeight: 1.2 }}>
-                  {cat.label}
+                <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-display)", fontWeight: 800, color: expandedBrand === group.brand ? group.color : "var(--white)" }}>
+                  {group.brand}
+                </span>
+                <span style={{ fontSize: "0.65rem", color: expandedBrand === group.brand ? group.color : "var(--muted)" }}>
+                  {expandedBrand === group.brand ? "▾" : "▸"}
                 </span>
               </div>
-            );
-          })}
+
+              {/* Product list under brand */}
+              {expandedBrand === group.brand && (
+                <div style={{ paddingLeft: 4, marginBottom: 4, display: "flex", flexDirection: "column", gap: 2 }}>
+                  {group.products.map(item => {
+                    const product = products.find(p => item.match(p.name));
+                    if (!product) return null;
+                    const isActive = activeProduct === product.name;
+                    return (
+                      <div
+                        key={item.label}
+                        onClick={() => scrollToProduct2(item.match)}
+                        style={{
+                          display: "flex", alignItems: "center", gap: 6,
+                          padding: "5px 6px", borderRadius: 6, cursor: "pointer",
+                          background: isActive ? group.color + "22" : "var(--bg-3)",
+                          border: isActive ? `1px solid ${group.color}66` : "1px solid var(--border)",
+                          transition: "all 0.15s",
+                        }}
+                      >
+                        <div style={{ position: "relative", width: 28, height: 28, flexShrink: 0, borderRadius: 4, overflow: "hidden", background: "var(--bg-2)" }}>
+                          <Image src={product.image} alt={item.label} fill style={{ objectFit: "contain", padding: 2 }} />
+                        </div>
+                        <span style={{ fontSize: "0.6rem", color: isActive ? group.color : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.2, flex: 1 }}>
+                          {item.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 

@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
 
-const CATEGORIES = ["All", "Vape", "E-Liquid", "Nicotine Pouches", "Tobacco"];
-const BRANDS = ["All", "Elfbar", "IGET", "Yuoto", "Pod Salt", "ZYN", "Velo", "Amber Leaf", "Drum", "Golden Virginia", "American Spirit"];
-const SUB_CATS = ["All", "Disposable", "High Puff", "Refill", "Pouches", "Rolling Tobacco"];
+const CATEGORIES = ["All", "Vape", "Pod Device", "E-Liquid", "Nicotine Pouches", "Tobacco"];
+const BRANDS = ["All", "Elfbar", "Caliburn", "Lost Mary", "Nasty", "IGET", "Yuoto", "Pod Salt", "ZYN", "Velo", "Amber Leaf", "Drum", "Golden Virginia", "American Spirit"];
+const SUB_CATS = ["All", "Disposable", "High Puff", "KOKO Series", "G3 Series", "G4 Series", "G5 Series", "Refill", "Pouches", "Rolling Tobacco"];
 
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
