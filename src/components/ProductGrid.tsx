@@ -50,7 +50,7 @@ export default function ProductGrid() {
   const [addedMap, setAddedMap] = useState<Record<string, boolean>>({});
   const [toast, setToast] = useState<{ name: string; flavour: string } | null>(null);
   const [overrides, setOverrides] = useState<ProductOverride[]>([]);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // kept for compatibility
   const [activeProduct, setActiveProduct] = useState<string | null>(null);
   const [showWALabel, setShowWALabel] = useState(false);
   const [showWA, setShowWA] = useState(false);
@@ -264,76 +264,6 @@ export default function ProductGrid() {
 
   return (
     <>
-      {/* ── PRODUCT SIDEBAR — right edge, hierarchical brands ── */}
-      <div className="product-sidebar">
-        {/* Toggle tab */}
-        <div className="sidebar-toggle" onClick={() => setSidebarOpen(o => !o)}>
-          <span style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontSize: "0.55rem", fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--btn-text)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            Brands
-          </span>
-          <span style={{ color: "var(--btn-text)", fontSize: "0.8rem", fontWeight: 700 }}>
-            {sidebarOpen ? "›" : "‹"}
-          </span>
-        </div>
-
-        {/* Panel */}
-        <div className={`sidebar-panel ${sidebarOpen ? "" : "closed"}`} style={{ width: 110, padding: "8px 6px" }}>
-          {BRAND_GROUPS.map(group => (
-            <div key={group.brand}>
-              {/* Brand header */}
-              <div
-                onClick={() => setExpandedBrand(expandedBrand === group.brand ? null : group.brand)}
-                style={{
-                  display: "flex", alignItems: "center", justifyContent: "space-between",
-                  padding: "7px 8px", cursor: "pointer", borderRadius: 8,
-                  background: expandedBrand === group.brand ? group.color + "22" : "transparent",
-                  border: expandedBrand === group.brand ? `1px solid ${group.color}44` : "1px solid transparent",
-                  marginBottom: 2,
-                }}
-              >
-                <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-display)", fontWeight: 800, color: expandedBrand === group.brand ? group.color : "var(--white)" }}>
-                  {group.brand}
-                </span>
-                <span style={{ fontSize: "0.65rem", color: expandedBrand === group.brand ? group.color : "var(--muted)" }}>
-                  {expandedBrand === group.brand ? "▾" : "▸"}
-                </span>
-              </div>
-
-              {/* Product list under brand */}
-              {expandedBrand === group.brand && (
-                <div style={{ paddingLeft: 4, marginBottom: 4, display: "flex", flexDirection: "column", gap: 2 }}>
-                  {group.products.map(item => {
-                    const product = products.find(p => item.match(p.name));
-                    if (!product) return null;
-                    const isActive = activeProduct === product.name;
-                    return (
-                      <div
-                        key={item.label}
-                        onClick={() => scrollToProduct2(item.match)}
-                        style={{
-                          display: "flex", alignItems: "center", gap: 6,
-                          padding: "5px 6px", borderRadius: 6, cursor: "pointer",
-                          background: isActive ? group.color + "22" : "var(--bg-3)",
-                          border: isActive ? `1px solid ${group.color}66` : "1px solid var(--border)",
-                          transition: "all 0.15s",
-                        }}
-                      >
-                        <div style={{ position: "relative", width: 28, height: 28, flexShrink: 0, borderRadius: 4, overflow: "hidden", background: "var(--bg-2)" }}>
-                          <Image src={product.image} alt={item.label} fill style={{ objectFit: "contain", padding: 2 }} />
-                        </div>
-                        <span style={{ fontSize: "0.6rem", color: isActive ? group.color : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.2, flex: 1 }}>
-                          {item.label}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ── WHATSAPP FLOAT ── */}
       {showWA && (
         <a
