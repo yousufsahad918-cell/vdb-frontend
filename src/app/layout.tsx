@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | VapeInBangalore",
   },
   description:
-    "Buy vape in Bangalore with 30 min delivery. Best disposable vapes & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
+    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
   icons: {
     icon: [
       { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     url: "https://vapeinbangalore.in",
     siteName: "VapeInBangalore",
     title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    description: "Fast, discreet vape delivery across all of Bangalore. 20+ areas covered. Order on WhatsApp.",
+    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 20+ areas covered. Order on WhatsApp.",
     images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeInBangalore — Fast Delivery" }],
   },
   twitter: {

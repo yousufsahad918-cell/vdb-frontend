@@ -41,7 +41,7 @@ export default function HeroSection() {
             marginBottom: 10, color: "var(--white)",
           }}>
             Buy Vape in <em style={{ color: "var(--orange)", fontStyle: "italic" }}>Bangalore</em>
-            <br />20–30 Min Delivery
+            <br />30-45 Min Delivery
           </h1>
           <p style={{
             fontSize: "0.88rem", color: "var(--muted)",

@@ -180,7 +180,7 @@ export default function ProductPage({ params }: Props) {
           <div style={{ textAlign: "right" }}>
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>Delivery</p>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", color: "#10b981" }}>
-              20–30 Min
+              30-45 Min
             </p>
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function ProductPage({ params }: Props) {
             {product.longDescription}
           </p>
           <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.6 }}>
-            Order {product.name} in Bangalore for fast 20-30 minute delivery. We deliver vapes across
+            Order {product.name} in Bangalore for fast 30-45 minute delivery. We deliver vapes across
             BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Marathahalli, Electronic City
             and 20+ areas. All products are 100% authentic with discreet packaging.
           </p>
@@ -289,7 +289,7 @@ export default function ProductPage({ params }: Props) {
             {product.name} Delivery Areas in Bangalore
           </h2>
           <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: 12 }}>
-            We deliver {product.name} across all major areas in Bangalore in 20-30 minutes.
+            We deliver {product.name} across all major areas in Bangalore in 30-45 minutes.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {AREAS.map(area => (
@@ -310,6 +310,42 @@ export default function ProductPage({ params }: Props) {
           </div>
         </div>
 
+        {/* ── INTERNAL LINKS ── */}
+        <div style={{
+          background: "var(--bg-2)", border: "1px solid var(--border)",
+          borderRadius: 14, padding: "18px", marginBottom: 20,
+        }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 12 }}>
+            Shop More at VapeInBangalore
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {[
+              { label: "🛍 All Products — Vapes, Pods & Tobacco", href: "/#products" },
+              { label: "⚡ Disposable Vapes in Bangalore", href: "/#products" },
+              { label: "🔄 Reusable Pod Devices", href: "/#products" },
+              { label: "📦 Order on WhatsApp — 30-45 Min Delivery", href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi! I want to order a vape in Bangalore.` },
+              { label: "📝 Vape Delivery Blog & Guides", href: "/blog" },
+            ].map(link => (
+              <Link
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "10px 12px", borderRadius: 8,
+                  background: "var(--bg-3)", border: "1px solid var(--border)",
+                  color: "var(--text)", textDecoration: "none",
+                  fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.82rem",
+                  transition: "border-color 0.2s",
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* ── SEO TEXT ── */}
         <div style={{
           background: "var(--bg-2)", border: "1px solid var(--border)",
@@ -320,7 +356,7 @@ export default function ProductPage({ params }: Props) {
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.7 }}>
             Looking to buy {product.name} in Bangalore? VapeInBangalore offers the fastest vape delivery
-            in Bangalore — 20 to 30 minutes to your door. We stock authentic {product.brand} products
+            in Bangalore — 30 to 45 minutes to your door. We stock authentic {product.brand} products
             at the best prices. Whether you're in South Bangalore, North Bangalore, East or West —
             we cover all areas. Order vape online in Bangalore through WhatsApp for a seamless,
             discreet delivery experience. No minimum order. Cash on delivery available.
