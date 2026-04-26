@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { products } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import CategoryFilterBar from "@/components/CategoryFilterBar";
@@ -347,6 +348,7 @@ export default function ProductGrid() {
                     flexDirection: "column",
                   }}
                 >
+                  <Link href={`/products/${product.slug}`} style={{ textDecoration: "none", display: "block" }}>
                   <div className="product-image" style={{ position: "relative", height: 180, overflow: "hidden", background: "#0d0f14", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Image
                       src={product.image}
@@ -363,6 +365,7 @@ export default function ProductGrid() {
                       </div>
                     )}
                   </div>
+                  </Link>
 
                   <div className="product-info" style={{ padding: "10px 10px 12px", display: "flex", flexDirection: "column", flex: 1 }}>
                     {/* Badge */}
@@ -377,9 +380,11 @@ export default function ProductGrid() {
                     ) : null}
 
                     {/* Name */}
+                    <Link href={`/products/${product.slug}`} style={{ textDecoration: "none" }}>
                     <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.88rem", lineHeight: 1.2, marginBottom: 6, color: "var(--white)" }}>
                       {product.name}
                     </h3>
+                    </Link>
 
                     {/* Price */}
                     <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 8 }}>
