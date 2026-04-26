@@ -426,7 +426,7 @@ export default function ProductGrid() {
               return (
                 <React.Fragment key={product.name}>
                   {card}
-                  {index === 3 && (
+                  {index === 3 && !filterFn && (
                     <div key="bundle-banner" style={{ gridColumn: "1 / -1", borderRadius: 14, overflow: "hidden", position: "relative", cursor: "pointer", background: "#1a0a1a" }}
                       onClick={() => window.open(`https://wa.me/916282878843?text=${encodeURIComponent("Hi! I want the Elfbar Raya D1 Bundle — Buy 2 @ ₹3,999. Please confirm flavours and availability.")}`, "_blank")}
                     >
