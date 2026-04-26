@@ -483,4 +483,156 @@ ${CTA(true)}
 
 ${CTA()}`,
   },
+
+  // ─── NEW: ELFBAR BANGALORE ────────────────────────────────────────────────
+  {
+    slug: "elfbar-bangalore-buy-online-delivery",
+    title: "Buy Elfbar in Bangalore — All Models, Fast Delivery to Your Door",
+    metaTitle: "Buy Elfbar in Bangalore | Raya D1, D3, Ice King | VapeInBangalore",
+    metaDescription: "Buy Elfbar vapes in Bangalore with 30-45 min delivery. Elfbar Raya D1, D3, D3 Pro, Ice King, BC 10000, MoonNight & more. Order on WhatsApp now.",
+    publishedAt: "2025-04-20",
+    readTime: 6,
+    category: "Products",
+    excerpt: "Elfbar is the most popular disposable vape brand in Bangalore right now — and for good reason. Here's everything you need to know about buying Elfbar in Bangalore.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "Whitefield", slug: "whitefield" },
+    ],
+    content: `
+<h2>Buy Elfbar in Bangalore — Complete Guide</h2>
+<p>Elfbar is the #1 selling disposable vape brand in Bangalore. From the compact Elfbar 600 for beginners to the powerhouse Raya SOBO with 40,000 puffs — there's an Elfbar for every type of vaper in Bangalore. And we deliver all of them in 30-45 minutes.</p>
+
+${CTA(true)}
+
+<h2>Elfbar Models Available in Bangalore</h2>
+<h3>Elfbar Raya D1 — ₹2,199</h3>
+<p>The bestselling Elfbar in Bangalore. 13,000 puffs, mesh coil, Type-C rechargeable. Available in 7 flavours including Watermelon Ice, Strawberry Kiwi, and Lychee Ice. Perfect for daily use.</p>
+
+<h3>Elfbar Raya D3 — ₹2,799</h3>
+<p>Our #1 bestseller. 25,000 puffs, triple mesh coil, smart display showing battery and puff count, 3 power modes. The Bangalore vaper's favourite for a reason — consistent, rich flavour from first to last puff.</p>
+
+<h3>Elfbar D3 Pro — ₹2,799</h3>
+<p>30,000 puffs with turbo mode and adjustable airflow. For Bangalore vapers who want maximum control over their vaping experience.</p>
+
+<h3>Elfbar Ice King — ₹2,499</h3>
+<p>The menthol specialist. 30,000 puffs with 5 levels of adjustable coolness — you control exactly how icy each puff is. Bangalore's top pick for menthol lovers.</p>
+
+<h3>Elfbar BC 10000 — ₹2,199</h3>
+<p>Elegant transparent design showing e-liquid level. 10,000 puffs, mesh coil, 8 flavours. Popular in south Bangalore — BTM, Jayanagar, JP Nagar.</p>
+
+<h3>Elfbar Raya SOBO — ₹2,849</h3>
+<p>The most advanced Elfbar in Bangalore. 40,000 puffs, interactive game display, 1100mAh battery lasting up to 5 days. The gold-etched design is as premium as it performs.</p>
+
+<h3>Elfbar MoonNight 40K — ₹2,899</h3>
+<p>40,000 puffs with an animated moon display and the unique Coffee flavour. The most visually striking Elfbar we stock — a statement device for Bangalore vapers.</p>
+
+<h3>Elfliq Nic Salts — ₹1,599</h3>
+<p>Official Elfbar refill e-liquid. 30mg/ml nicotine salt, 10ml bottles. Taro Ice Cream and more — for pod system users looking for that authentic Elfbar flavour.</p>
+
+${CTA(true)}
+
+<h2>Why Buy Elfbar from VapeInBangalore?</h2>
+<p>All our Elfbar products are 100% authentic — sourced directly, not third-party grey market stock. We deliver across all major Bangalore areas in 30-45 minutes with discreet packaging. No minimum order. Order on WhatsApp and we confirm within minutes.</p>
+
+<h2>Which Elfbar Should I Buy in Bangalore?</h2>
+<p>If you're new to vaping — start with the Elfbar 600 (₹999) or Elfbar Raya D1 (₹2,199). If you're an experienced vaper who wants value — the Raya D3 at ₹2,799 for 25,000 puffs is unbeatable. If you want the absolute best — the Raya SOBO or MoonNight 40K are our flagship picks.</p>
+
+${CTA()}`,
+  },
+
+  // ─── NEW: CALIBURN POD DEVICE BANGALORE ──────────────────────────────────
+  {
+    slug: "caliburn-pod-device-bangalore",
+    title: "Caliburn Pod Device in Bangalore — G3, G4, G5 & KOKO Series Guide",
+    metaTitle: "Buy Caliburn Pod Device in Bangalore | G4, G5, KOKO | VapeInBangalore",
+    metaDescription: "Buy Caliburn pod devices in Bangalore. Caliburn G3, G4, G5 Lite, KOKO series — all models available with 30-45 min delivery. ₹3,899 onwards.",
+    publishedAt: "2025-04-21",
+    readTime: 5,
+    category: "Products",
+    excerpt: "Caliburn pod devices are the gold standard for refillable vaping in Bangalore. Here's our complete guide to every Caliburn model we stock and which one is right for you.",
+    relatedLocations: [
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+    ],
+    content: `
+<h2>Caliburn Pod Devices in Bangalore — Complete Guide</h2>
+<p>Caliburn by Uwell is the most trusted pod device brand among serious vapers in Bangalore. Unlike disposables, Caliburn devices are refillable — you buy the device once and use any nic salt e-liquid with it. Long-term, far cheaper than disposables. We stock the full Caliburn lineup with 30-45 min delivery across Bangalore.</p>
+
+${CTA(true)}
+
+<h2>Caliburn Models Available in Bangalore</h2>
+
+<h3>Best Budget — Caliburn G3 Lite (₹3,899)</h3>
+<p>The most affordable entry into the Caliburn ecosystem. 750mAh battery, 2.5ml pod, lightweight. Perfect first pod device for Bangalore vapers switching from disposables.</p>
+
+<h3>Most Popular — Caliburn G4 (₹6,899)</h3>
+<p>The flagship Caliburn with a full animated TFT display, 1000mAh battery, and 35W output. Pearl marble body finish makes it the most premium-looking pod device in Bangalore. Available in 0.4Ω and 0.6Ω coils.</p>
+
+<h3>Most Powerful — Caliburn G4 Pro (₹7,199)</h3>
+<p>A full animated display spanning the entire front face, 1200mAh battery, 35W, custom animated wallpapers. The most powerful Caliburn pod device available for delivery in Bangalore.</p>
+
+<h3>Most Compact — Caliburn KOKO GK3 (₹5,399)</h3>
+<p>The iconic KOKO form factor — ultra-compact, pocket-friendly. 690mAh battery, 2ml pod, draw-activated. The best Caliburn for on-the-go use in Bangalore.</p>
+
+<h3>Latest Generation — Caliburn G5 Lite (₹4,899)</h3>
+<p>The newest Caliburn G5 coil system with improved flavour. Wave-pattern design in lime and orange. 800mAh battery, the freshest Caliburn tech available in Bangalore.</p>
+
+${CTA(true)}
+
+<h2>Caliburn vs Disposables — Which is Better in Bangalore?</h2>
+<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,599 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
+
+<h2>What E-Liquid Works with Caliburn?</h2>
+<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,599) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
+
+${CTA()}`,
+  },
+
+  // ─── NEW: NICOTINE POUCHES BANGALORE ─────────────────────────────────────
+  {
+    slug: "nicotine-pouches-bangalore-zyn-velo",
+    title: "Nicotine Pouches in Bangalore — ZYN & Velo Available for Delivery",
+    metaTitle: "Buy Nicotine Pouches in Bangalore | ZYN Cool Mint, Velo | VapeInBangalore",
+    metaDescription: "Buy ZYN Cool Mint and Velo Freezing Peppermint nicotine pouches in Bangalore. Smoke-free, vapour-free. 30-45 min delivery. ₹999 per tin.",
+    publishedAt: "2025-04-22",
+    readTime: 4,
+    category: "Products",
+    excerpt: "Nicotine pouches are the smoke-free, vapour-free way to enjoy nicotine in Bangalore. No smell, no smoke — just place under your lip. Here's everything you need to know.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "BTM Layout", slug: "btm-layout" },
+      { name: "Marathahalli", slug: "marathahalli" },
+    ],
+    content: `
+<h2>Nicotine Pouches in Bangalore — ZYN & Velo</h2>
+<p>Nicotine pouches are one of the fastest growing nicotine products in Bangalore — and for good reason. No smoke, no vapour, no smell. Place a pouch under your lip and enjoy clean nicotine delivery for up to 30 minutes. Perfect for offices, meetings, flights, and anywhere you can't smoke or vape.</p>
+
+${CTA(true)}
+
+<h2>Nicotine Pouches We Stock in Bangalore</h2>
+
+<h3>ZYN Cool Mint — ₹999</h3>
+<p>ZYN is the world's most popular nicotine pouch brand. The Cool Mint variant delivers a clean, crisp mint sensation with 6mg nicotine per pouch. 16 pouches per tin. Dry, white pouches that don't stain. Discreet and comfortable for all-day use in Bangalore.</p>
+
+<h3>Velo Freezing Peppermint — ₹999</h3>
+<p>Velo Freezing Peppermint lives up to its name — an intense, icy peppermint hit that lasts. The strongest mint sensation in our nicotine pouch range. If you want an aggressive, long-lasting mint experience, Velo is your pick.</p>
+
+${CTA(true)}
+
+<h2>Nicotine Pouches vs Vaping in Bangalore</h2>
+<p>Vaping is great — but nicotine pouches solve specific situations vaping can't. In a board meeting, on a flight to Bangalore, in a hospital, or in a no-smoking zone — pouches work everywhere. Many Bangalore users keep both: vape at home, pouches at work.</p>
+
+<h2>Are Nicotine Pouches Safe?</h2>
+<p>Nicotine pouches contain no tobacco leaf, no combustion, and no vapour. They deliver nicotine through the gum lining. While not risk-free (nicotine is addictive), they are widely considered a significantly cleaner alternative to smoking and many forms of vaping. Consult a doctor if you have health concerns.</p>
+
+<h2>How to Use Nicotine Pouches</h2>
+<p>Place one pouch between your upper lip and gum. Leave for 15-30 minutes. A tingling sensation is normal — that's the nicotine being absorbed. After use, dispose of the pouch. Do not swallow.</p>
+
+<h2>Fast Delivery in Bangalore</h2>
+<p>We deliver ZYN and Velo nicotine pouches across all major Bangalore areas in 30-45 minutes — BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Marathahalli, and 15+ more areas. Order on WhatsApp and we dispatch immediately.</p>
+
+${CTA()}`,
+  },
 ];
