@@ -6,13 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/admin",
-          "/api/",
-        ],
+        disallow: ["/admin", "/api/"],
       },
     ],
-    sitemap: "https://vapeinbangalore.in/sitemap.xml",
-    host: "https://vapeinbangalore.in",
+    sitemap: "https://vapedeliverybangalore.com/sitemap.xml",
+    host: "https://vapedeliverybangalore.com",
   };
 }

@@ -1,19 +1,50 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { CartProvider } from "@/lib/cart";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import StickyButtons from "@/components/StickyButtons";
-import CartDrawer from "@/components/CartDrawer";
+import { CartProvider } from "@/lib/cart";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vapeinbangalore.in"),
+  metadataBase: new URL("https://vapedeliverybangalore.com"),
   title: {
-    default: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    template: "%s | VapeInBangalore",
+    default: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
+    template: "%s | VapeDeliveryBangalore",
   },
   description:
-    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
+    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes, pod devices & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
+  keywords: [
+    "vape delivery bangalore",
+    "vapedeliverybangalore",
+    "buy vape online bangalore",
+    "vape home delivery bangalore",
+    "disposable vape delivery bangalore",
+    "vape in bangalore",
+    "vapes in bangalore",
+    "buy vape bangalore",
+    "vape near me bangalore",
+    "elfbar bangalore",
+    "lost mary bangalore",
+    "caliburn bangalore",
+    "nicotine pouches bangalore",
+    "vape shop bangalore",
+    "order vape bangalore",
+  ],
+  alternates: {
+    canonical: "https://vapedeliverybangalore.com",
+  },
+  openGraph: {
+    title: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
+    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 20+ areas covered. Order on WhatsApp.",
+    images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeDeliveryBangalore — Fast Delivery" }],
+    type: "website",
+    siteName: "VapeDeliveryBangalore",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
+    description: "Fast, discreet vape delivery across Bangalore. Order on WhatsApp.",
+  },
   icons: {
     icon: [
       { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
@@ -24,36 +55,18 @@ export const metadata: Metadata = {
     shortcut: "/favicon-48.png",
     apple: "/favicon-192.png",
   },
-  keywords: [
-    "vape in bangalore",
-    "vape delivery bangalore",
-    "buy vape bangalore",
-    "vape near me bangalore",
-    "disposable vape bangalore",
-    "best vape bangalore",
-    "vape shop bangalore",
-    "order vape bangalore",
-    "elfbar bangalore",
-    "vape online bangalore",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: "https://vapeinbangalore.in",
-    siteName: "VapeInBangalore",
-    title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 20+ areas covered. Order on WhatsApp.",
-    images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeInBangalore — Fast Delivery" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    description: "Fast, discreet vape delivery across Bangalore. Order on WhatsApp.",
-  },
-  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
@@ -62,14 +75,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
-        <meta name="theme-color" content="#f8c105" />
+        <meta name="theme-color" content="#16a34a" />
       </head>
       <body>
         <CartProvider>
           <Nav />
-          <main>{children}</main>
-          <StickyButtons />
-          <CartDrawer />
+          {children}
           <Footer />
         </CartProvider>
       </body>
