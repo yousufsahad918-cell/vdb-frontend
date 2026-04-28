@@ -4,44 +4,13 @@ import { useState } from "react";
 import { products } from "@/lib/products";
 
 const FILTERS = [
-  {
-    id: "all",
-    label: "All",
-    color: "#f8c105",
-    match: () => true,
-  },
-  {
-    id: "disposable",
-    label: "Disposable Vape",
-    color: "#06b6d4",
-    match: (n: string) =>
-      ["Elfbar", "Lost Mary", "Nasty", "IGET", "Yuoto", "Pod Salt Hit"].some(b => n.includes(b)) &&
-      !n.includes("Caliburn") && !n.includes("Core Nic") && !n.includes("Elfliq"),
-  },
-  {
-    id: "reusable",
-    label: "Reusable Vape",
-    color: "#a78bfa",
-    match: (n: string) => n.includes("Caliburn"),
-  },
-  {
-    id: "nic-salts",
-    label: "Nic Salts",
-    color: "#10b981",
-    match: (n: string) => n.includes("Elfliq") || n.includes("Core Nic Salt"),
-  },
-  {
-    id: "pouches",
-    label: "Nicotine Pouch",
-    color: "#3b82f6",
-    match: (n: string) => n.includes("ZYN") || n.includes("Velo"),
-  },
-  {
-    id: "tobacco",
-    label: "Tobacco",
-    color: "#a16207",
-    match: (n: string) => ["Amber", "Drum", "Golden", "American"].some(t => n.includes(t)),
-  },
+  { id: "all", label: "All", color: "#16a34a", match: () => true },
+  { id: "disposable", label: "Disposable Vape", color: "#0891b2",
+    match: (n: string) => ["Elfbar", "Lost Mary", "Nasty", "IGET", "Yuoto", "Pod Salt Hit"].some(b => n.includes(b)) && !n.includes("Caliburn") && !n.includes("Core Nic") && !n.includes("Elfliq") },
+  { id: "reusable", label: "Reusable Vape", color: "#7c3aed", match: (n: string) => n.includes("Caliburn") },
+  { id: "nic-salts", label: "Nic Salts", color: "#059669", match: (n: string) => n.includes("Elfliq") || n.includes("Core Nic Salt") },
+  { id: "pouches", label: "Nicotine Pouch", color: "#2563eb", match: (n: string) => n.includes("ZYN") || n.includes("Velo") },
+  { id: "tobacco", label: "Tobacco", color: "#92400e", match: (n: string) => ["Amber", "Drum", "Golden", "American"].some(t => n.includes(t)) },
 ];
 
 interface Props {
@@ -57,61 +26,31 @@ export default function CategoryFilterBar({ onFilter }: Props) {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ overflow: "hidden" }}>
       <style>{`.cfb::-webkit-scrollbar{display:none}`}</style>
-      <div
-        className="cfb"
-        style={{
-          display: "flex",
-          gap: 8,
-          overflowX: "auto",
-          scrollbarWidth: "none",
-          padding: "4px 40px 8px 16px",
-          touchAction: "pan-x",
-          WebkitOverflowScrolling: "touch" as any,
-        }}
-      >
+      <div className="cfb" style={{ display: "flex", gap: 8, overflowX: "auto", scrollbarWidth: "none", paddingBottom: 4 }}>
         {FILTERS.map(filter => {
           const isActive = activeId === filter.id;
-
           return (
             <button
               key={filter.id}
               onPointerDown={(e) => { e.preventDefault(); handleClick(filter); }}
               style={{
                 flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                gap: 5,
-                padding: "10px 16px",
-                borderRadius: 30,
-                border: isActive
-                  ? `1.5px solid ${filter.color}`
-                  : "1.5px solid var(--border)",
-                background: isActive ? filter.color + "20" : "var(--bg-2)",
+                display: "flex", alignItems: "center", gap: 5,
+                padding: "9px 16px", borderRadius: 30,
+                border: isActive ? `1.5px solid ${filter.color}` : "1.5px solid var(--border)",
+                background: isActive ? filter.color + "18" : "var(--bg-2)",
                 color: isActive ? filter.color : "var(--muted)",
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "0.8rem",
-                cursor: "pointer",
-                transition: "background 0.15s, color 0.15s, border-color 0.15s",
+                fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem",
+                cursor: "pointer", transition: "all 0.2s",
                 WebkitTapHighlightColor: "transparent",
-                boxShadow: isActive ? `0 0 14px ${filter.color}30` : "none",
-                whiteSpace: "nowrap",
-                touchAction: "manipulation",
-                userSelect: "none",
-                minHeight: 44,
-                WebkitUserSelect: "none",
+                boxShadow: isActive ? `0 0 14px ${filter.color}20` : "none",
+                whiteSpace: "nowrap", touchAction: "manipulation",
+                userSelect: "none", minHeight: 44,
               }}
             >
-              {isActive && (
-                <span style={{
-                  width: 6, height: 6,
-                  borderRadius: "50%",
-                  background: filter.color,
-                  flexShrink: 0,
-                }} />
-              )}
+              {isActive && <span style={{ width: 6, height: 6, borderRadius: "50%", background: filter.color, flexShrink: 0 }} />}
               {filter.label}
             </button>
           );
