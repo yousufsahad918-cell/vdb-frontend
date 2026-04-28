@@ -28,13 +28,13 @@ export default function BlogIndex() {
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: 80 }}>
       <style>{`
         .blog-card { transition: border-color 0.2s; }
-        .blog-card:hover { border-color: var(--orange) !important; }
+        .blog-card:hover { border-color: var(--green) !important; }
       `}</style>
 
       {/* Hero */}
       <section style={{ padding: "60px 20px 40px", maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
         <p style={{
-          fontSize: "0.78rem", color: "var(--orange)", fontWeight: 700,
+          fontSize: "0.78rem", color: "var(--green)", fontWeight: 700,
           letterSpacing: "0.12em", textTransform: "uppercase",
           fontFamily: "var(--font-display)", marginBottom: 12,
         }}>

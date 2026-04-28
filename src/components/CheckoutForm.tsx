@@ -233,12 +233,12 @@ export default function CheckoutForm({ onBack }: Props) {
         {selectedLocation && (
           <div style={{
             marginTop: 8, padding: "8px 12px",
-            background: "var(--orange-glow)", borderRadius: 8,
+            background: "var(--green-glow)", borderRadius: 8,
             border: "1px solid rgba(255,92,0,0.3)",
             display: "flex", justifyContent: "space-between", alignItems: "center",
           }}>
             <div>
-              <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--orange)" }}>
+              <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--green)" }}>
                 {selectedLocation.label}
               </p>
               <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{selectedLocation.mainLocation}</p>
@@ -271,7 +271,7 @@ export default function CheckoutForm({ onBack }: Props) {
           display: "flex", justifyContent: "space-between",
         }}>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>Total</span>
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "1.1rem" }}>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--green)", fontSize: "1.1rem" }}>
             Rs.{total.toLocaleString()}
           </span>
         </div>
