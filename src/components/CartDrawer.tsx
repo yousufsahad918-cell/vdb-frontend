@@ -108,7 +108,7 @@ export default function CartDrawer() {
             onClick={() => { setIsOpen(false); setShowCheckout(false); }}
             style={{
               background: "var(--bg-3)", border: "1px solid var(--border)",
-              color: "var(--white)", borderRadius: "8px",
+              color: "var(--text)", borderRadius: "8px",
               padding: "8px 12px", cursor: "pointer",
               fontFamily: "var(--font-display)", fontSize: "0.85rem",
               WebkitTapHighlightColor: "transparent",
@@ -139,7 +139,7 @@ export default function CartDrawer() {
                     <Image src={item.image} alt={item.name} fill style={{ objectFit: "contain" }} />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9rem", color: "var(--white)", marginBottom: 4 }}>
+                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.9rem", color: "var(--text)", marginBottom: 4 }}>
                       {item.name}
                     </p>
                     <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{item.puffs}</p>
@@ -151,7 +151,7 @@ export default function CartDrawer() {
                           style={{
                             width: 32, height: 32, borderRadius: 6,
                             background: "var(--bg-2)", border: "1px solid var(--border)",
-                            color: "var(--white)", cursor: "pointer", fontSize: "1.1rem",
+                            color: "var(--text)", cursor: "pointer", fontSize: "1.1rem",
                             display: "flex", alignItems: "center", justifyContent: "center",
                             WebkitTapHighlightColor: "transparent",
                           }}
@@ -170,7 +170,7 @@ export default function CartDrawer() {
                           }}
                         >+</button>
                       </div>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: "var(--white)" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: "var(--text)" }}>
                         Rs.{(item.price * item.quantity).toLocaleString()}
                       </p>
                     </div>
@@ -194,7 +194,7 @@ export default function CartDrawer() {
             }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
                 <span style={{ color: "var(--muted)", fontSize: "0.9rem" }}>Total</span>
-                <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.3rem", color: "var(--white)" }}>
+                <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.3rem", color: "var(--text)" }}>
                   Rs.{total.toLocaleString()}
                 </span>
               </div>

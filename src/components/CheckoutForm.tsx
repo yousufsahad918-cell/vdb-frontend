@@ -120,7 +120,7 @@ export default function CheckoutForm({ onBack }: Props) {
   const inputStyle = {
     width: "100%", padding: "12px 14px",
     background: "var(--bg-3)", border: "1px solid var(--border)",
-    borderRadius: 8, color: "var(--white)",
+    borderRadius: 8, color: "var(--text)",
     fontFamily: "var(--font-body)", fontSize: "0.95rem",
     outline: "none",
   };
@@ -227,7 +227,7 @@ export default function CheckoutForm({ onBack }: Props) {
             borderRadius: 8, marginTop: 4, padding: "10px 14px",
             fontSize: "0.82rem", color: "var(--muted)",
           }}>
-            No match found — your typed location "<strong style={{ color: "var(--white)" }}>{locationSearch}</strong>" will be used for delivery.
+            No match found — your typed location "<strong style={{ color: "var(--text)" }}>{locationSearch}</strong>" will be used for delivery.
           </div>
         )}
         {selectedLocation && (

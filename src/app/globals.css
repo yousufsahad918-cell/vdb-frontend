@@ -34,7 +34,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   background: var(--bg);
-  color: var(--text);
+  color: #1a3a24;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.5;
@@ -55,7 +55,7 @@ input, textarea, select {
   background: var(--bg-3);
   border: 1px solid var(--border);
   border-radius: 10px;
-  color: var(--text);
+  color: #1a3a24;
   outline: none;
 }
 
@@ -87,14 +87,14 @@ input::placeholder { color: var(--muted); }
   font-weight: 800;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-  color: var(--text);
+  color: #1a3a24;
   display: flex;
   align-items: center;
   gap: 3px;
   flex-shrink: 0;
 }
 
-.nav-logo-vape { color: var(--text); letter-spacing: 0.06em; }
+.nav-logo-vape { color: #1a3a24; letter-spacing: 0.06em; }
 .nav-logo-dot { color: var(--green); font-size: 0.45rem; margin: 0 2px; }
 .nav-logo-blr { color: var(--green); letter-spacing: 0.06em; }
 
@@ -177,7 +177,7 @@ input::placeholder { color: var(--muted); }
   display: block;
   background: var(--bg-3);
   border: 1px solid var(--border);
-  color: var(--text);
+  color: #1a3a24;
   padding: 12px 20px;
   border-radius: 10px;
   font-family: var(--font-display);
@@ -356,7 +356,7 @@ input::placeholder { color: var(--muted); }
 .wa-float-label {
   background: var(--bg-2);
   border: 1px solid var(--border);
-  color: var(--text);
+  color: #1a3a24;
   border-radius: 20px;
   padding: 6px 12px;
   font-family: var(--font-display);
