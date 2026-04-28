@@ -75,7 +75,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
-        <meta name="theme-color" content="#16a34a" />
+        <meta name="theme-color" content="#14532d" />
       </head>
       <body>
         <CartProvider>
