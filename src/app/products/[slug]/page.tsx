@@ -53,13 +53,13 @@ export default function ProductPage({ params }: Props) {
   const related = getRelatedProducts(product.slug, 4);
 
   const categoryColor: Record<string, string> = {
-    "Vape": "#f8c105",
+    "Vape": "#16a34a",
     "E-Liquid": "#10b981",
     "Nicotine Pouches": "#3b82f6",
     "Tobacco": "#a16207",
     "Pod Device": "#a78bfa",
   };
-  const catColor = categoryColor[product.category] || "#f8c105";
+  const catColor = categoryColor[product.category] || "#16a34a";
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: 80 }}>
@@ -127,7 +127,7 @@ export default function ProductPage({ params }: Props) {
           />
           <div style={{
             position: "absolute", top: 12, left: 12,
-            background: "var(--orange)", color: "var(--btn-text)",
+            background: "var(--green)", color: "var(--btn-text)",
             borderRadius: 20, padding: "4px 12px",
             fontSize: "0.78rem", fontWeight: 700, fontFamily: "var(--font-display)",
           }}>
@@ -163,15 +163,15 @@ export default function ProductPage({ params }: Props) {
 
         {/* ── PRICE ── */}
         <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 20 }}>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 900, color: "var(--orange)" }}>
+          <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 900, color: "var(--green)" }}>
             {product.price}
           </span>
           <span style={{ fontSize: "1rem", color: "var(--muted)", textDecoration: "line-through" }}>
             {product.originalPrice}
           </span>
           <span style={{
-            background: "var(--orange)22", color: "var(--orange)",
-            border: "1px solid var(--orange)44", borderRadius: 20,
+            background: "var(--green)22", color: "var(--green)",
+            border: "1px solid var(--green)44", borderRadius: 20,
             padding: "3px 10px", fontSize: "0.75rem", fontWeight: 700,
           }}>
             {product.discount}
@@ -396,7 +396,7 @@ export default function ProductPage({ params }: Props) {
                       <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", marginBottom: 4, lineHeight: 1.2 }}>
                         {p.name}
                       </p>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "0.9rem" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--green)", fontSize: "0.9rem" }}>
                         {p.price}
                       </p>
                     </div>

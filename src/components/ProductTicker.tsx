@@ -21,7 +21,7 @@ export default function ProductTicker() {
       const h3 = card.querySelector("h3");
       if (h3 && h3.textContent === productName) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
-        (card as HTMLElement).style.outline = "2px solid var(--orange)";
+        (card as HTMLElement).style.outline = "2px solid var(--green)";
         setTimeout(() => { (card as HTMLElement).style.outline = "none"; }, 1800);
       }
     });
@@ -69,8 +69,8 @@ export default function ProductTicker() {
           100% { transform: translateX(-50%); }
         }
         @keyframes glowPulse {
-          0%, 100% { filter: drop-shadow(0 0 8px rgba(248,193,5,0.35)); }
-          50%       { filter: drop-shadow(0 0 20px rgba(248,193,5,0.7)); }
+          0%, 100% { filter: drop-shadow(0 0 8px rgba(22,163,74,0.35)); }
+          50%       { filter: drop-shadow(0 0 20px rgba(22,163,74,0.7)); }
         }
         .ticker-track {
           display: flex;

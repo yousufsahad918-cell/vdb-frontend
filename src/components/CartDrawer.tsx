@@ -143,7 +143,7 @@ export default function CartDrawer() {
                       {item.name}
                     </p>
                     <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{item.puffs}</p>
-                    <p style={{ fontSize: "0.75rem", color: "var(--orange)", marginBottom: 8, fontWeight: 600 }}>{item.flavour}</p>
+                    <p style={{ fontSize: "0.75rem", color: "var(--green)", marginBottom: 8, fontWeight: 600 }}>{item.flavour}</p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                         <button
@@ -163,7 +163,7 @@ export default function CartDrawer() {
                           onClick={() => updateQuantity(item.product_id, item.flavour, item.quantity + 1)}
                           style={{
                             width: 32, height: 32, borderRadius: 6,
-                            background: "var(--orange)", border: "none",
+                            background: "var(--green)", border: "none",
                             color: "#fff", cursor: "pointer", fontSize: "1.1rem",
                             display: "flex", alignItems: "center", justifyContent: "center",
                             WebkitTapHighlightColor: "transparent",
@@ -202,7 +202,7 @@ export default function CartDrawer() {
                 onClick={() => setShowCheckout(true)}
                 style={{
                   width: "100%", padding: "14px",
-                  background: "var(--orange)", border: "none",
+                  background: "var(--green)", border: "none",
                   borderRadius: 10, color: "#fff",
                   fontFamily: "var(--font-display)", fontWeight: 700,
                   fontSize: "1rem", cursor: "pointer",

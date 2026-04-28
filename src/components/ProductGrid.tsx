@@ -23,10 +23,10 @@ const TAG_COLORS: Record<string, { bg: string; color: string }> = {
   "Stock Out":       { bg: "#ef444422", color: "#ef4444" },
   "Limited Stock":   { bg: "#8b5cf622", color: "#8b5cf6" },
   "Best Value":      { bg: "#10b98122", color: "#10b981" },
-  "People's Choice": { bg: "#f8c10522", color: "#c49a04" },
+  "People's Choice": { bg: "#16a34a22", color: "#c49a04" },
   "Low Stock":       { bg: "#ef444422", color: "#ef4444" },
   "POD DEVICE":      { bg: "#06b6d422", color: "#06b6d4" },
-  "FLAGSHIP":        { bg: "#f8c10522", color: "#c49a04" },
+  "FLAGSHIP":        { bg: "#16a34a22", color: "#c49a04" },
   "TOP OF LINE":     { bg: "#a855f722", color: "#a855f7" },
   "LATEST GEN":      { bg: "#10b98122", color: "#10b981" },
   "LATEST KOKO":     { bg: "#2dd4bf22", color: "#0d9488" },
@@ -164,7 +164,7 @@ export default function ProductGrid() {
   const BRAND_GROUPS = [
     {
       brand: "Elfbar",
-      color: "#f8c105",
+      color: "#16a34a",
       products: [
         { label: "600", match: (n: string) => n === "Elfbar 600" },
         { label: "Raya D1", match: (n: string) => n === "Elfbar Raya D1" },
@@ -342,7 +342,7 @@ export default function ProductGrid() {
                   ref={el => { productRefs.current[product.name] = el; }}
                   style={{
                     opacity: isOutOfStock ? 0.75 : 1,
-                    outline: activeProduct === product.name ? `2px solid var(--orange)` : "none",
+                    outline: activeProduct === product.name ? `2px solid var(--green)` : "none",
                     transition: "outline 0.3s ease",
                     display: "flex",
                     flexDirection: "column",
@@ -361,7 +361,7 @@ export default function ProductGrid() {
                     <div className="product-puffs">{product.puffs}</div>
                     {isOutOfStock && (
                       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <span style={{ color: "var(--orange)", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.08em", textShadow: "0 0 12px rgba(248,193,5,0.6)" }}>STOCK OUT</span>
+                        <span style={{ color: "var(--green)", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.08em", textShadow: "0 0 12px rgba(22,163,74,0.6)" }}>STOCK OUT</span>
                       </div>
                     )}
                   </div>
@@ -374,7 +374,7 @@ export default function ProductGrid() {
                         {tag}
                       </div>
                     ) : product.badge ? (
-                      <div style={{ display: "inline-block", background: "var(--orange-glow)", color: "var(--orange)", border: "1px solid rgba(248,193,5,0.3)", borderRadius: 20, padding: "2px 8px", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-display)", marginBottom: 5, alignSelf: "flex-start" }}>
+                      <div style={{ display: "inline-block", background: "var(--green-glow)", color: "var(--green)", border: "1px solid rgba(22,163,74,0.3)", borderRadius: 20, padding: "2px 8px", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-display)", marginBottom: 5, alignSelf: "flex-start" }}>
                         {product.badge}
                       </div>
                     ) : null}
@@ -388,14 +388,14 @@ export default function ProductGrid() {
 
                     {/* Price */}
                     <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 8 }}>
-                      <span style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "1rem", color: "var(--orange)" }}>{displayPrice}</span>
+                      <span style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "1rem", color: "var(--green)" }}>{displayPrice}</span>
                       <span style={{ fontSize: "0.72rem", color: "var(--muted)", textDecoration: "line-through" }}>{product.originalPrice}</span>
                     </div>
 
                     {/* Selected flavour chip */}
                     {selectedFlavour && !isOutOfStock && (
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "var(--orange-glow)", border: "1px solid rgba(248,193,5,0.3)", borderRadius: 6, padding: "4px 8px", marginBottom: 8 }}>
-                        <span style={{ fontSize: "0.7rem", color: "var(--orange)", fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "75%" }}>{selectedFlavour}</span>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "var(--green-glow)", border: "1px solid rgba(22,163,74,0.3)", borderRadius: 6, padding: "4px 8px", marginBottom: 8 }}>
+                        <span style={{ fontSize: "0.7rem", color: "var(--green)", fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "75%" }}>{selectedFlavour}</span>
                         <button onClick={() => setFlavourSheet(product.name)} style={{ background: "none", border: "none", color: "var(--muted)", fontSize: "0.65rem", cursor: "pointer", padding: 0, flexShrink: 0 }}>change</button>
                       </div>
                     )}
@@ -407,14 +407,14 @@ export default function ProductGrid() {
                     {isOutOfStock ? (
                       <button
                         onClick={() => { setNotifyProduct(product.name); setNotifyPhone(""); setNotifyDone(false); }}
-                        style={{ width: "100%", padding: "10px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                        style={{ width: "100%", padding: "10px", background: "var(--green)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
                         🔔 Notify Me
                       </button>
                     ) : (
                       <button
                         onClick={() => handleAddToCart(product)}
-                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--orange)", border: "none", borderRadius: 8, color: justAdded ? "#fff" : "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--green)", border: "none", borderRadius: 8, color: justAdded ? "#fff" : "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
                         {justAdded ? "✓ Added!" : selectedFlavour ? "+ Add to Cart" : "Select Flavour"}
                       </button>
@@ -436,7 +436,7 @@ export default function ProductGrid() {
                         style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
                       />
                       <div style={{ padding: "14px 16px 16px", background: "var(--bg-2)", borderTop: "1px solid var(--border)" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--orange)", borderRadius: 20, padding: "4px 12px", marginBottom: 8 }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--green)", borderRadius: 20, padding: "4px 12px", marginBottom: 8 }}>
                           <span style={{ fontSize: "0.72rem", fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--btn-text)" }}>🔥 BUNDLE DEAL</span>
                         </div>
                         <p style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: "1rem", color: "var(--white)", marginBottom: 2 }}>Elfbar Raya D1 — Buy 2 @ ₹3,999</p>
@@ -473,14 +473,14 @@ export default function ProductGrid() {
                 const isSelected = selectedFlavours[sheetProduct.name] === flavour;
                 return (
                   <button key={flavour} onClick={() => setSelectedFlavours(prev => ({ ...prev, [sheetProduct.name]: flavour }))}
-                    style={{ padding: "10px 12px", borderRadius: 10, textAlign: "left", border: isSelected ? "1.5px solid var(--orange)" : "1px solid var(--border)", background: isSelected ? "var(--orange-glow)" : "var(--bg-3)", color: isSelected ? "var(--orange)" : "var(--text)", fontSize: "0.82rem", cursor: "pointer", WebkitTapHighlightColor: "transparent" }}>
+                    style={{ padding: "10px 12px", borderRadius: 10, textAlign: "left", border: isSelected ? "1.5px solid var(--green)" : "1px solid var(--border)", background: isSelected ? "var(--green-glow)" : "var(--bg-3)", color: isSelected ? "var(--green)" : "var(--text)", fontSize: "0.82rem", cursor: "pointer", WebkitTapHighlightColor: "transparent" }}>
                     {flavour}
                   </button>
                 );
               })}
             </div>
             <button onClick={() => handleAddToCart(sheetProduct)} disabled={!selectedFlavours[sheetProduct.name]}
-              style={{ width: "100%", padding: "14px", background: selectedFlavours[sheetProduct.name] ? "var(--orange)" : "var(--bg-3)", border: "none", borderRadius: 10, color: selectedFlavours[sheetProduct.name] ? "var(--btn-text)" : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1rem", cursor: selectedFlavours[sheetProduct.name] ? "pointer" : "not-allowed", opacity: selectedFlavours[sheetProduct.name] ? 1 : 0.5 }}>
+              style={{ width: "100%", padding: "14px", background: selectedFlavours[sheetProduct.name] ? "var(--green)" : "var(--bg-3)", border: "none", borderRadius: 10, color: selectedFlavours[sheetProduct.name] ? "var(--btn-text)" : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1rem", cursor: selectedFlavours[sheetProduct.name] ? "pointer" : "not-allowed", opacity: selectedFlavours[sheetProduct.name] ? 1 : 0.5 }}>
               {selectedFlavours[sheetProduct.name] ? `Add ${selectedFlavours[sheetProduct.name]} to Cart →` : "Select a Flavour First"}
             </button>
           </div>
@@ -516,7 +516,7 @@ export default function ProductGrid() {
                 <button
                   onClick={handleNotifySubmit}
                   disabled={notifySubmitting || notifyPhone.length < 10}
-                  style={{ width: "100%", padding: "13px", background: notifyPhone.length >= 10 ? "var(--orange)" : "var(--bg-3)", border: "none", borderRadius: 10, color: notifyPhone.length >= 10 ? "var(--btn-text)" : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: notifyPhone.length >= 10 ? "pointer" : "not-allowed", marginBottom: 10 }}
+                  style={{ width: "100%", padding: "13px", background: notifyPhone.length >= 10 ? "var(--green)" : "var(--bg-3)", border: "none", borderRadius: 10, color: notifyPhone.length >= 10 ? "var(--btn-text)" : "var(--muted)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: notifyPhone.length >= 10 ? "pointer" : "not-allowed", marginBottom: 10 }}
                 >
                   {notifySubmitting ? "Sending..." : "Check for Product on WhatsApp →"}
                 </button>
@@ -533,12 +533,12 @@ export default function ProductGrid() {
       {/* ── TOAST ── */}
       {toast && (
         <div onClick={() => { setToast(null); setIsOpen(true); }}
-          style={{ position: "fixed", bottom: itemCount > 0 ? 90 : 24, left: "50%", transform: "translateX(-50%)", background: "var(--bg-2)", border: "1px solid var(--orange)", borderRadius: 12, padding: "12px 18px", display: "flex", alignItems: "center", gap: 12, zIndex: 998, cursor: "pointer", boxShadow: "0 4px 24px rgba(248,193,5,0.2)", whiteSpace: "nowrap", animation: "slideUp 0.25s ease" }}>
+          style={{ position: "fixed", bottom: itemCount > 0 ? 90 : 24, left: "50%", transform: "translateX(-50%)", background: "var(--bg-2)", border: "1px solid var(--green)", borderRadius: 12, padding: "12px 18px", display: "flex", alignItems: "center", gap: 12, zIndex: 998, cursor: "pointer", boxShadow: "0 4px 24px rgba(22,163,74,0.2)", whiteSpace: "nowrap", animation: "slideUp 0.25s ease" }}>
           <div>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", color: "var(--white)" }}>Added to cart!</p>
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{toast.name} · {toast.flavour}</p>
           </div>
-          <div style={{ background: "var(--orange)", color: "var(--btn-text)", borderRadius: 8, padding: "8px 14px", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>
+          <div style={{ background: "var(--green)", color: "var(--btn-text)", borderRadius: 8, padding: "8px 14px", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>
             View Cart →
           </div>
         </div>
@@ -559,7 +559,7 @@ export default function ProductGrid() {
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{itemCount} item{itemCount !== 1 ? "s" : ""} in cart</p>
           </div>
           <button onClick={() => setIsOpen(true)}
-            style={{ padding: "12px 24px", background: "var(--orange)", border: "none", borderRadius: 10, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", flexShrink: 0 }}>
+            style={{ padding: "12px 24px", background: "var(--green)", border: "none", borderRadius: 10, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", flexShrink: 0 }}>
             Proceed to Checkout →
           </button>
         </div>

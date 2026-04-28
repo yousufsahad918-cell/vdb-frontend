@@ -51,7 +51,7 @@ export default function StickyButtons() {
           left: "-38px",
           top: "55%",
           transform: "rotate(-90deg)",
-          background: "var(--orange)",
+          background: "var(--green)",
           color: "#fff",
           fontFamily: "var(--font-display)",
           fontWeight: 700,
