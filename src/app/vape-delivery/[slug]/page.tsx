@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const loc = getLocationBySlug(params.slug);
   if (!loc) return {};
 
-  const title = `Vape in ${loc.name} – 60 Min Delivery | VapeInBangalore.in`;
-  const description = `Buy vape in ${loc.name}, Bangalore with fast 60-minute delivery. We deliver disposable vapes and pod systems to ${loc.sublocations.slice(0, 4).join(", ")} and more. Order on WhatsApp now.`;
-  const url = `https://vapeinbangalore.in/vape-delivery/${loc.slug}`;
+  const title = `Vape in ${loc.name} – 30-45 Min Delivery | VapeDeliveryBangalore.com`;
+  const description = `Buy vape in ${loc.name}, Bangalore with fast 30-45 minute delivery. We deliver disposable vapes and pod systems to ${loc.sublocations.slice(0, 4).join(", ")} and more. Order on WhatsApp now.`;
+  const url = `https://vapedeliverybangalore.com/vape-delivery/${loc.slug}`;
 
   return {
     title,
@@ -69,7 +69,7 @@ export default function LocationPage({ params }: Props) {
             "@type": "LocalBusiness",
             name: `Vape in Bangalore – ${loc.name}`,
             description: `Fast vape delivery in ${loc.name}, Bangalore`,
-            url: `https://vapeinbangalore.in/vape-delivery/${loc.slug}`,
+            url: `https://vapedeliverybangalore.com/vape-delivery/${loc.slug}`,
             telephone: "+916282878843",
             areaServed: [loc.name, ...loc.sublocations],
             address: {
@@ -95,7 +95,7 @@ export default function LocationPage({ params }: Props) {
 
           <h1>
             Vape Delivery in <em>{loc.name}</em>
-            <br />– 60 Min Delivery
+            <br />– 30-45 Min Delivery
           </h1>
 
           <p className="hero-sub">
@@ -180,7 +180,7 @@ export default function LocationPage({ params }: Props) {
             Searching for vape near {loc.name} or vape near me in {loc.name}?
             We deliver to every pocket of {loc.name} — including all the areas
             listed below. If you're anywhere in {loc.name}, we can reach you in
-            under 60 minutes.
+            under 45 minutes.
           </p>
 
           <div className="sub-tags">
@@ -212,7 +212,7 @@ export default function LocationPage({ params }: Props) {
               {
                 icon: "⚡",
                 title: `Fast Vape Delivery in ${loc.name}`,
-                desc: `60-minute delivery across ${loc.name} and all sublocations. We move fast.`,
+                desc: `30-45 minute delivery across ${loc.name} and all sublocations. We move fast.`,
               },
               {
                 icon: "🔒",
