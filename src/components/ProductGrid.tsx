@@ -381,7 +381,7 @@ export default function ProductGrid() {
 
                     {/* Name */}
                     <Link href={`/products/${product.slug}`} style={{ textDecoration: "none" }}>
-                    <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.88rem", lineHeight: 1.2, marginBottom: 6, color: "var(--white)" }}>
+                    <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.88rem", lineHeight: 1.2, marginBottom: 6, color: "var(--text)" }}>
                       {product.name}
                     </h3>
                     </Link>

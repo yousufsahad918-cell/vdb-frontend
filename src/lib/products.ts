@@ -48,7 +48,7 @@ export const products: Product[] = [
     metaTitle: "Elfbar 600 Disposable Vape — Buy in Bangalore | ₹999 | VapeInBangalore",
     metaDescription: "Buy Elfbar 600 disposable vape in Bangalore at ₹999. Perfect beginner vape, 600 puffs, 7 flavours. 45-min delivery to BTM, HSR, Koramangala & 20+ areas.",
     nicotine: "20mg Nicotine Salt",
-    inStock: true,
+    inStock: false,
   },
 
   // ── ELFBAR — HIGH PUFF ───────────────────────────────────────────────────────
@@ -165,7 +165,7 @@ export const products: Product[] = [
     metaTitle: "Elfbar BC 10000 — Buy in Bangalore | 10,000 Puffs | ₹2,199 | VapeInBangalore",
     metaDescription: "Buy Elfbar BC 10000 in Bangalore. 10,000 puffs, transparent design, mesh coil. 45-min delivery. ₹2,199.",
     nicotine: "20mg Nicotine Salt",
-    inStock: true,
+    inStock: false,
   },
   {
     name: "Elfbar Raya SOBO",
