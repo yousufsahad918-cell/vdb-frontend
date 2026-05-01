@@ -25,7 +25,7 @@ export default function ProductsPage() {
         });
         setOverrides(map);
       })
-      .catch(() => {}); // fail silently, fall back to hardcoded inStock
+      .catch(() => {});
   }, []);
 
   const filtered = products.filter(p => {

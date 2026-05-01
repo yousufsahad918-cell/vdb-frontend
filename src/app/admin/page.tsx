@@ -143,20 +143,29 @@ function ProductOverrideRow({ product, override, onSave }: {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const handleSave = async () => {
+  const handleSave = async (overrideInStock?: boolean) => {
     setSaving(true);
-    await onSave({ product_name: product.name, tag, flavours, in_stock: inStock, price, _id: override?._id });
+    const stockValue = overrideInStock !== undefined ? overrideInStock : inStock;
+    await onSave({ product_name: product.name, tag, flavours, in_stock: stockValue, price, _id: override?._id });
+    setSaving(false); setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
+
+  const handleStockToggle = async (checked: boolean) => {
+    setInStock(checked);
+    setSaving(true);
+    await onSave({ product_name: product.name, tag, flavours, in_stock: checked, price, _id: override?._id });
     setSaving(false); setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
 
   return (
-    <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: 14, marginBottom: 10 }}>
+    <div style={{ background: "var(--bg-2)", border: `1px solid ${!inStock ? "#ef444466" : "var(--border)"}`, borderRadius: 12, padding: 14, marginBottom: 10 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
         <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.9rem" }}>{product.name}</p>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.78rem", color: "var(--muted)", cursor: "pointer" }}>
-          <input type="checkbox" checked={inStock} onChange={e => setInStock(e.target.checked)} />
-          In Stock
+        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.78rem", color: inStock ? "#10b981" : "#ef4444", fontWeight: 700, cursor: "pointer" }}>
+          <input type="checkbox" checked={inStock} onChange={e => handleStockToggle(e.target.checked)} />
+          {inStock ? "In Stock" : "Out of Stock"}
         </label>
       </div>
 
@@ -194,9 +203,9 @@ function ProductOverrideRow({ product, override, onSave }: {
         </button>
       </div>
 
-      <button onClick={handleSave} disabled={saving}
+      <button onClick={() => handleSave()} disabled={saving}
         style={{ width: "100%", padding: "10px", background: saved ? "#10b981" : "var(--green)", border: "none", borderRadius: 8, color: "#fff", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", cursor: "pointer" }}>
-        {saved ? "Saved!" : saving ? "Saving..." : "Save Changes"}
+        {saved ? "Saved ✓" : saving ? "Saving..." : "Save Changes"}
       </button>
     </div>
   );
