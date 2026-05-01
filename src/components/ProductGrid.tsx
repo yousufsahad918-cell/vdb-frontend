@@ -325,7 +325,7 @@ export default function ProductGrid() {
             {filteredProducts.map((product, index) => {
               const override = getOverride(product.name);
               const flavourList = override?.flavours?.length ? override.flavours : product.flavours;
-              const isOutOfStock = override && !override.in_stock;
+              const isOutOfStock = override ? !override.in_stock : !product.inStock;
               const tag = override?.tag || product.badge || "";
               const tagStyle = TAG_COLORS[tag];
               const selectedFlavour = selectedFlavours[product.name];
