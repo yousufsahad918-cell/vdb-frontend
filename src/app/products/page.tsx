@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
@@ -13,8 +13,24 @@ export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeBrand, setActiveBrand] = useState("All");
   const [activeSub, setActiveSub] = useState("All");
+  const [overrides, setOverrides] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    fetch("/api/product-overrides")
+      .then(r => r.json())
+      .then(data => {
+        const map: Record<string, boolean> = {};
+        (data.overrides || []).forEach((o: any) => {
+          map[o.product_name] = o.in_stock !== false;
+        });
+        setOverrides(map);
+      })
+      .catch(() => {}); // fail silently, fall back to hardcoded inStock
+  }, []);
 
   const filtered = products.filter(p => {
+    const inStock = overrides[p.name] !== undefined ? overrides[p.name] : p.inStock;
+    if (!inStock) return false;
     const catMatch = activeCategory === "All" || p.category === activeCategory;
     const brandMatch = activeBrand === "All" || p.brand === activeBrand;
     const subMatch = activeSub === "All" || p.subCategory === activeSub;
@@ -43,7 +59,7 @@ export default function ProductsPage() {
           Buy Vapes & Tobacco in Bangalore
         </h1>
         <p style={{ color: "var(--muted)", fontSize: "0.88rem", marginBottom: 24 }}>
-          {products.length} products · Fast delivery across 20+ Bangalore areas
+          {filtered.length} products · Fast delivery across 20+ Bangalore areas
         </p>
 
         {/* Category filter */}
