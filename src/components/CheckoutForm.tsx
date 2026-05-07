@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 const API_URL = "/api";
 const ADMIN_PHONE = "916282878843";
+const ADMIN_CENTRAL_API = "https://web-production-92e501.up.railway.app";
 
 interface Props {
   onBack: () => void;
@@ -79,7 +80,7 @@ export default function CheckoutForm({ onBack }: Props) {
 
     setError("");
 
-    // Save to MongoDB silently in background — don't await, don't block
+    // Save to MongoDB silently in background
     fetch("/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -99,6 +100,26 @@ export default function CheckoutForm({ onBack }: Props) {
         total,
         source: "whatsapp",
       }),
+    }).then(async (res) => {
+      // ── Notify Admin Central ──────────────────────────────
+      // Fire and forget — silent fail, never blocks the user
+      fetch(`${ADMIN_CENTRAL_API}/admin/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          product: items.map(i => `${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity}`).join(", "),
+          qty: items.reduce((a, i) => a + i.quantity, 0),
+          area: finalLocation.mainLocation,
+          addr: finalLocation.sublocation,
+          amount: total,
+          pay: "WhatsApp",
+          site: "VDB .com",
+          status: "Pending",
+          source: "whatsapp",
+        }),
+      }).catch(() => {});
     }).catch(() => {}); // silent fail — WhatsApp still opens even if DB save fails
 
     const msg = buildWhatsAppMessage(
@@ -120,7 +141,7 @@ export default function CheckoutForm({ onBack }: Props) {
   const inputStyle = {
     width: "100%", padding: "12px 14px",
     background: "var(--bg-3)", border: "1px solid var(--border)",
-    borderRadius: 8, color: "var(--text)",
+    borderRadius: 8, color: "var(--white)",
     fontFamily: "var(--font-body)", fontSize: "0.95rem",
     outline: "none",
   };
@@ -227,18 +248,18 @@ export default function CheckoutForm({ onBack }: Props) {
             borderRadius: 8, marginTop: 4, padding: "10px 14px",
             fontSize: "0.82rem", color: "var(--muted)",
           }}>
-            No match found — your typed location "<strong style={{ color: "var(--text)" }}>{locationSearch}</strong>" will be used for delivery.
+            No match found — your typed location "<strong style={{ color: "var(--white)" }}>{locationSearch}</strong>" will be used for delivery.
           </div>
         )}
         {selectedLocation && (
           <div style={{
             marginTop: 8, padding: "8px 12px",
-            background: "var(--green-glow)", borderRadius: 8,
+            background: "var(--orange-glow)", borderRadius: 8,
             border: "1px solid rgba(255,92,0,0.3)",
             display: "flex", justifyContent: "space-between", alignItems: "center",
           }}>
             <div>
-              <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--green)" }}>
+              <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--orange)" }}>
                 {selectedLocation.label}
               </p>
               <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{selectedLocation.mainLocation}</p>
@@ -271,7 +292,7 @@ export default function CheckoutForm({ onBack }: Props) {
           display: "flex", justifyContent: "space-between",
         }}>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>Total</span>
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--green)", fontSize: "1.1rem" }}>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "1.1rem" }}>
             Rs.{total.toLocaleString()}
           </span>
         </div>
