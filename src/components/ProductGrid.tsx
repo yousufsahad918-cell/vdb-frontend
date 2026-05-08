@@ -1,5 +1,5 @@
-import { DEFAULT_WHATSAPP } from "@/lib/settings";
 "use client";
+import { DEFAULT_WHATSAPP } from "@/lib/settings";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
