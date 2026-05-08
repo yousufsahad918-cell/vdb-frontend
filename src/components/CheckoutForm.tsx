@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 const API_URL = "/api";
 const ADMIN_PHONE = "916282878843";
-const ADMIN_CENTRAL_API = "https://web-production-92e501.up.railway.app";
 
 interface Props {
   onBack: () => void;
@@ -103,7 +102,7 @@ export default function CheckoutForm({ onBack }: Props) {
     }).then(async (res) => {
       // ── Notify Admin Central ──────────────────────────────
       // Fire and forget — silent fail, never blocks the user
-      fetch(`${ADMIN_CENTRAL_API}/orders/new`, { keepalive: true,
+      fetch("/api/notify-admin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
