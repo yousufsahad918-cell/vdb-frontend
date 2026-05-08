@@ -6,7 +6,7 @@ import { locationOptions } from "@/lib/locationOptions";
 import { useRouter } from "next/navigation";
 
 const API_URL = "/api";
-const ADMIN_PHONE = "916282878843";
+const ADMIN_PHONE_DEFAULT = "916282878843";
 
 interface Props {
   onBack: () => void;
@@ -42,6 +42,7 @@ Please confirm my order. Thank you!`;
 export default function CheckoutForm({ onBack }: Props) {
   const { items, total, clearCart, setIsOpen } = useCart();
   const router = useRouter();
+  const [adminPhone, setAdminPhone] = useState(ADMIN_PHONE_DEFAULT);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [locationSearch, setLocationSearch] = useState("");
@@ -49,6 +50,12 @@ export default function CheckoutForm({ onBack }: Props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [error, setError] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fetch("/api/settings").then(r => r.json()).then(d => {
+      if (d.whatsapp) setAdminPhone(d.whatsapp);
+    }).catch(() => {});
+  }, []);
 
   const filteredLocations = locationOptions.filter((loc) =>
     loc.label.toLowerCase().includes(locationSearch.toLowerCase()) ||
@@ -129,7 +136,7 @@ export default function CheckoutForm({ onBack }: Props) {
       total
     );
 
-    window.open(`https://wa.me/${ADMIN_PHONE}?text=${msg}`, "_blank");
+    window.open(`https://wa.me/${adminPhone}?text=${msg}`, "_blank");
 
     // Reset — clear cart, close drawer, go home
     clearCart();
