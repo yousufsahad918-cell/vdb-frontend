@@ -1,3 +1,5 @@
+import { getWhatsAppNumber } from "@/lib/settings";
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -52,7 +54,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function LocationPage({ params }: Props) {
+export default async function LocationPage({ params }: Props) {
+  const WHATSAPP_NUMBER = await getWhatsAppNumber();
   const loc = getLocationBySlug(params.slug);
   if (!loc) notFound();
 

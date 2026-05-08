@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const WHATSAPP_NUMBER = await getWhatsAppNumber();
+
 const AREAS = [
   "BTM Layout", "HSR Layout", "Koramangala", "Indiranagar", "Whitefield",
   "Marathahalli", "Electronic City", "Jayanagar", "JP Nagar", "Hebbal",
@@ -48,7 +48,8 @@ function buildOrderMessage(productName: string, price: string, flavour: string) 
   );
 }
 
-export default function ProductPage({ params }: Props) {
+export default async function ProductPage({ params }: Props) {
+  const WHATSAPP_NUMBER = await getWhatsAppNumber();
   const product = products.find(p => p.slug === params.slug);
   if (!product) notFound();
 
