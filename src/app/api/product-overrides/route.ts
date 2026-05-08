@@ -5,10 +5,22 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
+    const mongoUrl = process.env.MONGO_URL;
+    if (!mongoUrl) {
+      return NextResponse.json({ error: "MONGO_URL not set", overrides: [] });
+    }
     const db = await getDb();
     const overrides = await db.collection("product_overrides").find({}).toArray();
-    return NextResponse.json({ overrides: overrides.map((o: any) => ({ ...o, _id: o._id.toString() })) });
-  } catch { return NextResponse.json({ error: "Failed to fetch" }, { status: 500 }); }
+    return NextResponse.json({ 
+      overrides: overrides.map((o: any) => ({ ...o, _id: o._id.toString() })),
+      count: overrides.length
+    });
+  } catch (err: any) {
+    return NextResponse.json({ 
+      error: err.message || "Failed to fetch",
+      overrides: [] 
+    }, { status: 500 });
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -22,5 +34,7 @@ export async function POST(req: NextRequest) {
       { upsert: true }
     );
     return NextResponse.json({ success: true });
-  } catch { return NextResponse.json({ error: "Failed to save" }, { status: 500 }); }
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message || "Failed to save" }, { status: 500 });
+  }
 }
