@@ -1,5 +1,5 @@
 export const SHOP_URL = "https://vapedeliverybangalore.com";
-export const WHATSAPP_NUMBER = "916282878843";
+export const WHATSAPP_NUMBER = "916282878843" // Update via Admin Central Settings;
 export const WHATSAPP_URL = "https://wa.me/916282878843?text=Hi! I want to order a vape in Bangalore.";
 
 export const locations = [

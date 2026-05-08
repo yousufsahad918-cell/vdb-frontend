@@ -1,3 +1,4 @@
+import { DEFAULT_WHATSAPP } from "@/lib/settings";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const WHATSAPP_NUMBER = "916282878843";
+const WHATSAPP_NUMBER = DEFAULT_WHATSAPP;
 const AREAS = [
   "BTM Layout", "HSR Layout", "Koramangala", "Indiranagar", "Whitefield",
   "Marathahalli", "Electronic City", "Jayanagar", "JP Nagar", "Hebbal",
