@@ -103,7 +103,7 @@ export default function CheckoutForm({ onBack }: Props) {
     }).then(async (res) => {
       // ── Notify Admin Central ──────────────────────────────
       // Fire and forget — silent fail, never blocks the user
-      fetch(`${ADMIN_CENTRAL_API}/admin/orders`, {
+      fetch(`${ADMIN_CENTRAL_API}/orders/new`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
