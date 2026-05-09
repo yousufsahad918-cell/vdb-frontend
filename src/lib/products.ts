@@ -797,7 +797,7 @@ export const products: Product[] = [
     flavourNote: "Compatible with 20mg nic salt e-liquid",
     badge: "SPECIAL EDITION",
     gradient: "linear-gradient(135deg, #f97316 0%, #b45309 100%)",
-    image: "/products/caliburn-g5-lite.png",
+    image: "/products/caliburn-g5-lite-se.png",
     flavours: ["Use with any Nic Salt E-Liquid"],
     brand: "Caliburn",
     category: "Pod Device",
