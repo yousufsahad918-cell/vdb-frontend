@@ -859,7 +859,7 @@ export const getRelatedProducts = (slug: string, limit = 3) => {
     flavours: [],
     image: "/products/caliburn-a2.png",
     badge: "New",
-    category: "pod-systems",
+    category: "Vape",
   },
   {
     name: "Caliburn G3 Pro",
@@ -873,7 +873,7 @@ export const getRelatedProducts = (slug: string, limit = 3) => {
     flavours: [],
     image: "/products/caliburn-g3-pro.png",
     badge: "New",
-    category: "pod-systems",
+    category: "Vape",
   },
   {
     name: "Caliburn GK2",
@@ -887,7 +887,7 @@ export const getRelatedProducts = (slug: string, limit = 3) => {
     flavours: [],
     image: "/products/caliburn-gk2.png",
     badge: "New",
-    category: "pod-systems",
+    category: "Vape",
   },
   {
     name: "Caliburn Xpod",
@@ -901,7 +901,7 @@ export const getRelatedProducts = (slug: string, limit = 3) => {
     flavours: [],
     image: "/products/caliburn-xpod.png",
     badge: "New",
-    category: "pod-systems",
+    category: "Vape",
   },
 ];
   return products
