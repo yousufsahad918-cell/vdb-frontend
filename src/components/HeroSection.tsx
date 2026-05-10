@@ -8,11 +8,11 @@ const WA_BASE = "https://wa.me/";
 const WA_MSG = "?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
 
 const SLIDES = [
-  { src: "/hero-delivery.png", alt: "Vape Delivery Bangalore" },
+  { src: "/hero-original.png", alt: "Vape Delivery Bangalore 30-45 Mins" },
+  { src: "/hero-fakeweb.png", alt: "Stop Falling for Fake Websites" },
   { src: "/hero-elfbar.png", alt: "Elfbar Official Supplier Bangalore" },
   { src: "/hero-reusable.png", alt: "Reusable Vapes in Bangalore" },
   { src: "/hero-zyn.png", alt: "ZYN Nicotine Pouches Bangalore" },
-  { src: "/hero-fakeweb.png", alt: "Stop Falling for Fake Websites" },
 ];
 
 export default function HeroSection() {
