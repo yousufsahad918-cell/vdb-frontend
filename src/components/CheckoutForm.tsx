@@ -147,14 +147,14 @@ export default function CheckoutForm({ onBack }: Props) {
   const inputStyle = {
     width: "100%", padding: "12px 14px",
     background: "var(--bg-3)", border: "1px solid var(--border)",
-    borderRadius: 8, color: "var(--white)",
+    borderRadius: 8, color: "var(--text)",
     fontFamily: "var(--font-body)", fontSize: "0.95rem",
     outline: "none",
   };
 
   const labelStyle = {
     fontSize: "0.82rem", fontWeight: 600,
-    color: "var(--muted)", marginBottom: 6, display: "block",
+    color: "var(--text)", marginBottom: 6, display: "block", fontWeight: 600,
     fontFamily: "var(--font-display)", letterSpacing: "0.04em",
     textTransform: "uppercase" as const,
   };
@@ -164,7 +164,7 @@ export default function CheckoutForm({ onBack }: Props) {
       <button
         onClick={onBack}
         style={{
-          background: "none", border: "none", color: "var(--muted)",
+          background: "none", border: "none", color: "var(--text)",
           cursor: "pointer", fontFamily: "var(--font-display)",
           fontSize: "0.85rem", textAlign: "left", padding: 0,
         }}
@@ -272,7 +272,7 @@ export default function CheckoutForm({ onBack }: Props) {
             </div>
             <button
               onClick={() => setSelectedLocation(null)}
-              style={{ background: "none", border: "none", color: "var(--muted)", cursor: "pointer" }}
+              style={{ background: "none", border: "none", color: "var(--text)", cursor: "pointer" }}
             >✕</button>
           </div>
         )}
