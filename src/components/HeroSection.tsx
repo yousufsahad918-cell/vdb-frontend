@@ -52,7 +52,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div style={{ background: "var(--bg)" }}>
+    <div style={{ background: "#fff" }}>
       <div style={{ position: "relative", minHeight: showImage ? 0 : "auto" }}>
 
         {/* Text — shows first 4s */}
@@ -70,13 +70,13 @@ export default function HeroSection() {
             fontFamily: "var(--font-display)",
             fontSize: "clamp(1.7rem, 5vw, 2.8rem)",
             fontWeight: 900, lineHeight: 1.1,
-            marginBottom: 10, color: "var(--white)",
+            marginBottom: 10, color: "#0a0a0a",
           }}>
             Buy Vape in <em style={{ color: "var(--orange)", fontStyle: "italic" }}>Bangalore</em>
             <br />30-45 Min Delivery
           </h1>
           <p style={{
-            fontSize: "0.88rem", color: "var(--muted)",
+            fontSize: "0.88rem", color: "#333",
             maxWidth: 480, margin: "0 auto 20px", lineHeight: 1.5,
           }}>
             Disposable vapes, pod systems & e-liquids — discreet delivery to BTM,
