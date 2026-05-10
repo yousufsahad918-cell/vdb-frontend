@@ -99,7 +99,7 @@ export default function HeroSection() {
         {/* Carousel */}
         {showImage && (
           <div style={{ animation: "fadeIn 0.6s ease forwards" }}>
-            <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", overflow: "hidden" }}>
+            <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", overflow: "hidden", background: "#000" }}>
               {SLIDES.map((slide, i) => (
                 <div key={i} style={{
                   position: "absolute", inset: 0,
@@ -110,7 +110,7 @@ export default function HeroSection() {
                     src={slide.src}
                     alt={slide.alt}
                     fill
-                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    style={{ objectFit: "contain", objectPosition: "center" }}
                     priority={i === 0}
                     sizes="100vw"
                   />
@@ -149,8 +149,8 @@ export default function HeroSection() {
                 Order on WhatsApp
               </a>
               <button onClick={scrollToProducts} style={{
-                background: "var(--bg-2)", border: "1px solid var(--border)",
-                color: "var(--white)", padding: "12px 20px", borderRadius: 10,
+                background: "#1a1a1a", border: "1px solid #333",
+                color: "#fff", padding: "12px 20px", borderRadius: 10,
                 fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem",
                 cursor: "pointer",
               }}>
