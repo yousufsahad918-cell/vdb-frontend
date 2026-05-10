@@ -154,7 +154,7 @@ export default function CheckoutForm({ onBack }: Props) {
 
   const labelStyle = {
     fontSize: "0.82rem", fontWeight: 600,
-    color: "var(--text)", marginBottom: 6, display: "block", fontWeight: 600,
+    color: "var(--text)", marginBottom: 6, display: "block",
     fontFamily: "var(--font-display)", letterSpacing: "0.04em",
     textTransform: "uppercase" as const,
   };
