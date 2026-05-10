@@ -373,7 +373,7 @@ export const products: Product[] = [
     flavourNote: "Intense icy peppermint — long lasting",
     badge: "SMOKE-FREE",
     gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-    image: "/products/zyn-velo.png",
+    image: "/products/velo-freezing-peppermint.png",
     flavours: ["Freezing Peppermint"],
     brand: "Velo",
     category: "Nicotine Pouches",
