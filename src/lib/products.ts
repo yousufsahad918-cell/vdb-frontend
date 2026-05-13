@@ -289,6 +289,31 @@ export const products: Product[] = [
     inStock: true,
   },
 
+
+  // ── YUOTO THANOS ─────────────────────────────────────────────────────────────
+  {
+    name: "Yuoto Thanos",
+    slug: "yuoto-thanos",
+    puffs: "5,000 Puffs",
+    price: "₹1,699",
+    originalPrice: "₹2,000",
+    discount: "15% OFF",
+    description: "5,000 Puffs · Mint Ice · Compact Design",
+    longDescription: "The Yuoto Thanos is a powerful 5,000 puff disposable vape available for delivery in Bangalore. Compact yet powerful, the Thanos delivers smooth mint ice hits with consistent flavour throughout. A great value option for vapers who want a reliable mid-range disposable without breaking the bank.",
+    flavourNote: "Refreshing mint with smooth icy finish",
+    badge: "NEW",
+    gradient: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+    image: "/products/yuoto-thanos.png",
+    flavours: ["Mint Ice", "Watermelon Ice", "Blueberry Ice", "Mango Ice", "Grape Ice"],
+    brand: "Yuoto",
+    category: "Vape",
+    subCategory: "Mid Range",
+    features: ["5,000 Puffs", "Compact Design", "Type-C Rechargeable", "20mg Nicotine Salt", "Draw Activated", "Multiple Flavours"],
+    metaTitle: "Yuoto Thanos — Buy in Bangalore | 5,000 Puffs | ₹1,699 | VapeDeliveryBangalore",
+    metaDescription: "Buy Yuoto Thanos in Bangalore. 5,000 puffs, mint ice, compact design. 45-min delivery. ₹1,699.",
+    nicotine: "20mg Nicotine Salt",
+    inStock: true,
+  },
   // ── POD SALT ─────────────────────────────────────────────────────────────────
   {
     name: "Pod Salt Hit The Spot",
