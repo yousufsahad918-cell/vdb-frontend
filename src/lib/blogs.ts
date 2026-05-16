@@ -521,10 +521,10 @@ ${CTA(true)}
 <h3>Elfbar BC 10000 — ₹2,199</h3>
 <p>Elegant transparent design showing e-liquid level. 10,000 puffs, mesh coil, 8 flavours. Popular in south Bangalore — BTM, Jayanagar, JP Nagar.</p>
 
-<h3>Elfbar Raya SOBO — ₹2,849</h3>
+<h3>Elfbar Raya SOBO — ₹3,199</h3>
 <p>The most advanced Elfbar in Bangalore. 40,000 puffs, interactive game display, 1100mAh battery lasting up to 5 days. The gold-etched design is as premium as it performs.</p>
 
-<h3>Elfbar MoonNight 40K — ₹2,899</h3>
+<h3>Elfbar MoonNight 40K — ₹2,999</h3>
 <p>40,000 puffs with an animated moon display and the unique Coffee flavour. The most visually striking Elfbar we stock — a statement device for Bangalore vapers.</p>
 
 <h3>Elfliq Nic Salts — ₹1,599</h3>
@@ -693,7 +693,7 @@ ${CTA(true)}
 <p>If you're concerned about the D3 Pro issue, here are equally powerful alternatives we recommend:</p>
 <ul>
   <li><strong>Elfbar Raya D3</strong> (₹2,799) — 25,000 puffs, triple mesh, no reported raising issues</li>
-  <li><strong>Elfbar Raya SOBO</strong> (₹2,849) — 40,000 puffs, most advanced Elfbar available</li>
+  <li><strong>Elfbar Raya SOBO</strong> (₹3,199) — 40,000 puffs, most advanced Elfbar available</li>
   <li><strong>Nasty Bolt WTF 50K</strong> (₹2,999) — 50,000 puffs, dual screen, most powerful in Bangalore</li>
   <li><strong>Lost Mary MT35000 Turbo</strong> (₹2,799) — 35,000 puffs, turbo mode, highly reliable</li>
 </ul>
@@ -994,7 +994,7 @@ ${CTA(true)}
     <td style="padding: 8px; border: 1px solid #d1e8d8;">Elfbar Trio</td>
     <td style="padding: 8px; border: 1px solid #d1e8d8;">40,000</td>
     <td style="padding: 8px; border: 1px solid #d1e8d8;">12,000-18,000 effective</td>
-    <td style="padding: 8px; border: 1px solid #d1e8d8;">₹2,849</td>
+    <td style="padding: 8px; border: 1px solid #d1e8d8;">₹3,199</td>
   </tr>
   <tr style="background: #f0faf3;">
     <td style="padding: 8px; border: 1px solid #d1e8d8;">Raya D1</td>
@@ -1004,7 +1004,7 @@ ${CTA(true)}
   </tr>
 </table>
 
-<p>So in real-world Bangalore use, the Raya D1 at ₹2,199 often provides comparable value — or better value — than the Trio at ₹2,849.</p>
+<p>So in real-world Bangalore use, the Raya D1 at ₹2,199 often provides comparable value — or better value — than the Trio at ₹3,199.</p>
 
 <h2>So Should You Buy the Trio?</h2>
 <p>Yes — but for the right reasons. Buy the Trio if:</p>
@@ -1017,7 +1017,7 @@ ${CTA(true)}
 <p>Don't buy the Trio expecting it to last 3x longer than the Raya D1. It won't. Buy the Raya D1 if longevity per rupee is your priority.</p>
 
 <h2>Our Recommendation for Bangalore Vapers</h2>
-<p>For pure value — <strong>Raya D1 at ₹2,199</strong>. For the multi-flavour experience — <strong>Trio at ₹2,849</strong>. Both are excellent devices. Just go in with accurate expectations.</p>
+<p>For pure value — <strong>Raya D1 at ₹2,199</strong>. For the multi-flavour experience — <strong>Trio at ₹3,199</strong>. Both are excellent devices. Just go in with accurate expectations.</p>
 
 ${CTA()}`,
   },
