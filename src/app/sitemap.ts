@@ -4,7 +4,7 @@ import { blogPosts } from "@/lib/blogs";
 import { products } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://vapeinbangalore.in";
+  const base = "https://vapedeliverybangalore.com";
 
   const locationPages = locations.map(loc => ({
     url: `${base}/vape-delivery/${loc.slug}`,
