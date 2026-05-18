@@ -1,30 +1,201 @@
-export const SHOP_URL = "https://vapedeliverybangalore.com";
-export const WHATSAPP_NUMBER = "916282878843" // Update via Admin Central Settings;
-export const WHATSAPP_URL = "https://wa.me/916282878843?text=Hi! I want to order a vape in Bangalore.";
+export interface Location {
+  name: string;
+  slug: string;
+  sublocations: string[];
+  localNote: string;
+}
 
-export const locations = [
-  { slug: "btm-layout", name: "BTM Layout", sublocations: ["BTM 1st Stage","BTM 2nd Stage","Madiwala","Gottigere"], localNote: "We deliver to all of BTM Layout including BTM 1st Stage, 2nd Stage, Madiwala and surrounding areas.", metaTitle: "Vape Delivery BTM Layout Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in BTM Layout, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across BTM Layout, Bangalore." },
-  { slug: "hsr-layout", name: "HSR Layout", sublocations: ["Sector 1","Sector 2","Sector 3","Sector 4","Sector 5","Sector 6","Sector 7"], localNote: "We deliver across all 7 sectors of HSR Layout. Average 30 minutes.", metaTitle: "Vape Delivery HSR Layout Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in HSR Layout, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across HSR Layout, Bangalore." },
-  { slug: "koramangala", name: "Koramangala", sublocations: ["1st Block","2nd Block","3rd Block","4th Block","5th Block","6th Block","7th Block","8th Block"], localNote: "We cover all 8 blocks of Koramangala. One of our highest demand areas.", metaTitle: "Vape Delivery Koramangala Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Koramangala, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Koramangala, Bangalore." },
-  { slug: "indiranagar", name: "Indiranagar", sublocations: ["100 Feet Road","CMH Road","12th Main","HAL 2nd Stage"], localNote: "Delivering to 100 Feet Road, CMH Road, 12th Main and all of Indiranagar.", metaTitle: "Vape Delivery Indiranagar Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Indiranagar, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Indiranagar, Bangalore." },
-  { slug: "whitefield", name: "Whitefield", sublocations: ["ITPL","Varthur","Kadugodi","Hope Farm"], localNote: "We deliver across Whitefield including ITPL, Varthur Road, Kadugodi and Hope Farm.", metaTitle: "Vape Delivery Whitefield Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Whitefield, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Whitefield, Bangalore." },
-  { slug: "marathahalli", name: "Marathahalli", sublocations: ["ORR","Spice Garden","Doddanekundi","Kundalahalli"], localNote: "Covering Marathahalli Bridge, ORR, Spice Garden and Doddanekundi.", metaTitle: "Vape Delivery Marathahalli Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Marathahalli, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Marathahalli, Bangalore." },
-  { slug: "electronic-city", name: "Electronic City", sublocations: ["Phase 1","Phase 2","Neeladri Road","Hebbagodi"], localNote: "Delivering to Electronic City Phase 1 and Phase 2, Neeladri Road and Hebbagodi.", metaTitle: "Vape Delivery Electronic City Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Electronic City, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Electronic City, Bangalore." },
-  { slug: "jayanagar", name: "Jayanagar", sublocations: ["1st Block","3rd Block","4th Block","9th Block"], localNote: "We deliver across all blocks of Jayanagar including the shopping complex area.", metaTitle: "Vape Delivery Jayanagar Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Jayanagar, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Jayanagar, Bangalore." },
-  { slug: "jp-nagar", name: "JP Nagar", sublocations: ["Phase 1","Phase 2","Phase 3","Phase 4","Phase 5","Phase 6"], localNote: "Covering all phases of JP Nagar. Fast 30-45 min delivery.", metaTitle: "Vape Delivery JP Nagar Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in JP Nagar, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across JP Nagar, Bangalore." },
-  { slug: "hebbal", name: "Hebbal", sublocations: ["Manyata Tech Park","Nagawara","RT Nagar","Thanisandra"], localNote: "Delivering to Hebbal, Manyata Tech Park, Nagawara and RT Nagar.", metaTitle: "Vape Delivery Hebbal Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Hebbal, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Hebbal, Bangalore." },
-  { slug: "yelahanka", name: "Yelahanka", sublocations: ["Yelahanka New Town","Yelahanka Old Town","Kogilu","Bagalur Road"], localNote: "We cover Yelahanka New Town, Old Town, Kogilu and Bagalur Road.", metaTitle: "Vape Delivery Yelahanka Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Yelahanka, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Yelahanka, Bangalore." },
-  { slug: "rajajinagar", name: "Rajajinagar", sublocations: ["1st Block","2nd Block","3rd Block","4th Block","5th Block"], localNote: "Delivering across all blocks of Rajajinagar. Fast 30-45 min service.", metaTitle: "Vape Delivery Rajajinagar Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Rajajinagar, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Rajajinagar, Bangalore." },
-  { slug: "malleshwaram", name: "Malleshwaram", sublocations: ["8th Cross","11th Cross","Margosa Road","Sampige Road"], localNote: "Covering all of Malleshwaram including 8th Cross, 11th Cross and Margosa Road.", metaTitle: "Vape Delivery Malleshwaram Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Malleshwaram, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Malleshwaram, Bangalore." },
-  { slug: "banashankari", name: "Banashankari", sublocations: ["1st Stage","2nd Stage","3rd Stage","4th Stage","5th Stage","6th Stage"], localNote: "We deliver to all stages of Banashankari. Fast discreet delivery.", metaTitle: "Vape Delivery Banashankari Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Banashankari, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Banashankari, Bangalore." },
-  { slug: "bellandur", name: "Bellandur", sublocations: ["Sarjapur Road","ORR","Kadubeesanahalli","Iblur"], localNote: "Covering Bellandur, Kadubeesanahalli, Iblur junction and ORR areas.", metaTitle: "Vape Delivery Bellandur Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Bellandur, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Bellandur, Bangalore." },
-  { slug: "sarjapur-road", name: "Sarjapur Road", sublocations: ["Carmelram","Halanayakanahalli","Ambalipura","Dommasandra"], localNote: "Delivering along Sarjapur Road from Carmelram to Dommasandra.", metaTitle: "Vape Delivery Sarjapur Road Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Sarjapur Road, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Sarjapur Road, Bangalore." },
-  { slug: "mg-road", name: "MG Road", sublocations: ["Brigade Road","Church Street","Residency Road","UB City"], localNote: "Delivering to MG Road, Brigade Road, Church Street and UB City area.", metaTitle: "Vape Delivery MG Road Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in MG Road, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across MG Road, Bangalore." },
-  { slug: "kr-puram", name: "KR Puram", sublocations: ["Banaswadi","Ramamurthy Nagar","Hoodi","ITPL Road"], localNote: "Covering KR Puram, Banaswadi, Ramamurthy Nagar and ITPL Road.", metaTitle: "Vape Delivery KR Puram Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in KR Puram, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across KR Puram, Bangalore." },
-  { slug: "hoodi", name: "Hoodi", sublocations: ["Hoodi Circle","Whitefield Road","Garudacharpalya","Mahadevapura"], localNote: "Delivering to Hoodi Circle, Garudacharpalya and Mahadevapura.", metaTitle: "Vape Delivery Hoodi Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Hoodi, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Hoodi, Bangalore." },
-  { slug: "hennur", name: "Hennur", sublocations: ["Hennur Road","Banaswadi","Kalyan Nagar","HBR Layout"], localNote: "Covering Hennur Road, Kalyan Nagar, HBR Layout and Banaswadi.", metaTitle: "Vape Delivery Hennur Bangalore | 30-45 Min | VapeDeliveryBangalore", metaDescription: "Buy vape online in Hennur, Bangalore. 30-45 min delivery. Order on WhatsApp.", description: "Fast vape delivery across Hennur, Bangalore." }
+export const locations: Location[] = [
+  {
+    name: "BTM Layout",
+    slug: "btm-layout",
+    sublocations: ["BTM 1st Stage", "BTM 2nd Stage", "BTM 3rd Stage", "Madiwala", "Tavarekere", "Udupi Garden"],
+    localNote: "BTM Layout is one of Bangalore's most densely populated residential zones — we cover every stage and corner.",
+  },
+  {
+    name: "HSR Layout",
+    slug: "hsr-layout",
+    sublocations: ["Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6", "Sector 7", "Agara", "Kudlu Gate"],
+    localNote: "HSR Layout's grid layout makes navigation easy — our riders know every sector.",
+  },
+  {
+    name: "Koramangala",
+    slug: "koramangala",
+    sublocations: ["1st Block", "2nd Block", "3rd Block", "4th Block", "5th Block", "6th Block", "7th Block", "8th Block", "ST Bed", "Ejipura"],
+    localNote: "Koramangala is Bangalore's startup hub — fast delivery for the city's busiest professionals.",
+  },
+  {
+    name: "Indiranagar",
+    slug: "indiranagar",
+    sublocations: ["HAL 1st Stage", "HAL 2nd Stage", "Domlur", "Old Airport Road", "Kodihalli", "Defence Colony"],
+    localNote: "Indiranagar's buzzing café and bar culture makes us a natural fit — discreet delivery to your doorstep.",
+  },
+  {
+    name: "Whitefield",
+    slug: "whitefield",
+    sublocations: ["ITPL", "Brookefield", "AECS Layout", "Kundalahalli", "Hope Farm", "Kadugodi", "Varthur", "Marathahalli"],
+    localNote: "Whitefield's tech parks and residential pockets are fully covered — office or apartment, we reach you.",
+  },
+  {
+    name: "Electronic City",
+    slug: "electronic-city",
+    sublocations: ["Phase 1", "Phase 2", "Doddathogur", "Neeladri Nagar", "Huskur", "Bommasandra"],
+    localNote: "Electronic City's massive IT corridor keeps us busy — rapid delivery across both phases.",
+  },
+  {
+    name: "Marathahalli",
+    slug: "marathahalli",
+    sublocations: ["Bridge Area", "Kalamandir", "Munnekollal", "Tulasi Theatre Road"],
+    localNote: "Marathahalli's prime location between IT hubs means we're never far from you.",
+  },
+  {
+    name: "Bellandur",
+    slug: "bellandur",
+    sublocations: ["Yemalur", "Devarabisanahalli", "Kariyammana Agrahara"],
+    localNote: "Bellandur's growing residential and tech community gets priority delivery from us.",
+  },
+  {
+    name: "Sarjapur Road",
+    slug: "sarjapur-road",
+    sublocations: ["Kaikondrahalli", "Kasavanahalli", "Harlur", "Ambalipura", "Carmelaram"],
+    localNote: "Sarjapur Road's rapid development means new neighbourhoods — all of them on our delivery map.",
+  },
+  {
+    name: "Yelahanka",
+    slug: "yelahanka",
+    sublocations: ["New Town", "Old Town", "Attur", "Kogilu", "Vidyaranyapura"],
+    localNote: "Yelahanka's calm residential feel paired with our fast service is the perfect combo.",
+  },
+  {
+    name: "Hebbal",
+    slug: "hebbal",
+    sublocations: ["RT Nagar", "Nagawara", "Manyata Tech Park Area", "Kempapura"],
+    localNote: "Hebbal is Bangalore's northern gateway — Manyata Tech Park to RT Nagar, we've got you.",
+  },
+  {
+    name: "Jayanagar",
+    slug: "jayanagar",
+    sublocations: ["1st Block", "2nd Block", "3rd Block", "4th Block", "5th Block", "6th Block", "7th Block", "8th Block", "9th Block"],
+    localNote: "Jayanagar's classic Bangalore charm meets modern convenience — quick vape delivery, every block.",
+  },
+  {
+    name: "JP Nagar",
+    slug: "jp-nagar",
+    sublocations: ["Phase 1", "Phase 2", "Phase 3", "Phase 4", "Phase 5", "Phase 6", "Phase 7", "Phase 8"],
+    localNote: "JP Nagar's eight phases are all within our delivery radius — no phase left behind.",
+  },
+  {
+    name: "Banashankari",
+    slug: "banashankari",
+    sublocations: ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Kathriguppe"],
+    localNote: "Banashankari's well-planned layout makes our deliveries smooth and on-time, every time.",
+  },
+  {
+    name: "Rajajinagar",
+    slug: "rajajinagar",
+    sublocations: ["1st Block", "2nd Block", "3rd Block", "4th Block", "5th Block", "6th Block"],
+    localNote: "Rajajinagar is one of West Bangalore's most connected areas — our riders know every block.",
+  },
+  {
+    name: "Malleshwaram",
+    slug: "malleshwaram",
+    sublocations: ["8th Cross", "Sampige Road", "Vyalikaval"],
+    localNote: "Malleshwaram's heritage streets get modern convenience — discreet and fast delivery.",
+  },
+  {
+    name: "MG Road",
+    slug: "mg-road",
+    sublocations: ["Brigade Road", "Church Street", "Residency Road", "Richmond Town", "Shanti Nagar"],
+    localNote: "Central Bangalore's most premium corridor — we deliver to the heart of the city.",
+  },
+  {
+    name: "KR Puram",
+    slug: "kr-puram",
+    sublocations: ["TC Palya", "Ramamurthy Nagar", "A Narayanapura"],
+    localNote: "KR Puram's east Bangalore connectivity means fast routes and on-time delivery.",
+  },
+  {
+    name: "Hoodi",
+    slug: "hoodi",
+    sublocations: ["Hoodi Circle", "Garudachar Palya"],
+    localNote: "Hoodi's growing IT and residential mix is squarely in our delivery zone.",
+  },
+
+  {
+    name: "The Leela Palace Bangalore",
+    slug: "leela-palace-bangalore",
+    sublocations: ["Old Airport Road", "HAL Area", "Kodihalli", "Indiranagar", "Domlur"],
+    localNote: "Staying at The Leela Palace? We deliver premium vapes discreetly to your room or lobby in 30-45 minutes.",
+  },
+  {
+    name: "ITC Gardenia Bangalore",
+    slug: "itc-gardenia-bangalore",
+    sublocations: ["Residency Road", "Richmond Circle", "MG Road", "Brigade Road", "Richmond Town"],
+    localNote: "ITC Gardenia guests enjoy fast discreet vape delivery — straight to your room in under 45 minutes.",
+  },
+  {
+    name: "Taj West End Bangalore",
+    slug: "taj-west-end-bangalore",
+    sublocations: ["Race Course Road", "Sadashivanagar", "Rajajinagar", "Malleswaram", "Seshadripuram"],
+    localNote: "Near Taj West End? We deliver to your hotel or nearby location with full discretion guaranteed.",
+  },
+  {
+    name: "JW Marriott Bangalore",
+    slug: "jw-marriott-bangalore",
+    sublocations: ["Vittal Mallya Road", "MG Road", "Brigade Road", "Lavelle Road", "Richmond Town"],
+    localNote: "JW Marriott guests — order on WhatsApp and receive your vapes within 30-45 minutes, discreetly packaged.",
+  },
+  {
+    name: "Oberoi Hotel Bangalore",
+    slug: "oberoi-hotel-bangalore",
+    sublocations: ["MG Road", "Brigade Road", "Lavelle Road", "Residency Road", "St Marks Road"],
+    localNote: "The Oberoi Bangalore area is fully covered — fast delivery, sealed packaging, 100% original products.",
+  },
+  {
+    name: "Conrad Bangalore",
+    slug: "conrad-bangalore",
+    sublocations: ["Vittal Mallya Road", "MG Road", "UB City", "Lavelle Road", "Richmond Town"],
+    localNote: "Conrad Bangalore guests — get premium vapes delivered to your room in under 45 minutes.",
+  },
+  {
+    name: "Hyatt Regency Bangalore",
+    slug: "hyatt-regency-bangalore",
+    sublocations: ["Old Airport Road", "HAL 2nd Stage", "Kodihalli", "Domlur", "Indiranagar"],
+    localNote: "Hyatt Regency Bangalore — we cover your area with 30-45 min delivery and discreet packaging.",
+  },
+  {
+    name: "Sheraton Grand Bangalore",
+    slug: "sheraton-grand-bangalore",
+    sublocations: ["Brigade Gateway", "Rajajinagar", "Malleswaram", "Yeshwanthpur", "Seshadripuram"],
+    localNote: "Sheraton Grand at Brigade Gateway — fast vape delivery to your hotel or nearby address.",
+  },
+  {
+    name: "St Regis Bangalore",
+    slug: "st-regis-bangalore",
+    sublocations: ["Residency Road", "Richmond Circle", "MG Road", "Lavelle Road", "Brigade Road"],
+    localNote: "St Regis Bangalore guests — premium vapes delivered discreetly within 30-45 minutes.",
+  },
+  {
+    name: "Four Seasons Bangalore",
+    slug: "four-seasons-bangalore",
+    sublocations: ["Yellahanka", "Hebbal", "Thanisandra", "Kogilu", "Jakkur"],
+    localNote: "Four Seasons Bangalore — we deliver to your hotel with complete discretion and 100% original products.",
+  },
+
+  {
+    name: "Hennur",
+    slug: "hennur",
+    sublocations: ["Kalyan Nagar", "HRBR Layout", "Banaswadi"],
+    localNote: "Hennur and its surrounding layouts are fully covered — Kalyan Nagar, HRBR, Banaswadi, all of it.",
+  },
 ];
 
-export function getLocationBySlug(slug: string) {
-  return locations.find(l => l.slug === slug) || null;
+export function getLocationBySlug(slug: string): Location | undefined {
+  return locations.find((l) => l.slug === slug);
 }
+
+export const WHATSAPP_URL =
+  "https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
+
+export const SHOP_URL =
+  "/#products";
