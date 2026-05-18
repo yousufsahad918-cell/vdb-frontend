@@ -527,7 +527,7 @@ ${CTA(true)}
 <h3>Elfbar MoonNight 40K — ₹2,999</h3>
 <p>40,000 puffs with an animated moon display and the unique Coffee flavour. The most visually striking Elfbar we stock — a statement device for Bangalore vapers.</p>
 
-<h3>Elfliq Nic Salts — ₹1,599</h3>
+<h3>Elfliq Nic Salts — ₹1,899</h3>
 <p>Official Elfbar refill e-liquid. 30mg/ml nicotine salt, 10ml bottles. Taro Ice Cream and more — for pod system users looking for that authentic Elfbar flavour.</p>
 
 ${CTA(true)}
@@ -582,10 +582,10 @@ ${CTA(true)}
 ${CTA(true)}
 
 <h2>Caliburn vs Disposables — Which is Better in Bangalore?</h2>
-<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,599 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
+<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,899 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
 
 <h2>What E-Liquid Works with Caliburn?</h2>
-<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,599) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
+<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,899) and Elfliq Nic Salts (₹1,899) — both available with your Caliburn delivery in Bangalore.</p>
 
 ${CTA()}`,
   },
@@ -842,7 +842,7 @@ ${CTA(true)}
 <h3>Elfbar Raya D1 — ₹2,199</h3>
 <p>Most popular choice for ex-smokers in Bangalore. The 20mg nicotine salt delivers a satisfying hit that closely mirrors cigarettes. Compact enough to hold like a cigarette. 13,000 puffs means you won't be running out every day.</p>
 
-<h3>Pod Salt Core Nic Salt — ₹1,599</h3>
+<h3>Pod Salt Core Nic Salt — ₹1,899</h3>
 <p>If you already have a pod device or want to try refillable vaping, Pod Salt Core is the go-to e-liquid for ex-smokers. Available in tobacco flavour for the most familiar experience.</p>
 
 <h3>Caliburn G3 Lite — ₹3,899</h3>
