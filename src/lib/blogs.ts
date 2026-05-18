@@ -521,13 +521,13 @@ ${CTA(true)}
 <h3>Elfbar BC 10000 — ₹2,199</h3>
 <p>Elegant transparent design showing e-liquid level. 10,000 puffs, mesh coil, 8 flavours. Popular in south Bangalore — BTM, Jayanagar, JP Nagar.</p>
 
-<h3>Elfbar Raya SOBO — ₹3,199</h3>
+<h3>Elfbar Raya SOBO — ₹2,849</h3>
 <p>The most advanced Elfbar in Bangalore. 40,000 puffs, interactive game display, 1100mAh battery lasting up to 5 days. The gold-etched design is as premium as it performs.</p>
 
 <h3>Elfbar MoonNight 40K — ₹2,999</h3>
 <p>40,000 puffs with an animated moon display and the unique Coffee flavour. The most visually striking Elfbar we stock — a statement device for Bangalore vapers.</p>
 
-<h3>Elfliq Nic Salts — ₹1,899</h3>
+<h3>Elfliq Nic Salts — ₹1,599</h3>
 <p>Official Elfbar refill e-liquid. 30mg/ml nicotine salt, 10ml bottles. Taro Ice Cream and more — for pod system users looking for that authentic Elfbar flavour.</p>
 
 ${CTA(true)}
@@ -582,10 +582,10 @@ ${CTA(true)}
 ${CTA(true)}
 
 <h2>Caliburn vs Disposables — Which is Better in Bangalore?</h2>
-<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,899 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
+<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,599 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
 
 <h2>What E-Liquid Works with Caliburn?</h2>
-<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,899) and Elfliq Nic Salts (₹1,899) — both available with your Caliburn delivery in Bangalore.</p>
+<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,599) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
 
 ${CTA()}`,
   },
