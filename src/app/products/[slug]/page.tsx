@@ -44,7 +44,7 @@ const AREAS = [
 
 function buildOrderMessage(productName: string, price: string, flavour: string) {
   return encodeURIComponent(
-    `Hi! I want to order:\n\n*${productName}*\nFlavour: ${flavour}\nPrice: ${price}\n\nPlease confirm availability and delivery to my location.`
+    `Hi VapeDeliveryBangalore, I want to order:\n\n*${productName}*\nFlavour: ${flavour}\nPrice: ${price}\n\nPlease confirm availability and delivery to my location.`
   );
 }
 
@@ -357,7 +357,7 @@ export default async function ProductPage({ params }: Props) {
               { label: "🛍 All Products — Vapes, Pods & Tobacco", href: "/#products" },
               { label: "⚡ Disposable Vapes in Bangalore", href: "/#products" },
               { label: "🔄 Reusable Pod Devices", href: "/#products" },
-              { label: "📦 Order on WhatsApp — 30-45 Min Delivery", href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi! I want to order a vape in Bangalore.` },
+              { label: "📦 Order on WhatsApp — 30-45 Min Delivery", href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi VapeDeliveryBangalore, I want to order a vape in Bangalore.` },
               { label: "📝 Vape Delivery Blog & Guides", href: "/blog" },
             ].map(link => (
               <Link

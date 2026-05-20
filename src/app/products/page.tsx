@@ -117,7 +117,7 @@ export default function ProductsPage() {
       {/* Sticky WhatsApp order button */}
       <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "12px 20px", background: "var(--bg-2)", borderTop: "1px solid var(--border)", zIndex: 100 }}>
         <a
-          href="https://wa.me/916282878843?text=Hi! I want to order a vape in Bangalore."
+          href="https://wa.me/916282878843?text=Hi VapeDeliveryBangalore, I want to order a vape in Bangalore."
           target="_blank" rel="noopener noreferrer"
           style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#25d366", color: "#fff", padding: "13px", borderRadius: 10, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}
         >
