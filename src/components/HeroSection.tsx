@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const FALLBACK = "916282878843";
 const WA_BASE = "https://wa.me/";
-const WA_MSG = "?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
+const WA_MSG = "?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 const SLIDES = [
   { src: "/hero-original.webp", alt: "Vape Delivery Bangalore 30-45 Mins" },

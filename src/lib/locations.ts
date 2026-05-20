@@ -195,7 +195,7 @@ export function getLocationBySlug(slug: string): Location | undefined {
 }
 
 export const WHATSAPP_URL =
-  "https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
+  "https://wa.me/916282878843?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 export const SHOP_URL =
   "/#products";

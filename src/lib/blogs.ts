@@ -11,7 +11,7 @@ export interface BlogPost {
   relatedLocations: { name: string; slug: string }[];
 }
 
-const WA_LINK = `https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20a%20vape`;
+const WA_LINK = `https://wa.me/916282878843?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore`;
 
 const CTA = (mid = false) => `
 <div style="margin: ${mid ? "32px 0" : "40px 0 0"}; padding: 24px; background: #111; border: 1px solid #ff6a00; border-radius: 12px; text-align: center;">
