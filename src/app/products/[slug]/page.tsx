@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import LivePrice from "@/components/LivePrice";
 import { products, getRelatedProducts } from "@/lib/products";
 
 interface Props { params: { slug: string } }
@@ -185,7 +186,7 @@ export default async function ProductPage({ params }: Props) {
         {/* ── PRICE ── */}
         <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 20 }}>
           <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 900, color: "var(--green)" }}>
-            {product.price}
+            <LivePrice productName={product.name} basePrice={product.price} />
           </span>
           <span style={{ fontSize: "1rem", color: "var(--muted)", textDecoration: "line-through" }}>
             {product.originalPrice}
