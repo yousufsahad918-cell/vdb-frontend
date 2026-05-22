@@ -582,10 +582,10 @@ ${CTA(true)}
 ${CTA(true)}
 
 <h2>Caliburn vs Disposables — Which is Better in Bangalore?</h2>
-<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,599 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
+<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,899 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
 
 <h2>What E-Liquid Works with Caliburn?</h2>
-<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,599) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
+<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹6,899) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
 
 ${CTA()}`,
   },
@@ -693,7 +693,7 @@ ${CTA(true)}
 <p>If you're concerned about the D3 Pro issue, here are equally powerful alternatives we recommend:</p>
 <ul>
   <li><strong>Elfbar Raya D3</strong> (₹2,799) — 25,000 puffs, triple mesh, no reported raising issues</li>
-  <li><strong>Elfbar Raya SOBO</strong> (₹3,199) — 40,000 puffs, most advanced Elfbar available</li>
+  <li><strong>Elfbar Raya SOBO</strong> (₹2,849) — 40,000 puffs, most advanced Elfbar available</li>
   <li><strong>Nasty Bolt WTF 50K</strong> (₹2,999) — 50,000 puffs, dual screen, most powerful in Bangalore</li>
   <li><strong>Lost Mary MT35000 Turbo</strong> (₹2,799) — 35,000 puffs, turbo mode, highly reliable</li>
 </ul>
@@ -842,14 +842,14 @@ ${CTA(true)}
 <h3>Elfbar Raya D1 — ₹2,199</h3>
 <p>Most popular choice for ex-smokers in Bangalore. The 20mg nicotine salt delivers a satisfying hit that closely mirrors cigarettes. Compact enough to hold like a cigarette. 13,000 puffs means you won't be running out every day.</p>
 
-<h3>Pod Salt Core Nic Salt — ₹1,899</h3>
+<h3>Pod Salt Core Nic Salt — ₹1,599</h3>
 <p>If you already have a pod device or want to try refillable vaping, Pod Salt Core is the go-to e-liquid for ex-smokers. Available in tobacco flavour for the most familiar experience.</p>
 
 <h3>Caliburn G3 Lite — ₹3,899</h3>
 <p>For ex-smokers who want a long-term solution — the Caliburn G3 Lite is a refillable pod device. Buy once, refill with nic salt. Monthly cost drops dramatically compared to buying disposables or cigarettes.</p>
 
 <h2>Cost Comparison — Cigarettes vs Vaping in Bangalore</h2>
-<p>A pack of cigarettes in Bangalore costs ₹250-350. A pack-a-day smoker spends ₹7,500-10,500 per month. An Elfbar Raya D1 at ₹2,199 lasts most moderate smokers 2-3 weeks. Monthly vaping cost: ₹3,000-4,500 — roughly half the cost of smoking.</p>
+<p>A pack of cigarettes in Bangalore costs ₹3,899-350. A pack-a-day smoker spends ₹7,500-10,500 per month. An Elfbar Raya D1 at ₹2,199 lasts most moderate smokers 2-3 weeks. Monthly vaping cost: ₹3,000-4,500 — roughly half the cost of smoking.</p>
 
 <h2>The First Week — What to Expect</h2>
 <ul>
@@ -994,7 +994,7 @@ ${CTA(true)}
     <td style="padding: 8px; border: 1px solid #d1e8d8;">Elfbar Trio</td>
     <td style="padding: 8px; border: 1px solid #d1e8d8;">40,000</td>
     <td style="padding: 8px; border: 1px solid #d1e8d8;">12,000-18,000 effective</td>
-    <td style="padding: 8px; border: 1px solid #d1e8d8;">₹3,199</td>
+    <td style="padding: 8px; border: 1px solid #d1e8d8;">₹2,849</td>
   </tr>
   <tr style="background: #f0faf3;">
     <td style="padding: 8px; border: 1px solid #d1e8d8;">Raya D1</td>
