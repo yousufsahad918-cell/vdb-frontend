@@ -3,8 +3,9 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/lib/locations";
-import ProductGrid from "@/components/ProductGrid";
-import ProductTicker from "@/components/ProductTicker";
+import dynamic from "next/dynamic";
+const ProductGrid = dynamic(() => import("@/components/ProductGrid"), { ssr: false });
+const ProductTicker = dynamic(() => import("@/components/ProductTicker"), { ssr: false });
 import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {

@@ -78,7 +78,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
         <meta name="theme-color" content="#14532d" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <CartProvider>
           <Nav />
           {children}
