@@ -47,6 +47,7 @@ function buildNotifyWAMessage(productName: string, phone: string): string {
 
 export default function ProductGrid() {
   const { addToCart, total, itemCount, setIsOpen } = useCart();
+  const [mounted, setMounted] = useState(false);
   const [flavourSheet, setFlavourSheet] = useState<string | null>(null);
   const [selectedFlavours, setSelectedFlavours] = useState<Record<string, string>>({});
   const [addedMap, setAddedMap] = useState<Record<string, boolean>>({});
@@ -64,6 +65,8 @@ export default function ProductGrid() {
   const productRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   // Fetch overrides
+  useEffect(() => { setMounted(true); }, []);
+
   useEffect(() => {
     fetch("/api/product-overrides")
       .then(r => r.json())
@@ -287,6 +290,10 @@ export default function ProductGrid() {
     if (product) scrollToProduct(product.name);
     setSidebarOpen(false);
   };
+
+  if (!mounted) return (
+    <div style={{ minHeight: "60vh" }} />
+  );
 
   return (
     <>
