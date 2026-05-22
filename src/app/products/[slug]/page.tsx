@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: product.metaTitle,
     description: product.metaDescription,
-    alternates: { canonical: `https://vapeinbangalore.in/products/${product.slug}` },
+    alternates: { canonical: `https://vapedeliverybangalore.com/products/${product.slug}` },
     keywords: [
       "vape in bangalore", "vapes in bangalore", "vape delivery bangalore",
       "buy vape bangalore", "vape near me bangalore", product.name,
@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,
-      images: [{ url: `https://vapeinbangalore.in${product.image}` }],
+      images: [{ url: `https://vapedeliverybangalore.com${product.image}` }],
       type: "website",
-      siteName: "VapeInBangalore",
+      siteName: "VapeDeliveryBangalore",
     },
   };
 }
