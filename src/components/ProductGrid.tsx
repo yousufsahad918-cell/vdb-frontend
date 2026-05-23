@@ -300,7 +300,7 @@ export default function ProductGrid() {
       {/* ── WHATSAPP FLOAT ── */}
       {showWA && (
         <a
-          href={`https://wa.me/${ADMIN_PHONE}?text=Hi%2C%20I%20need%20help%20with%20my%20order`}
+          href={`https://wa.me/${ADMIN_PHONE}?text=Hi%20VapeDeliveryBangalore%2C%20I%20need%20help%20with%20my%20order`}
           target="_blank"
           rel="noopener noreferrer"
           className="wa-float"
