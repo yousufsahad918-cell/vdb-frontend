@@ -42,7 +42,7 @@ const TAG_COLORS: Record<string, { bg: string; color: string }> = {
 };
 
 function buildNotifyWAMessage(productName: string, phone: string): string {
-  return encodeURIComponent(`Hi! I want to be notified when ${productName} is back in stock. My number is ${phone}.`);
+  return encodeURIComponent(`Hi VapeDeliveryBangalore, I want to be notified when ${productName} is back in stock. My number is ${phone}.`);
 }
 
 export default function ProductGrid() {

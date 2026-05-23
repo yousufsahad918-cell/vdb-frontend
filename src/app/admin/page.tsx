@@ -687,7 +687,7 @@ export default function AdminPage() {
                           </p>
                         </div>
                         <a
-                          href={`https://wa.me/91${req.phone?.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi! ${req.product_name} is back in stock. Visit vapedeliverybangalore.com to order now!`)}`}
+                          href={`https://wa.me/91${req.phone?.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi VapeDeliveryBangalore, ${req.product_name} is back in stock. Visit vapedeliverybangalore.com to order now!`)}`}
                           target="_blank" rel="noopener noreferrer"
                           style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "7px 12px", background: "#25d36622", border: "1px solid #25d36644", color: "#25d366", borderRadius: 8, fontSize: "0.75rem", fontFamily: "var(--font-display)", fontWeight: 700, textDecoration: "none", flexShrink: 0 }}>
                           Notify
