@@ -235,68 +235,24 @@ export default async function ProductPage({ params }: Props) {
           ))}
         </div>
 
-        {/* ── ORDER BUTTONS ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${buildOrderMessage(product.name, product.price, product.flavours[0])}`}
-            target="_blank" rel="noopener noreferrer"
-            style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              gap: 10, background: "#25d366", color: "#fff",
-              padding: "15px 24px", borderRadius: 12,
-              fontFamily: "var(--font-display)", fontWeight: 700,
-              fontSize: "1rem", textDecoration: "none",
-            }}
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.855L0 24l6.29-1.49A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.884.937-3.638-.234-.374A9.818 9.818 0 0112 2.182c5.424 0 9.818 4.394 9.818 9.818 0 5.425-4.394 9.818-9.818 9.818z"/>
-            </svg>
-            Order on WhatsApp — <LivePrice productName={product.name} basePrice={product.price} />
-          </a>
-          <Link href="/#products" style={{
-            display: "block", textAlign: "center",
-            padding: "13px", background: "var(--bg-2)",
-            border: "1px solid var(--border)", borderRadius: 12,
-            color: "var(--white)", fontFamily: "var(--font-display)",
-            fontWeight: 700, fontSize: "0.9rem", textDecoration: "none",
-          }}>
-            ← Browse All Products
-          </Link>
-        </div>
-
-        {/* ── FLAVOURS ── */}
-        {product.flavours.length > 1 && (
-          <div style={{
-            background: "var(--bg-2)", border: "1px solid var(--border)",
-            borderRadius: 14, padding: "18px", marginBottom: 20,
-          }}>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 4 }}>
-              Available Flavours
-            </h2>
-            <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginBottom: 12 }}>
-              Tap any flavour to order it directly on WhatsApp
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {product.flavours.map(f => (
-                <a
-                  key={f}
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${buildOrderMessage(product.name, product.price, f)}`}
-                  target="_blank" rel="noopener noreferrer"
-                  style={{
-                    background: "var(--bg-3)", border: "1px solid var(--border)",
-                    borderRadius: 20, padding: "7px 14px",
-                    fontSize: "0.82rem", color: "var(--text)",
-                    fontFamily: "var(--font-display)", fontWeight: 600,
-                    textDecoration: "none",
-                  }}
-                >
-                  {f}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+                {/* ── ORDER BUTTONS ── */}
+        <OrderButton
+          productName={product.name}
+          basePrice={product.price}
+          flavour={product.flavours[0]}
+          whatsappNumber={WHATSAPP_NUMBER}
+          allFlavours={product.flavours}
+        />
+        <Link href="/#products" style={{
+          display: "block", textAlign: "center",
+          padding: "13px", background: "var(--bg-2)",
+          border: "1px solid var(--border)", borderRadius: 12,
+          color: "var(--white)", fontFamily: "var(--font-display)",
+          fontWeight: 700, fontSize: "0.9rem", textDecoration: "none",
+          marginTop: 10,
+        }}>
+          ← Browse All Products
+        </Link>}
 
         {/* ── ABOUT ── */}
         <div style={{
