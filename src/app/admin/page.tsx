@@ -1,3 +1,4 @@
+export const metadata = { robots: { index: false, follow: false } };
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
