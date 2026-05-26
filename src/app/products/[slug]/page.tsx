@@ -252,7 +252,7 @@ export default async function ProductPage({ params }: Props) {
           marginTop: 10,
         }}>
           ← Browse All Products
-        </Link>}
+        </Link>
 
         {/* ── ABOUT ── */}
         <div style={{
