@@ -469,10 +469,8 @@ export const locations: Location[] = [
     localNote: "Near Namma Metro stations in Bangalore? Fast vape delivery across all Metro corridors.",
     area: "Central Bangalore",
   },
-],
-    localNote: "Hennur and its surrounding layouts are fully covered — Kalyan Nagar, HRBR, Banaswadi, all of it.",
-  },
 ];
+
 
 export function getLocationBySlug(slug: string): Location | undefined {
   return locations.find((l) => l.slug === slug);
