@@ -85,7 +85,7 @@ input::placeholder { color: var(--muted); }
 .nav-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: #1a3a24;
   display: flex;
@@ -95,7 +95,7 @@ input::placeholder { color: var(--muted); }
 }
 
 .nav-logo-vape { color: #1a3a24; letter-spacing: 0.06em; }
-.nav-logo-dot { color: var(--green); font-size: 0.45rem; margin: 0 2px; }
+.nav-logo-dot { color: var(--green); font-size: 0.72rem; margin: 0 1px; }
 .nav-logo-blr { color: var(--green); letter-spacing: 0.06em; }
 
 /* ── CONTAINER ── */
