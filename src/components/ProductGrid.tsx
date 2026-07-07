@@ -45,7 +45,7 @@ function buildNotifyWAMessage(productName: string, phone: string): string {
 }
 
 export default function ProductGrid() {
-  const { addToCart, total, itemCount, setIsOpen } = useCart();
+  const { addToCart, itemCount, setIsOpen, items } = useCart();
   const [mounted, setMounted] = useState(false);
   const [flavourSheet, setFlavourSheet] = useState<string | null>(null);
   const [selectedFlavours, setSelectedFlavours] = useState<Record<string, string>>({});
@@ -101,8 +101,7 @@ export default function ProductGrid() {
   const handleAddToCart = (product: typeof products[0]) => {
     const override = getOverride(product.name);
     if (override && !override.in_stock) return;
-    const flavour = selectedFlavours[product.name];
-    if (!flavour) { setFlavourSheet(product.name); return; }
+    const flavour = "";
     const basePrice = parseInt(product.price.replace(/[₹,]/g, ""));
     const finalPrice = override?.price || basePrice;
     addToCart({
@@ -113,11 +112,11 @@ export default function ProductGrid() {
       puffs: product.puffs,
       flavour,
     });
-    const key = `${product.name}__${flavour}`;
+    const key = product.name;
     setAddedMap(prev => ({ ...prev, [key]: true }));
     setTimeout(() => setAddedMap(prev => ({ ...prev, [key]: false })), 1400);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    setToast({ name: product.name, flavour });
+    setToast({ name: product.name, flavour: "" });
     toastTimerRef.current = setTimeout(() => setToast(null), 3500);
     setFlavourSheet(null);
   };
