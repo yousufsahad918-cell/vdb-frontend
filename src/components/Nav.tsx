@@ -135,7 +135,6 @@ export default function Nav() {
         <div className="nav-inner">
           <Link href="/" className="nav-logo">
             <span className="nav-logo-vape">VAPES</span><span className="nav-logo-dot"> IN </span><span className="nav-logo-blr">BANGALORE</span>
-            <span className="nav-logo-blr">BLR</span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
             <Link href="/blog" style={{
