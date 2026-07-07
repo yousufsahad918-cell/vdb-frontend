@@ -45,7 +45,7 @@ function buildNotifyWAMessage(productName: string, phone: string): string {
 }
 
 export default function ProductGrid() {
-  const { addToCart, itemCount, setIsOpen, items } = useCart();
+  const { addToCart, itemCount, setIsOpen, total } = useCart();
   const [mounted, setMounted] = useState(false);
   const [flavourSheet, setFlavourSheet] = useState<string | null>(null);
   const [selectedFlavours, setSelectedFlavours] = useState<Record<string, string>>({});
