@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.metaTitle,
     description: post.metaDescription,
-    alternates: { canonical: `https://vapeinbangalore.in/blog/${post.slug}` },
+    alternates: { canonical: `https://vapedeliverybangalore.com/blog/${post.slug}` },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
-      url: `https://vapeinbangalore.in/blog/${post.slug}`,
+      url: `https://vapedeliverybangalore.com/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
     },
@@ -192,12 +192,12 @@ export default async function BlogPost({ params }: Props) {
             datePublished: post.publishedAt,
             publisher: {
               "@type": "Organization",
-              name: "VapeInBangalore.in",
-              url: "https://vapeinbangalore.in",
+              name: "VapeDeliveryBangalore.com",
+              url: "https://vapedeliverybangalore.com",
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://vapeinbangalore.in/blog/${post.slug}`,
+              "@id": `https://vapedeliverybangalore.com/blog/${post.slug}`,
             },
           }),
         }}

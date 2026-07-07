@@ -75,8 +75,8 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               <a href="https://vapedeliverybangalore.com" style={{ fontSize: "0.78rem", color: "#16a34a", textDecoration: "none", fontWeight: 700 }}>✅ Bangalore — Active</a>
-              <a href="https://thevapesinmumbai.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.78rem", color: "#E23744", textDecoration: "none", fontWeight: 700 }}>✅ Mumbai — Active</a>
-              <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", marginTop: 4 }}>Hyderabad · Pune · Delhi — Coming Soon</span>
+              
+              
             </div>
           </div>
 

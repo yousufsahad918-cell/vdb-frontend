@@ -8,7 +8,7 @@ import CartDrawer from "@/components/CartDrawer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://vapedeliverybangalore.com"),
   title: {
-    default: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
+    default: "Vape Delivery Bangalore — 30-45 Min | VapeDeliveryBangalore.com",
     template: "%s | VapeDeliveryBangalore",
   },
   description:
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
     canonical: "https://vapedeliverybangalore.com",
   },
   openGraph: {
-    title: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
-    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 20+ areas covered. Order on WhatsApp.",
+    title: "Vape Delivery Bangalore — 30-45 Min | VapeDeliveryBangalore.com",
+    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 50+ areas covered. Order on WhatsApp.",
     images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeDeliveryBangalore — Fast Delivery" }],
     type: "website",
-    siteName: "VapeDeliveryBangalore",
+    siteName: "VapeDeliveryBangalore.com",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VapeDeliveryBangalore — Buy Vape Online | 30-45 Min Delivery",
+    title: "Vape Delivery Bangalore — 30-45 Min | VapeDeliveryBangalore.com",
     description: "Fast, discreet vape delivery across Bangalore. Order on WhatsApp.",
   },
   icons: {
@@ -77,6 +77,11 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
         <meta name="theme-color" content="#14532d" />
+        <meta name="geo.region" content="IN-KA" />
+        <meta name="geo.placename" content="Bangalore" />
+        <meta name="geo.position" content="12.9716;77.5946" />
+        <meta name="ICBM" content="12.9716, 77.5946" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeDeliveryBangalore.com","url":"https://vapedeliverybangalore.com","telephone":"+916282878843","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"320","bestRating":"5"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Rahul S."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Ordered Elfbar Raya D1 to Koramangala and it arrived in 38 minutes. 100% original product."},{"@type":"Review","author":{"@type":"Person","name":"Priya K."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Best vape delivery in Bangalore. Delivered to Indiranagar in 40 mins. Original products."},{"@type":"Review","author":{"@type":"Person","name":"Arjun M."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Got Caliburn G4 delivered to Whitefield in 42 mins. Sealed and original. Highly recommend."}]}` }} />
       </head>
       <body suppressHydrationWarning>
         <CartProvider>

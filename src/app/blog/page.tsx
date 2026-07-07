@@ -3,9 +3,9 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/blogs";
 
 export const metadata: Metadata = {
-  title: "Vape Blog — Bangalore Delivery Guide | VapeInBangalore.in",
+  title: "Vape Blog — Bangalore Delivery Guide | VapeDeliveryBangalore.com",
   description: "Guides, area coverage, product reviews and delivery info for vape delivery across Bangalore. Koramangala, Whitefield, BTM, HSR, Electronic City and more.",
-  alternates: { canonical: "https://vapeinbangalore.in/blog" },
+  alternates: { canonical: "https://vapedeliverybangalore.com/blog" },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {

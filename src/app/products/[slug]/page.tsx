@@ -95,7 +95,7 @@ export default async function ProductPage({ params }: Props) {
           "price": product.price.replace(/[₹,]/g, ""),
           "priceCurrency": "INR",
           "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-          "seller": { "@type": "Organization", "name": "VapeInBangalore" },
+          "seller": { "@type": "Organization", "name": "VapeDeliveryBangalore" },
           "url": `https://vapedeliverybangalore.com/products/${product.slug}`,
           "areaServed": "Bangalore",
           "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 0.5, "unitCode": "HUR" },
@@ -142,7 +142,7 @@ export default async function ProductPage({ params }: Props) {
         }}>
           <Image
             src={product.image}
-            alt={`${product.name} — Buy in Bangalore | VapeInBangalore`}
+            alt={`${product.name} — Buy in Bangalore | VapeDeliveryBangalore`}
             fill
             style={{ objectFit: "contain", padding: 20 }}
             sizes="(max-width: 680px) 100vw, 680px"
@@ -308,7 +308,7 @@ export default async function ProductPage({ params }: Props) {
           borderRadius: 14, padding: "18px", marginBottom: 20,
         }}>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 12 }}>
-            Shop More at VapeInBangalore
+            Shop More at VapeDeliveryBangalore
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {[
@@ -347,7 +347,7 @@ export default async function ProductPage({ params }: Props) {
             Buy {product.name} Online in Bangalore
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.7 }}>
-            Looking to buy {product.name} in Bangalore? VapeInBangalore offers the fastest vape delivery
+            Looking to buy {product.name} in Bangalore? VapeDeliveryBangalore offers the fastest vape delivery
             in Bangalore — 30 to 45 minutes to your door. We stock authentic {product.brand} products
             at the best prices. Whether you're in South Bangalore, North Bangalore, East or West —
             we cover all areas. Order vape online in Bangalore through WhatsApp for a seamless,
