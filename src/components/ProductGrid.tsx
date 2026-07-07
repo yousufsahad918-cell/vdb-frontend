@@ -248,13 +248,7 @@ export default function ProductGrid() {
   const [filterFn, setFilterFn] = useState<((name: string) => boolean) | null>(null);
   const [productOrder, setProductOrder] = useState<string[]>([]);
 
-  // Fetch saved product order from MongoDB
-  useEffect(() => {
-    Promise.resolve()
-      .then(r => r.json())
-      .then(d => setProductOrder(d.order || []))
-      .catch(() => {});
-  }, []);
+  // Product order — static
 
   // Sort products: saved order first, stock-out always last
   const sortedProducts = [...products].sort((a, b) => {
