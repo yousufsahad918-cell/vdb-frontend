@@ -107,10 +107,8 @@ export default function ProductGrid() {
     addToCart({
       product_id: product.name.toLowerCase().replace(/\s+/g, "-"),
       name: product.name,
-      price: finalPrice,
+      price: basePrice,
       image: product.image,
-      puffs: product.puffs,
-      flavour,
     });
     const key = product.name;
     setAddedMap(prev => ({ ...prev, [key]: true }));
