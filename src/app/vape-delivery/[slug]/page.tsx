@@ -15,17 +15,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const loc = getLocationBySlug(params.slug);
   if (!loc) return {};
   return {
-    title: `Vape Delivery in ${loc.name} Bangalore — 30-45 Min | VapeDeliveryBangalore.com`,
-    description: `Buy vapes in ${loc.name}, Bangalore with 30-45 minute delivery. Elfbar, Caliburn, ZYN & more. 100% original, discreet packaging. Order on WhatsApp.`,
+    title: `Vapes in ${loc.name} Bangalore — Buy Vapes | 30-45 Min Delivery | VapeDeliveryBangalore.com`,
+    description: `Buy vapes in ${loc.name}, Bangalore in 30-45 minutes. Elfbar Raya D1, MoonNight 40K, Caliburn G4, ZYN Cool Mint & more. 100% original, discreet packaging. Order on WhatsApp.`,
     alternates: { canonical: `https://vapedeliverybangalore.com/vape-delivery/${loc.slug}` },
     keywords: [
+      `vapes in ${loc.name}`,
       `vape delivery ${loc.name}`,
       `vape in ${loc.name}`,
-      `buy vape ${loc.name} Bangalore`,
+      `buy vapes ${loc.name} Bangalore`,
       `vape near me ${loc.name}`,
       `disposable vape ${loc.name}`,
       `Elfbar ${loc.name}`,
       `Caliburn ${loc.name}`,
+      `ZYN ${loc.name}`,
+      `vape shop ${loc.name}`,
+      `order vape ${loc.name}`,
     ],
   };
 }
@@ -69,7 +73,7 @@ export default function LocationPage({ params }: Props) {
       <div style={{ background: "var(--bg-2)", borderBottom: "1px solid var(--border)", padding: "32px 16px 24px" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <Link href="/" style={{ color: "var(--green)", fontSize: "0.78rem", fontWeight: 600, textDecoration: "none", marginBottom: 12, display: "inline-block" }}>Back to Home</Link>
-          <h1 style={{ color: "var(--white)", fontSize: "1.6rem", fontWeight: 800, marginBottom: 8 }}>Vape Delivery in {loc.name}</h1>
+          <h1 style={{ color: "var(--white)", fontSize: "1.6rem", fontWeight: 800, marginBottom: 8 }}>Vapes in {loc.name} — Fast Delivery Bangalore</h1>
           <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.6 }}>{loc.localNote}</p>
         </div>
       </div>

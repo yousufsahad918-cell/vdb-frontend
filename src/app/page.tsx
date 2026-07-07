@@ -6,16 +6,11 @@ import ProductTicker from "@/components/ProductTicker";
 import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
-  title: "Vape Delivery Bangalore – 30-45 Min | VapeDeliveryBangalore.com",
-  description:
-    "Buy vape online in Bangalore with 30-45 min delivery. Best disposable vapes, pod systems & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
-  alternates: { canonical: "https://vapedeliverybangalore.com" },
-};
-
-const FEATURES = [
+  title: "Vapes in Bangalore — Buy Vapes Online | 30-45 Min Delivery | VapeDeliveryBangalore.com",
+  description: "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Lost Mary, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City and 50+ areas. Order on WhatsApp.",const FEATURES = [
   { icon: "⚡", title: "30-45 Min Delivery", desc: "We dispatch fast. Most orders across Bangalore reach you within 45 minutes." },
   { icon: "🔒", title: "100% Discreet", desc: "Plain packaging, no labels. Your order is your business." },
-  { icon: "🗺️", title: "20+ Areas Covered", desc: "From Whitefield to Rajajinagar, Electronic City to Yelahanka — we cover all of Bangalore." },
+  { icon: "🗺️", title: "50+ Areas Covered", desc: "From BTM Layout to Whitefield, Koramangala to Yelahanka, Indiranagar to Electronic City — 50+ areas covered." },
   { icon: "💬", title: "Order via WhatsApp", desc: "No app download, no login. Just message us and we'll handle the rest." },
   { icon: "🌿", title: "Best Flavours", desc: "Disposable vapes, pod systems, and e-liquids from top brands — huge selection available." },
   { icon: "✅", title: "Trusted by 1000+", desc: "Hundreds of repeat customers across Bangalore trust us for reliable vape delivery." },
