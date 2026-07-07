@@ -66,12 +66,7 @@ export default function ProductGrid() {
   // Fetch overrides
   useEffect(() => { setMounted(true); }, []);
 
-  useEffect(() => {
-    fetch("/api/product-overrides")
-      .then(r => r.json())
-      .then(d => setOverrides(d.overrides || []))
-      .catch(() => {});
-  }, []);
+    // Product overrides disabled — using static products
 
   // WhatsApp float — hidden initially, appears with label after 15s
   useEffect(() => {
@@ -142,7 +137,7 @@ export default function ProductGrid() {
     setNotifySubmitting(true);
 
     // Log to MongoDB
-    await fetch("/api/notify-requests", {
+    console.log("Notify disabled")
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ product_name: notifyProduct, phone: notifyPhone }),
@@ -260,7 +255,7 @@ export default function ProductGrid() {
 
   // Fetch saved product order from MongoDB
   useEffect(() => {
-    fetch("/api/product-order")
+    Promise.resolve()
       .then(r => r.json())
       .then(d => setProductOrder(d.order || []))
       .catch(() => {});
