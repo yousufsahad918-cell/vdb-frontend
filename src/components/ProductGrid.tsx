@@ -1,5 +1,4 @@
 "use client";
-import { DEFAULT_WHATSAPP } from "@/lib/settings";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -16,7 +15,7 @@ interface ProductOverride {
   price?: number;
 }
 
-const ADMIN_PHONE = DEFAULT_WHATSAPP;
+const ADMIN_PHONE = "916282878843";
 
 const TAG_COLORS: Record<string, { bg: string; color: string }> = {
   "Fast Selling":    { bg: "#f59e0b22", color: "#f59e0b" },
