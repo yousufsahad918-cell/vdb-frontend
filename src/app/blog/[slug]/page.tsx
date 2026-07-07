@@ -92,6 +92,36 @@ export default async function BlogPost({ params }: Props) {
         </p>
       </header>
 
+
+        {/* Featured Products */}
+        <div style={{ marginBottom: 28, background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 16, padding: "18px" }}>
+          <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--green)", letterSpacing: "0.1em", marginBottom: 6 }}>ORDER NOW</div>
+          <h2 style={{ fontSize: "0.95rem", fontWeight: 800, color: "var(--white)", marginBottom: 14 }}>Top Products — 30-45 Min Delivery</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10, marginBottom: 14 }}>
+            {[
+              { name: "Elfbar Raya D1", price: "\u20b92,399", badge: "BEST SELLER", img: "/products/raya-d1.webp", slug: "elfbar-raya-d1" },
+              { name: "Elfbar MoonNight 40K", price: "\u20b93,299", badge: "LONGEST", img: "/products/elfbar-moonnight.webp", slug: "elfbar-moonnight-40k" },
+              { name: "Caliburn G4", price: "\u20b97,499", badge: "POPULAR", img: "/products/caliburn-g4.webp", slug: "caliburn-g4" },
+              { name: "ZYN Cool Mint", price: "\u20b91,299", badge: "SMOKELESS", img: "/products/zyn-velo.webp", slug: "zyn-cool-mint" },
+            ].map(p => (
+              <a key={p.slug} href={"/products/" + p.slug} style={{ textDecoration: "none", background: "var(--bg-3)", border: "1px solid var(--border)", borderRadius: 12, overflow: "hidden", display: "flex", flexDirection: "column" as const }}>
+                <div style={{ position: "relative", aspectRatio: "1", background: "var(--bg-3)" }}>
+                  <span style={{ position: "absolute", top: 6, left: 6, zIndex: 1, background: "var(--green)", color: "#fff", fontSize: "0.55rem", fontWeight: 700, padding: "2px 6px", borderRadius: 100 }}>{p.badge}</span>
+                  <img src={p.img} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "contain", padding: 8 }} />
+                </div>
+                <div style={{ padding: "8px 10px 10px" }}>
+                  <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--white)", marginBottom: 4, lineHeight: 1.3 }}>{p.name}</div>
+                  <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--green)" }}>{p.price}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            <a href="/products" style={{ display: "block", background: "var(--bg-3)", border: "1px solid var(--border)", color: "var(--white)", textAlign: "center" as const, padding: "10px", borderRadius: 10, fontWeight: 700, fontSize: "0.82rem", textDecoration: "none" }}>Shop All Products</a>
+            <a href="https://wa.me/916282878843?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore" target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "#25D366", color: "#fff", textAlign: "center" as const, padding: "10px", borderRadius: 10, fontWeight: 700, fontSize: "0.82rem", textDecoration: "none" }}>Order on WhatsApp</a>
+          </div>
+        </div>
+
       {/* Article body */}
       <article
         style={{ maxWidth: 760, margin: "0 auto", padding: "0 20px" }}
