@@ -1,5 +1,3 @@
-import { getWhatsAppNumber } from "@/lib/settings";
-export const dynamic = "force-dynamic";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -50,8 +48,8 @@ function buildOrderMessage(productName: string, price: string, flavour: string) 
   );
 }
 
-export default async function ProductPage({ params }: Props) {
-  const WHATSAPP_NUMBER = await getWhatsAppNumber();
+export default function ProductPage({ params }: Props) {
+  const WHATSAPP_NUMBER = "916282878843";
   const product = products.find(p => p.slug === params.slug);
   if (!product) notFound();
 

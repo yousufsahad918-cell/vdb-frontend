@@ -1,5 +1,3 @@
-import { getWhatsAppNumber } from "@/lib/settings";
-export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/lib/locations";
@@ -23,8 +21,8 @@ const FEATURES = [
   { icon: "✅", title: "Trusted by 1000+", desc: "Hundreds of repeat customers across Bangalore trust us for reliable vape delivery." },
 ];
 
-export default async function HomePage() {
-  const WHATSAPP_NUMBER = await getWhatsAppNumber();
+export default function HomePage() {
+  const WHATSAPP_NUMBER = "916282878843";
   return (
     <>
       {/* HERO */}
