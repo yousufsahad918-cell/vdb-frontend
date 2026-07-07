@@ -185,7 +185,10 @@ export const locations: Location[] = [
   {
     name: "Hennur",
     slug: "hennur",
-    sublocations: ["Kalyan Nagar", "HRBR Layout", "Banaswadi"
+    sublocations: ["Kalyan Nagar", "HRBR Layout", "Banaswadi", "Hennur Road", "Lingarajapuram"],
+    localNote: "Hennur and North Bangalore — fast vape delivery to every society and apartment.",
+    area: "North Bangalore",
+  },
   {
     name: "Manyata Tech Park",
     slug: "manyata-tech-park",
