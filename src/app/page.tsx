@@ -7,7 +7,10 @@ import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
   title: "Vapes in Bangalore — Buy Vapes Online | 30-45 Min Delivery | VapeDeliveryBangalore.com",
-  description: "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Lost Mary, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City and 50+ areas. Order on WhatsApp.",const FEATURES = [
+  description: "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Lost Mary, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City and 50+ areas. Order on WhatsApp.",
+};
+
+const FEATURES = [
   { icon: "⚡", title: "30-45 Min Delivery", desc: "We dispatch fast. Most orders across Bangalore reach you within 45 minutes." },
   { icon: "🔒", title: "100% Discreet", desc: "Plain packaging, no labels. Your order is your business." },
   { icon: "🗺️", title: "50+ Areas Covered", desc: "From BTM Layout to Whitefield, Koramangala to Yelahanka, Indiranagar to Electronic City — 50+ areas covered." },
