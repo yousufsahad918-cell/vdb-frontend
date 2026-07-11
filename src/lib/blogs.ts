@@ -16,7 +16,7 @@ const WA_LINK = `https://wa.me/916282878843?text=Hi%20VapeDeliveryBangalore%2C%2
 const CTA = (mid = false) => `
 <div style="margin: ${mid ? "32px 0" : "40px 0 0"}; padding: 24px; background: #111; border: 1px solid #ff6a00; border-radius: 12px; text-align: center;">
   <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;">Order Vape Delivery in Bangalore</p>
-  <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Fast delivery across Bangalore. COD not available — Porter/Rapido dispatch.</p>
+  <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 16px;">Payment confirmed on WhatsApp — dispatched within 10-15 mins. Delivery charges paid to rider on arrival.</p>
   <a href="${WA_LINK}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #ff6a00; color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.95rem;">Order on WhatsApp →</a>
 </div>`;
 
@@ -282,7 +282,7 @@ ${CTA(true)}
 <p>Most PG landlords don't allow deliveries inside. We handle this all the time — just give us the gate address or a nearby landmark and we'll meet you there. Packaging is always plain and discreet.</p>
 
 <h3>Pricing</h3>
-<p>Our products range from Rs. 1,999 to Rs. 2,999. No hidden charges. No COD — payment details shared on WhatsApp after order confirmation.</p>
+<p>Our products range from Rs. 1,999 to Rs. 2,999. No COD — payment confirmed on WhatsApp before dispatch. Dispatched within 10-15 mins of confirmation. Delivery charges paid to rider on arrival.</p>
 
 ${CTA()}`,
   },
@@ -356,7 +356,7 @@ ${CTA(true)}
 <p>Our fastest delivery areas are Koramangala, Indiranagar, BTM Layout, HSR Layout, Whitefield, and Electronic City. North Bangalore (Hebbal, Yelahanka, Hennur) and outer areas like Sarjapur Road and Bellandur are also covered with slightly longer delivery windows.</p>
 
 <h3>Pricing</h3>
-<p>Products range from Rs. 1,999 to Rs. 2,999. No delivery charges currently. COD is not available — payment details shared on WhatsApp post order confirmation.</p>
+<p>Products range from Rs. 1,999 to Rs. 2,999. Delivery charges apply and are paid to the rider on delivery. No COD — payment is confirmed on WhatsApp before dispatch.</p>
 
 <h3>Is It Legal?</h3>
 <p>Vaping regulations in India are complex and vary by state. Karnataka currently does not have a blanket ban on nicotine vapes. We recommend all buyers research the current local regulations and purchase only for personal adult use (18+).</p>
@@ -386,7 +386,7 @@ ${CTA()}`,
 <p>Visit our homepage, browse the product grid, pick your product and flavour, enter your name, phone, and delivery address, and submit. You'll get an order ID immediately. Alternatively, send us a WhatsApp directly with the product name, flavour, and your address.</p>
 
 <h3>Step 2 — Order Confirmation</h3>
-<p>We'll send a WhatsApp confirmation with your order summary and ask for your precise Google Maps pin if needed. COD is not currently available — we'll share payment details on WhatsApp.</p>
+<p>We'll send a WhatsApp confirmation with your order summary and ask for your precise Google Maps pin if needed. No COD — payment is confirmed on WhatsApp before we dispatch. We dispatch within 10-15 minutes of payment confirmation. Delivery charges are paid to the rider on arrival.</p>
 
 ${CTA(true)}
 
@@ -751,7 +751,7 @@ ${CTA(true)}
 <p>We'll confirm your order within 5 minutes and ask for your delivery address. You can share your live location on WhatsApp for fastest delivery. We deliver across 20+ Bangalore areas.</p>
 
 <h2>Step 5 — Pay on Delivery</h2>
-<p>Pay cash on delivery when your order arrives. No advance payment required. No UPI, no card, no digital wallet needed — unless you prefer it.</p>
+<p>Payment is confirmed via WhatsApp before dispatch. Delivery charges are paid to the rider on arrival. No COD — we dispatch within 10-15 minutes of payment confirmation.</p>
 
 <h2>Step 6 — Receive in 30-45 Minutes</h2>
 <p>Most orders in central Bangalore areas like BTM, HSR, Koramangala, Indiranagar reach you in 30-45 minutes. Outer areas like Whitefield, Electronic City, Yelahanka may take 45-60 minutes.</p>
