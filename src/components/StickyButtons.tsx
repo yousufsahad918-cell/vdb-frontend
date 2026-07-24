@@ -1,19 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const FALLBACK = "916282878843";
 const WA_MSG = "?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 export default function StickyButtons() {
-  const [waUrl, setWaUrl] = useState(`https://wa.me/${FALLBACK}${WA_MSG}`);
+  const waUrl = (`https://wa.me/${FALLBACK}${WA_MSG}`;
 
-  useEffect(() => {
-    fetch("https://web-production-92e501.up.railway.app/settings")
-      .then(r => r.json())
-      .then(d => { if (d?.whatsapp) setWaUrl(`https://wa.me/${d.whatsapp}${WA_MSG}`); })
-      .catch(() => {});
-  }, []);
 
   return (
     <>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 const FALLBACK = "916282878843";
@@ -18,15 +18,11 @@ const SLIDES = [
 export default function HeroSection() {
   const [showImage, setShowImage] = useState(false);
   const [current, setCurrent] = useState(0);
-  const [waUrl, setWaUrl] = useState(`${WA_BASE}${FALLBACK}${WA_MSG}`);
+  const waUrl = `${WA_BASE}${FALLBACK}${WA_MSG}`;
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setShowImage(true), 4000);
-    fetch("https://web-production-92e501.up.railway.app/settings")
-      .then(r => r.json())
-      .then(d => { if (d?.whatsapp) setWaUrl(`${WA_BASE}${d.whatsapp}${WA_MSG}`); })
-      .catch(() => {});
     return () => clearTimeout(t);
   }, []);
 
