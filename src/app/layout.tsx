@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | VapeDeliveryBangalore",
   },
   description:
-    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes, pod devices & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
+    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes, pod devices & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 50+ areas. Order on WhatsApp now.",
   keywords: [
     "vape delivery bangalore",
     "vapedeliverybangalore",
