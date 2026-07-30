@@ -1084,4 +1084,313 @@ ${CTA(true)}
 
 ${CTA()}`,
   },
+  {
+    slug: "lost-mary-bangalore",
+    title: "Lost Mary Vapes in Bangalore — MT35000, MO10000 & More | Fast Delivery",
+    metaTitle: "Lost Mary Vapes in Bangalore | Buy Online | VapeDeliveryBangalore.com",
+    metaDescription: "Buy Lost Mary vapes in Bangalore with 30-45 min delivery. Lost Mary MT35000 Turbo, MO10000 and more. 100% original, discreet packaging. Order on WhatsApp.",
+    publishedAt: "2025-05-01",
+    readTime: 5,
+    category: "Product Guide",
+    excerpt: "Lost Mary has become one of the most loved vape brands in Bangalore — and for good reason. Here is everything you need to know about buying Lost Mary in Bangalore.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+    ],
+    content: `
+<h2>Lost Mary Vapes in Bangalore</h2>
+<p>Lost Mary has quickly become one of the top-selling vape brands in Bangalore. Known for exceptional flavour consistency, smooth airflow, and long battery life, Lost Mary disposables are the go-to choice for vapers who want reliability every time.</p>
+<h3>Lost Mary Models Available in Bangalore</h3>
+<p><strong>Lost Mary MT35000 Turbo</strong> — 35,000 puffs, dual mesh coil, turbo mode. Available in Strawberry Ice, Watermelon Ice, Blue Razz Ice and more.</p>
+<p><strong>Lost Mary MO10000</strong> — 10,000 puffs, compact, USB-C rechargeable. Popular flavours: Triple Mango, Peach Mango, Grape Ice.</p>
+<h3>Why Lost Mary is Popular in Bangalore</h3>
+<p>Lost Mary reputation in Bangalore comes down to consistent flavour from first puff to last, no burnt hits, and a wide flavour selection. The tropical flavours are especially popular in Bangalore weather.</p>
+${CTA(true)}
+<h3>Lost Mary vs Elfbar in Bangalore</h3>
+<p>Both brands are from the same parent company. Lost Mary tends to have a slightly tighter draw and more intense flavour delivery. Most Bangalore customers who try Lost Mary MT35000 stick with it for the flavour quality.</p>
+<h3>Order Lost Mary in Bangalore</h3>
+<p>We deliver across all of Bangalore in 30-45 minutes — Koramangala, Indiranagar, HSR, Whitefield, BTM, Electronic City and 100+ more areas.</p>
+${CTA()}`,
+  },
+  {
+    slug: "elfbar-raya-d1-bangalore",
+    title: "Elfbar Raya D1 in Bangalore — Price, Flavours and Fast Delivery",
+    metaTitle: "Elfbar Raya D1 Bangalore | Buy Online 30-45 Min Delivery | VapeDeliveryBangalore.com",
+    metaDescription: "Buy Elfbar Raya D1 in Bangalore with 30-45 min delivery. Best price, all flavours available. 100% original. Order on WhatsApp now.",
+    publishedAt: "2025-05-05",
+    readTime: 5,
+    category: "Product Guide",
+    excerpt: "The Elfbar Raya D1 is Bangalore best-selling disposable vape. Here is everything about it — price, flavours, puff count, and how to get it delivered fast.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Whitefield", slug: "whitefield" },
+      { name: "BTM Layout", slug: "btm-layout" },
+    ],
+    content: `
+<h2>Elfbar Raya D1 — Bangalore Favourite Disposable Vape</h2>
+<p>The Elfbar Raya D1 is consistently the top-selling disposable vape in Bangalore. With 7,000 puffs, USB-C charging, and a wide range of flavours — it hits the sweet spot between capacity, size, and price.</p>
+<h3>Elfbar Raya D1 Specifications</h3>
+<p><strong>Puffs:</strong> 7,000 | <strong>Battery:</strong> 650mAh USB-C | <strong>Nicotine:</strong> 50mg salt nic | <strong>E-liquid:</strong> 13ml | <strong>Coil:</strong> Mesh coil</p>
+<h3>Best Elfbar Raya D1 Flavours in Bangalore</h3>
+<p>Most popular: Watermelon Ice, Strawberry Ice, Mango Ice, Blueberry Ice, Passion Fruit, Peach Ice, Grape Ice. All available for same-day delivery.</p>
+${CTA(true)}
+<h3>Elfbar Raya D1 Price in Bangalore</h3>
+<p>We offer the best market price with guaranteed authentic products — every unit is sealed and verified before dispatch. WhatsApp us for current pricing.</p>
+<h3>How to Spot a Fake Elfbar Raya D1</h3>
+<p>Counterfeit Elfbars are common in Bangalore local shops. Signs of a fake: no authentication QR code, inconsistent font, loose mouthpiece, burnt taste on first puff. All our products come from authorised distributors.</p>
+<h3>Delivery Across Bangalore</h3>
+<p>We deliver Elfbar Raya D1 across all of Bangalore in 30-45 minutes — Koramangala, Indiranagar, HSR Layout, BTM Layout, Whitefield, Marathahalli, Hebbal, Yelahanka, Electronic City and 100+ areas.</p>
+${CTA()}`,
+  },
+  {
+    slug: "zyn-nicotine-pouches-bangalore",
+    title: "ZYN Nicotine Pouches in Bangalore — Cool Mint, Citrus and More",
+    metaTitle: "ZYN Nicotine Pouches Bangalore | Buy Online | VapeDeliveryBangalore.com",
+    metaDescription: "Buy ZYN nicotine pouches in Bangalore with 30-45 min delivery. ZYN Cool Mint, Citrus and more. Tobacco-free, smoke-free nicotine. Order on WhatsApp.",
+    publishedAt: "2025-05-10",
+    readTime: 5,
+    category: "Product Guide",
+    excerpt: "ZYN nicotine pouches are the fastest growing nicotine product in Bangalore — smoke-free, spit-free, and discreet. Here is the complete guide.",
+    relatedLocations: [
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Whitefield", slug: "whitefield" },
+    ],
+    content: `
+<h2>ZYN Nicotine Pouches in Bangalore</h2>
+<p>ZYN is the world leading nicotine pouch brand and has rapidly gained popularity in Bangalore — especially among IT professionals looking for a discreet, smoke-free nicotine option. No smoke, no vapour, no spit.</p>
+<h3>ZYN Flavours Available in Bangalore</h3>
+<p><strong>ZYN Cool Mint</strong> — most popular in Bangalore. Fresh, clean mint. Available in 3mg and 6mg.</p>
+<p><strong>ZYN Citrus</strong> — bright, zesty. Popular among first-time pouch users.</p>
+<p><strong>ZYN Spearmint</strong> — softer than Cool Mint, great for all-day use.</p>
+<h3>ZYN vs Velo in Bangalore</h3>
+<p>ZYN has faster nicotine release and stronger flavour. Velo is softer and more gradual. Most customers switching from cigarettes prefer ZYN Cool Mint 6mg as a starting point.</p>
+${CTA(true)}
+<h3>Who Uses ZYN in Bangalore</h3>
+<p>ZYN is especially popular in Bangalore IT and corporate crowd — people who cannot smoke at their desk or in meetings. Completely invisible and odourless.</p>
+<h3>Order ZYN in Bangalore</h3>
+<p>We deliver ZYN nicotine pouches across all of Bangalore in 30-45 minutes. Each can contains 15 pouches. Koramangala, Indiranagar, HSR, Whitefield, BTM, Electronic City and 100+ areas covered.</p>
+${CTA()}`,
+  },
+  {
+    slug: "vape-shop-bangalore",
+    title: "Vape Shop in Bangalore — Buy Online with 30-45 Min Home Delivery",
+    metaTitle: "Vape Shop Bangalore | Online Vape Store | 30-45 Min Delivery | VapeDeliveryBangalore.com",
+    metaDescription: "Bangalore best online vape shop. Buy Elfbar, Lost Mary, Caliburn, ZYN and more with 30-45 min delivery. 100% original products, 100+ areas covered.",
+    publishedAt: "2025-05-15",
+    readTime: 5,
+    category: "Bangalore Guide",
+    excerpt: "Looking for a vape shop in Bangalore? Skip the traffic and get your vapes delivered in 30-45 minutes across 100+ areas.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "BTM Layout", slug: "btm-layout" },
+    ],
+    content: `
+<h2>Vape Shop in Bangalore — Why Online Delivery Beats Physical Stores</h2>
+<p>Bangalore has a handful of physical vape shops — mostly in Koramangala, Indiranagar, and HSR Layout. But getting there means traffic, parking, and hoping they have stock. Online vape delivery solves all of that — order from your phone and get it in 30-45 minutes.</p>
+<h3>What We Stock</h3>
+<p><strong>Disposables:</strong> Elfbar Raya D1, D3, Ice King, MoonNight 40K, Lost Mary MT35000, MO10000, Nasty Bolt WTF 50K, IGET Astro B18000, Yuoto Beyonder, Thanos</p>
+<p><strong>Pod Devices:</strong> Caliburn G3, G4, G4 Pro, G4 Mini, G5 Lite, Uwell A2, GK2, Xpod</p>
+<p><strong>Nicotine Pouches:</strong> ZYN Cool Mint, ZYN Citrus, Velo Freeze</p>
+<p><strong>Nic Salts:</strong> Elfliq, Pod Salt Core, Pod Salt Hit The Spot</p>
+${CTA(true)}
+<h3>Why Choose Us Over a Physical Vape Shop in Bangalore</h3>
+<p>30-45 minute delivery. 100% original products from authorised distributors. Discreet packaging. No minimum order. 100+ areas covered across all of Bangalore.</p>
+<h3>Areas We Deliver To</h3>
+<p>BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Marathahalli, Electronic City, Jayanagar, JP Nagar, Hebbal, Yelahanka, Rajajinagar, Malleshwaram and 100+ more areas.</p>
+${CTA()}`,
+  },
+  {
+    slug: "best-vape-brands-bangalore",
+    title: "Best Vape Brands in Bangalore 2025 — Elfbar, Lost Mary, Caliburn, Nasty and More",
+    metaTitle: "Best Vape Brands in Bangalore 2025 | VapeDeliveryBangalore.com",
+    metaDescription: "The best vape brands in Bangalore — Elfbar, Lost Mary, Caliburn, Nasty, IGET, Yuoto, ZYN. Honest comparison to help you choose. Fast delivery across Bangalore.",
+    publishedAt: "2025-05-20",
+    readTime: 7,
+    category: "Product Guide",
+    excerpt: "With so many vape brands in Bangalore, it is hard to know which one to choose. Here is an honest breakdown of the best brands and what they are best for.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+      { name: "Whitefield", slug: "whitefield" },
+    ],
+    content: `
+<h2>Best Vape Brands in Bangalore — 2025 Guide</h2>
+<p>Bangalore vape market has grown significantly. Here is an honest breakdown of the top brands available for delivery and what they are best for.</p>
+<h3>1. Elfbar — Best for Variety and Reliability</h3>
+<p>Elfbar is Bangalore most ordered brand. The Raya series offers excellent puff counts, good flavour consistency, and competitive pricing. Best for vapers who want a reliable, widely available brand.</p>
+<h3>2. Lost Mary — Best for Flavour Quality</h3>
+<p>Lost Mary is known for superior flavour intensity. The MT35000 Turbo is Bangalore top-selling high-capacity disposable. Best for flavour chasers.</p>
+<h3>3. Caliburn — Best Pod Device</h3>
+<p>Caliburn is the number one pod device brand in Bangalore. The G4 and G4 Pro are popular among intermediate vapers who want a reusable device. More economical than disposables long-term.</p>
+${CTA(true)}
+<h3>4. Nasty — Best for High Puff Count</h3>
+<p>The Nasty Bolt WTF 50K delivers 50,000 puffs — highest capacity disposable in Bangalore. Best for heavy vapers who do not want to reorder frequently.</p>
+<h3>5. IGET — Best Value High-Capacity</h3>
+<p>The IGET Astro B18000 offers excellent value at 18,000 puffs. Reliable build quality, good flavour, USB-C charging.</p>
+<h3>6. ZYN and Velo — Best Nicotine Pouches</h3>
+<p>For smoke-free nicotine, ZYN Cool Mint and Velo Freeze are Bangalore top sellers. Best for IT professionals and office workers who want discreet nicotine.</p>
+<h3>Which Brand Should You Choose</h3>
+<p>First time: Elfbar Raya D1. Regular vaper: Caliburn G4 plus Elfliq. Nicotine without smoke: ZYN Cool Mint. High puff count: Lost Mary MT35000 or Nasty Bolt WTF 50K.</p>
+${CTA()}`,
+  },
+  {
+    slug: "vape-price-bangalore",
+    title: "Vape Price in Bangalore 2025 — How Much Do Vapes Cost?",
+    metaTitle: "Vape Price in Bangalore 2025 | Elfbar, Caliburn, Lost Mary Prices | VapeDeliveryBangalore.com",
+    metaDescription: "How much do vapes cost in Bangalore? Full price guide for disposables, pod devices, nicotine pouches and e-liquids. Elfbar, Lost Mary, Caliburn, ZYN prices.",
+    publishedAt: "2025-05-25",
+    readTime: 5,
+    category: "Bangalore Guide",
+    excerpt: "Confused about vape prices in Bangalore? Here is a complete price guide for all major vape products — disposables, pod devices, nicotine pouches and e-liquids.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+    ],
+    content: `
+<h2>Vape Prices in Bangalore — 2025 Guide</h2>
+<p>Vape prices in Bangalore vary significantly. Local shops often mark up 2-3x the fair market price. Here is what you should actually be paying.</p>
+<h3>Disposable Vape Prices in Bangalore</h3>
+<p><strong>Entry-level under 5,000 puffs:</strong> Rs 800 to Rs 1,200</p>
+<p><strong>Mid-range 5,000 to 15,000 puffs:</strong> Rs 1,500 to Rs 2,500 — Elfbar Raya D1, Lost Mary MO10000, IGET Astro, Yuoto Beyonder</p>
+<p><strong>High-capacity 15,000 to 35,000 puffs:</strong> Rs 2,500 to Rs 3,500 — Lost Mary MT35000, Elfbar MoonNight 40K, Ice King 30K</p>
+<p><strong>Ultra-high 40,000+ puffs:</strong> Rs 3,500 to Rs 4,500 — Nasty Bolt WTF 50K, Elfbar Raya D3</p>
+<h3>Pod Device Prices in Bangalore</h3>
+<p>Caliburn G3 Lite: Rs 3,899 | Caliburn G4: Rs 6,899 | Caliburn G4 Pro: Rs 7,199 | Caliburn G5 Lite: Rs 4,899</p>
+<p>Pod replacements Elfliq and Pod Salt: Rs 1,299 to Rs 1,799 per bottle</p>
+${CTA(true)}
+<h3>Nicotine Pouch Prices in Bangalore</h3>
+<p>ZYN Cool Mint and Citrus: Rs 999 per can of 15 pouches | Velo Freeze: Rs 999 per can</p>
+<h3>Why Local Shops Charge More</h3>
+<p>Physical vape shops in Bangalore often charge 40 to 100 percent above fair market value. Grey market imports and middlemen all contribute. Buying online is almost always cheaper.</p>
+<h3>Get the Best Vape Price in Bangalore</h3>
+<p>Order directly from us — we maintain fair market pricing with no hidden markups. WhatsApp us for a price check on any product before ordering.</p>
+${CTA()}`,
+  },
+  {
+    slug: "how-to-buy-vape-bangalore",
+    title: "How to Buy Vapes in Bangalore — Complete Guide for Beginners",
+    metaTitle: "How to Buy Vape in Bangalore | Complete Guide | VapeDeliveryBangalore.com",
+    metaDescription: "New to vaping in Bangalore? Here is exactly how to buy vapes — what to get, where to buy, how to order, and what to avoid. Step by step guide.",
+    publishedAt: "2025-06-01",
+    readTime: 6,
+    category: "Bangalore Guide",
+    excerpt: "Buying your first vape in Bangalore does not have to be confusing. Here is a simple, honest guide to getting started.",
+    relatedLocations: [
+      { name: "BTM Layout", slug: "btm-layout" },
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+    ],
+    content: `
+<h2>How to Buy Vapes in Bangalore — Beginner Guide</h2>
+<p>If you are new to vaping and want to buy in Bangalore, this guide covers everything — what to buy, how much to spend, where to get it, and what to avoid.</p>
+<h3>Step 1 — Choose Your Type</h3>
+<p><strong>Disposable vape</strong> — No setup, no maintenance. The Elfbar Raya D1 is the most popular first vape in Bangalore. 7,000 puffs, no buttons, no refilling.</p>
+<p><strong>Pod device</strong> — Reusable device plus replaceable pods. The Caliburn G4 is the most popular pod device in Bangalore. More economical long-term.</p>
+<p><strong>Nicotine pouches</strong> — No device, no vapour. ZYN Cool Mint is the easiest entry point. Completely discreet.</p>
+<h3>Step 2 — Choose Your Nicotine Strength</h3>
+<p>For disposables: 50mg salt nic is standard. For pod devices: 35mg or 50mg nic salt e-liquids. For pouches: start with 3mg, move to 6mg if needed.</p>
+${CTA(true)}
+<h3>Step 3 — Choose Your Flavour</h3>
+<p>Most popular first-time flavours in Bangalore: Watermelon Ice, Strawberry Ice, Mango Ice, Blueberry Ice. All smooth, fruity, and easy to enjoy. Avoid tobacco flavours for your first order.</p>
+<h3>Step 4 — Order Online, Not From the Street</h3>
+<p>Local shops and street vendors in Bangalore frequently sell counterfeit vapes. Always buy from a verified seller. We source directly from authorised distributors and every product has an authentication QR code.</p>
+<h3>Step 5 — Get It Delivered in 30-45 Minutes</h3>
+<p>WhatsApp us your product choice, flavour, and delivery address. We confirm and dispatch immediately. Delivery fee paid to rider on arrival. No app, no login, no hassle.</p>
+${CTA()}`,
+  },
+  {
+    slug: "iget-vape-bangalore",
+    title: "IGET Vapes in Bangalore — Astro B18000 and More | Fast Delivery",
+    metaTitle: "IGET Vapes Bangalore | Buy IGET Astro B18000 | VapeDeliveryBangalore.com",
+    metaDescription: "Buy IGET vapes in Bangalore with 30-45 min delivery. IGET Astro B18000 — 18,000 puffs, USB-C rechargeable, 20+ flavours. Order on WhatsApp now.",
+    publishedAt: "2025-06-05",
+    readTime: 4,
+    category: "Product Guide",
+    excerpt: "IGET is one of the best value high-capacity disposable vape brands in Bangalore. Here is everything about the IGET Astro B18000.",
+    relatedLocations: [
+      { name: "Whitefield", slug: "whitefield" },
+      { name: "Electronic City", slug: "electronic-city" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+    ],
+    content: `
+<h2>IGET Vapes in Bangalore — IGET Astro B18000 Guide</h2>
+<p>IGET is an Australian vape brand known for high-capacity, reliable disposables at competitive prices. The IGET Astro B18000 has become one of the top-selling high-puff disposables in Bangalore — offering 18,000 puffs with excellent flavour and USB-C charging.</p>
+<h3>IGET Astro B18000 Specifications</h3>
+<p><strong>Puffs:</strong> 18,000 | <strong>Battery:</strong> Rechargeable USB-C | <strong>Nicotine:</strong> 50mg salt nic | <strong>Price in Bangalore:</strong> Rs 2,199</p>
+<h3>Best IGET Astro Flavours in Bangalore</h3>
+<p>Watermelon Ice, Strawberry Watermelon Ice, Mango Ice, Blueberry Ice, Grape Ice, Peach Ice. All available for same-day delivery across Bangalore.</p>
+${CTA(true)}
+<h3>IGET vs Elfbar vs Lost Mary</h3>
+<p>For 18,000 puff range: IGET Astro B18000 offers the best value. Elfbar Ice King 30K costs more but gives more puffs. Lost Mary MT35000 is the premium option. IGET hits the sweet spot for vapers who want high capacity without premium pricing.</p>
+<h3>Order IGET in Bangalore</h3>
+<p>We deliver IGET Astro B18000 across all of Bangalore in 30-45 minutes. Whitefield, Electronic City, HSR Layout, Koramangala, Indiranagar and 100+ areas covered.</p>
+${CTA()}`,
+  },
+  {
+    slug: "nasty-vape-bangalore",
+    title: "Nasty Vapes in Bangalore — Bolt WTF 50K | Fast Delivery",
+    metaTitle: "Nasty Vapes Bangalore | Nasty Bolt WTF 50K | VapeDeliveryBangalore.com",
+    metaDescription: "Buy Nasty vapes in Bangalore with 30-45 min delivery. Nasty Bolt WTF 50K — 50,000 puffs, highest puff count disposable in Bangalore. Order on WhatsApp.",
+    publishedAt: "2025-06-10",
+    readTime: 4,
+    category: "Product Guide",
+    excerpt: "The Nasty Bolt WTF 50K is the highest puff count disposable vape in Bangalore — 50,000 puffs. Here is everything you need to know.",
+    relatedLocations: [
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "Whitefield", slug: "whitefield" },
+    ],
+    content: `
+<h2>Nasty Vapes in Bangalore — Bolt WTF 50K</h2>
+<p>Nasty is a Malaysian vape brand known for bold flavours and high-capacity devices. The Nasty Bolt WTF 50K is the crown jewel — 50,000 puffs, making it the highest puff count disposable available in Bangalore.</p>
+<h3>Nasty Bolt WTF 50K Specifications</h3>
+<p><strong>Puffs:</strong> 50,000 | <strong>Battery:</strong> Rechargeable USB-C | <strong>Nicotine:</strong> 50mg salt nic | <strong>Dual mesh coil</strong> | <strong>Price in Bangalore:</strong> Rs 2,999</p>
+<h3>Best Nasty Bolt Flavours in Bangalore</h3>
+<p>Watermelon Ice, Mango Ice, Strawberry Ice, Blueberry Ice, Grape Ice. All available for same-day delivery across Bangalore.</p>
+${CTA(true)}
+<h3>Who Should Buy the Nasty Bolt WTF 50K</h3>
+<p>This is for heavy vapers who are tired of reordering every week. At 50,000 puffs it lasts 2-4x longer than most disposables. Eliminates the hassle of frequent reordering.</p>
+<h3>Nasty vs Lost Mary MT35000 vs Elfbar MoonNight</h3>
+<p>For maximum puffs: Nasty Bolt WTF 50K wins at 50K. For flavour quality: Lost Mary MT35000 at 35K edges ahead. For brand recognition: Elfbar MoonNight 40K. All three available for delivery across Bangalore.</p>
+<h3>Order Nasty Vapes in Bangalore</h3>
+<p>WhatsApp us your flavour and address — we deliver the Nasty Bolt WTF 50K across all of Bangalore in 30-45 minutes.</p>
+${CTA()}`,
+  },
+  {
+    slug: "caliburn-g4-bangalore",
+    title: "Caliburn G4 in Bangalore — Best Pod Device | Price, Review and Delivery",
+    metaTitle: "Caliburn G4 Bangalore | Buy Online | Pod Device Review | VapeDeliveryBangalore.com",
+    metaDescription: "Buy Caliburn G4 in Bangalore with 30-45 min delivery. Full review, price Rs 6,899, specs and why it is Bangalore most popular pod device. Order on WhatsApp.",
+    publishedAt: "2025-06-15",
+    readTime: 6,
+    category: "Product Guide",
+    excerpt: "The Caliburn G4 is Bangalore most popular pod device. Full review — specs, price, performance, and why it is the best pod system for vapers in Bangalore.",
+    relatedLocations: [
+      { name: "Indiranagar", slug: "indiranagar" },
+      { name: "Koramangala", slug: "koramangala" },
+      { name: "HSR Layout", slug: "hsr-layout" },
+    ],
+    content: `
+<h2>Caliburn G4 — Bangalore Most Popular Pod Device</h2>
+<p>The Uwell Caliburn G4 has become the go-to pod device for vapers in Bangalore who want to move beyond disposables. Reliable, well-built, great flavour, and long battery life.</p>
+<h3>Caliburn G4 Specifications</h3>
+<p><strong>Battery:</strong> 950mAh | <strong>Output:</strong> Up to 26W | <strong>Pod Capacity:</strong> 3ml | <strong>Charging:</strong> USB-C | <strong>Price in Bangalore:</strong> Rs 6,899</p>
+<h3>Why the Caliburn G4 is Popular in Bangalore</h3>
+<p>The G4 is compact enough for daily carry, powerful enough for satisfying vapour, and the 950mAh battery lasts a full day for most vapers. The meshed coil delivers excellent flavour from nicotine salt e-liquids.</p>
+${CTA(true)}
+<h3>Caliburn G4 vs G4 Pro vs G4 Mini</h3>
+<p><strong>G4</strong> Rs 6,899 — Standard, best all-rounder. <strong>G4 Pro</strong> Rs 7,199 — More powerful, OLED display. <strong>G4 Mini</strong> Rs 4,399 — Smaller, lower battery. For most Bangalore vapers, the standard G4 is the sweet spot.</p>
+<h3>Best Nic Salts for Caliburn G4 in Bangalore</h3>
+<p><strong>Elfliq Nic Salt</strong> Rs 1,599 — Strawberry, Watermelon Ice, Blueberry most popular. <strong>Pod Salt Core</strong> Rs 1,599 — Wide flavour range, smooth hit.</p>
+<h3>Is the Caliburn G4 Worth It vs Disposables</h3>
+<p>A Caliburn G4 plus Elfliq pods costs Rs 8,500 to set up. A comparable disposable costs Rs 2,500 to Rs 3,500 and gets thrown away. If you vape regularly, the G4 pays for itself within 2-3 months.</p>
+<h3>Order Caliburn G4 in Bangalore</h3>
+<p>We deliver the Caliburn G4 and all compatible pods across Bangalore in 30-45 minutes. Indiranagar, Koramangala, HSR Layout, Whitefield, BTM and 100+ areas covered.</p>
+${CTA()}`,
+  },
+
 ];
