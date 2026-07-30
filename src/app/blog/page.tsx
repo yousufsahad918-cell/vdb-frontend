@@ -47,7 +47,7 @@ export default function BlogIndex() {
           Everything About Vaping in Bangalore
         </h1>
         <p style={{ color: "var(--muted)", fontSize: "1rem", maxWidth: 560, margin: "0 auto" }}>
-          Area guides, product reviews, and delivery info across 20+ neighbourhoods in Bangalore.
+          Area guides, product reviews, and delivery info across 100+ neighbourhoods in Bangalore.
         </p>
       </section>
 

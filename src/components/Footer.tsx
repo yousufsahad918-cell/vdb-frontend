@@ -32,7 +32,7 @@ export default function Footer() {
             <span style={{ color: "#86efac" }}> · DELIVERY · BANGALORE</span>
           </p>
           <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.5, maxWidth: 400 }}>
-            Buy vape online in Bangalore. 30-45 min delivery across 20+ areas.
+            Buy vape online in Bangalore. 30-45 min delivery across 100+ areas.
             Authentic products, discreet packaging.
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function Footer() {
             © 2026 VapeDeliveryBangalore.com. Fast vape delivery in Bangalore.
           </p>
           <p style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)" }}>
-            30-45 min delivery · 20+ areas · WhatsApp orders
+            30-45 min delivery · 100+ areas · WhatsApp orders
           </p>
         </div>
       </div>

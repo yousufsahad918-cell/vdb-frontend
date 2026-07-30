@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | VapeDeliveryBangalore",
   },
   description:
-    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes, pod devices & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 50+ areas. Order on WhatsApp now.",
+    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes, pod devices & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 100+ areas. Order on WhatsApp now.",
   keywords: [
     "vape delivery bangalore",
     "vapedeliverybangalore",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Vape Delivery Bangalore — 30-45 Min | VapeDeliveryBangalore.com",
-    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 50+ areas covered. Order on WhatsApp.",
+    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 100+ areas covered. Order on WhatsApp.",
     images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeDeliveryBangalore — Fast Delivery" }],
     type: "website",
     siteName: "VapeDeliveryBangalore.com",

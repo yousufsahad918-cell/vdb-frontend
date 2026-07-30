@@ -76,7 +76,7 @@ export default function HeroSection() {
             maxWidth: 480, margin: "0 auto 20px", lineHeight: 1.5,
           }}>
             Disposable vapes, pod systems & e-liquids — discreet delivery to BTM,
-            HSR, Koramangala, Whitefield & 20+ areas.
+            HSR, Koramangala, Whitefield & 100+ areas.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 340, margin: "0 auto" }}>
             <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ justifyContent: "center" }}>

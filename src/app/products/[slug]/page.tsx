@@ -266,7 +266,7 @@ export default function ProductPage({ params }: Props) {
           <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.6 }}>
             Order {product.name} in Bangalore for fast 30-45 minute delivery. We deliver vapes across
             BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Marathahalli, Electronic City
-            and 20+ areas. All products are 100% authentic with discreet packaging.
+            and 100+ areas. All products are 100% authentic with discreet packaging.
           </p>
         </div>
 

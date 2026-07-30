@@ -7,13 +7,13 @@ import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
   title: "Vapes in Bangalore — Buy Vapes Online | 30-45 Min Delivery | VapeDeliveryBangalore.com",
-  description: "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Lost Mary, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City and 50+ areas. Order on WhatsApp.",
+  description: "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Lost Mary, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield, Electronic City and 100+ areas. Order on WhatsApp.",
 };
 
 const FEATURES = [
   { icon: "⚡", title: "30-45 Min Delivery", desc: "We dispatch fast. Most orders across Bangalore reach you within 45 minutes." },
   { icon: "🔒", title: "100% Discreet", desc: "Plain packaging, no labels. Your order is your business." },
-  { icon: "🗺️", title: "50+ Areas Covered", desc: "From BTM Layout to Whitefield, Koramangala to Yelahanka, Indiranagar to Electronic City — 50+ areas covered." },
+  { icon: "🗺️", title: "100+ Areas Covered", desc: "From BTM Layout to Whitefield, Koramangala to Yelahanka, Indiranagar to Electronic City — 100+ areas covered." },
   { icon: "💬", title: "Order via WhatsApp", desc: "No app download, no login. Just message us and we'll handle the rest." },
   { icon: "🌿", title: "Best Flavours", desc: "Disposable vapes, pod systems, and e-liquids from top brands — huge selection available." },
   { icon: "✅", title: "Trusted by 1000+", desc: "Hundreds of repeat customers across Bangalore trust us for reliable vape delivery." },
@@ -130,7 +130,7 @@ export default function HomePage() {
           <h2 style={{ marginBottom: 10 }}>Buy Vape Online in Bangalore — Fast Delivery</h2>
           <p style={{ color: "var(--muted)", lineHeight: 1.7, marginBottom: 10, fontSize: "0.88rem" }}>
             VapeDeliveryBangalore is Bangalore's fastest vape delivery service. We deliver disposable vapes,
-            pod devices, nic salts, nicotine pouches and tobacco products across 20+ areas in 30-45 minutes.
+            pod devices, nic salts, nicotine pouches and tobacco products across 100+ areas in 30-45 minutes.
             All products are 100% authentic with discreet packaging.
           </p>
           <p style={{ color: "var(--muted)", lineHeight: 1.7, fontSize: "0.88rem" }}>
@@ -145,7 +145,7 @@ export default function HomePage() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "VapeDeliveryBangalore",
-        "description": "Vape delivery service in Bangalore. 30-45 min delivery across 20+ areas.",
+        "description": "Vape delivery service in Bangalore. 30-45 min delivery across 100+ areas.",
         "url": "https://vapedeliverybangalore.com",
         "telephone": "+916282878843",
         "areaServed": "Bangalore",

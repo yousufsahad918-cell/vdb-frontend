@@ -350,7 +350,7 @@ ${CTA()}`,
 ${CTA(true)}
 
 <h3>How to Buy Vapes Online in Bangalore</h3>
-<p>The easiest way is delivery — browse our product page, select flavour, enter your address, and checkout. No account required. We deliver across 20+ areas in Bangalore via Porter and Rapido. Alternatively, WhatsApp us directly with your order and address.</p>
+<p>The easiest way is delivery — browse our product page, select flavour, enter your address, and checkout. No account required. We deliver across 100+ areas in Bangalore via Porter and Rapido. Alternatively, WhatsApp us directly with your order and address.</p>
 
 <h3>Which Areas Get Fastest Delivery?</h3>
 <p>Our fastest delivery areas are Koramangala, Indiranagar, BTM Layout, HSR Layout, Whitefield, and Electronic City. North Bangalore (Hebbal, Yelahanka, Hennur) and outer areas like Sarjapur Road and Bellandur are also covered with slightly longer delivery windows.</p>
@@ -368,7 +368,7 @@ ${CTA()}`,
     slug: "vape-delivery-bangalore",
     title: "Vape Delivery in Bangalore — How It Works, What to Expect",
     metaTitle: "Vape Delivery Bangalore — Fast Discreet Delivery | VapeDeliveryBangalore.com",
-    metaDescription: "How does vape delivery work in Bangalore? Order online, get dispatch via Porter or Rapido, track your delivery. We cover 20+ areas across Bangalore.",
+    metaDescription: "How does vape delivery work in Bangalore? Order online, get dispatch via Porter or Rapido, track your delivery. We cover 100+ areas across Bangalore.",
     publishedAt: "2025-04-09",
     readTime: 5,
     category: "Bangalore Guide",
@@ -397,7 +397,7 @@ ${CTA(true)}
 <p>The delivery partner brings your order to your address. Packaging is always plain and discreet — no branding on the outside. If you're in a gated community or PG, just share the gate address or nearest landmark.</p>
 
 <h3>Areas We Deliver To</h3>
-<p>We cover 20+ areas across Bangalore including Koramangala, Indiranagar, BTM Layout, HSR Layout, Whitefield, Electronic City, Marathahalli, Bellandur, Sarjapur Road, Hebbal, Yelahanka, Jayanagar, JP Nagar, Banashankari, Rajajinagar, Malleshwaram, MG Road, KR Puram, Hoodi, and Hennur.</p>
+<p>We cover 100+ areas across Bangalore including Koramangala, Indiranagar, BTM Layout, HSR Layout, Whitefield, Electronic City, Marathahalli, Bellandur, Sarjapur Road, Hebbal, Yelahanka, Jayanagar, JP Nagar, Banashankari, Rajajinagar, Malleshwaram, MG Road, KR Puram, Hoodi, and Hennur.</p>
 
 <h3>Delivery Hours</h3>
 <p>We operate daily. For fastest response, order between 10am and 9pm. Late-night orders are accepted based on availability.</p>
@@ -444,7 +444,7 @@ ${CTA(true)}
 <p>First time? Go D1. Daily user? D3. Strong menthol preference? Ice King. All three are available for delivery across Bangalore with flavour selection at checkout.</p>
 
 <h3>How to Order in Bangalore</h3>
-<p>Browse products on our homepage, pick your flavour, enter your address, and checkout. We deliver across 20+ areas in Bangalore via Porter and Rapido.</p>
+<p>Browse products on our homepage, pick your flavour, enter your address, and checkout. We deliver across 100+ areas in Bangalore via Porter and Rapido.</p>
 
 ${CTA()}`,
   },
@@ -453,11 +453,11 @@ ${CTA()}`,
     slug: "vape-near-me-bangalore",
     title: "Vape Near Me in Bangalore — Fastest Delivery Across All Areas",
     metaTitle: "Vape Near Me Bangalore — Fast Delivery to Your Location | VapeDeliveryBangalore.com",
-    metaDescription: "Searching for vape near me in Bangalore? We deliver to your exact location across 20+ areas. Koramangala, Whitefield, BTM, HSR, Electronic City and more.",
+    metaDescription: "Searching for vape near me in Bangalore? We deliver to your exact location across 100+ areas. Koramangala, Whitefield, BTM, HSR, Electronic City and more.",
     publishedAt: "2025-04-06",
     readTime: 4,
     category: "Bangalore Guide",
-    excerpt: "If you've searched 'vape near me' in Bangalore, you're in the right place. We deliver to your location across 20+ areas — no need to leave home.",
+    excerpt: "If you've searched 'vape near me' in Bangalore, you're in the right place. We deliver to your location across 100+ areas — no need to leave home.",
     relatedLocations: [
       { name: "Koramangala", slug: "koramangala" },
       { name: "HSR Layout", slug: "hsr-layout" },
@@ -465,12 +465,12 @@ ${CTA()}`,
     ],
     content: `
 <h2>Vape Near Me — Delivery Across Bangalore</h2>
-<p>If you've typed "vape near me" into Google while in Bangalore, you don't need to find a physical shop. We deliver to your exact location across 20+ areas in the city. Here's how to get your order in the shortest time possible.</p>
+<p>If you've typed "vape near me" into Google while in Bangalore, you don't need to find a physical shop. We deliver to your exact location across 100+ areas in the city. Here's how to get your order in the shortest time possible.</p>
 
 <h3>How to Find the Fastest Delivery for Your Area</h3>
 <p>Delivery speed depends on your location. Our fastest zones are central and south Bangalore — Koramangala, Indiranagar, BTM Layout, HSR Layout, and MG Road typically get the quickest turnaround. Whitefield, Electronic City, and Marathahalli in the east are also fast. North Bangalore (Hebbal, Yelahanka, Hennur) is covered with slightly longer windows.</p>
 
-<h3>20+ Areas Covered</h3>
+<h3>100+ Areas Covered</h3>
 <p>We cover BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Electronic City, Marathahalli, Bellandur, Sarjapur Road, Yelahanka, Hebbal, Jayanagar, JP Nagar, Banashankari, Rajajinagar, Malleshwaram, MG Road, KR Puram, Hoodi, and Hennur — plus surrounding sublocations.</p>
 
 ${CTA(true)}
@@ -715,7 +715,7 @@ ${CTA()}`,
     slug: "how-to-order-vape-delivery-bangalore-whatsapp",
     title: "How to Order Vape Delivery in Bangalore on WhatsApp — Step by Step",
     metaTitle: "How to Order Vape Delivery Bangalore on WhatsApp | VapeDeliveryBangalore",
-    metaDescription: "Step by step guide to ordering vape delivery in Bangalore on WhatsApp. Fast 30-45 min delivery to BTM, HSR, Koramangala & 20+ areas.",
+    metaDescription: "Step by step guide to ordering vape delivery in Bangalore on WhatsApp. Fast 30-45 min delivery to BTM, HSR, Koramangala & 100+ areas.",
     publishedAt: "2025-04-24",
     readTime: 3,
     category: "Guide",
@@ -748,7 +748,7 @@ ${CTA(true)}
 <p>You can either add to cart and checkout, or tap any flavour to go straight to WhatsApp with your order pre-filled. The WhatsApp message includes the product name, flavour, and price automatically.</p>
 
 <h2>Step 4 — Share Your Address</h2>
-<p>We'll confirm your order within 5 minutes and ask for your delivery address. You can share your live location on WhatsApp for fastest delivery. We deliver across 20+ Bangalore areas.</p>
+<p>We'll confirm your order within 5 minutes and ask for your delivery address. You can share your live location on WhatsApp for fastest delivery. We deliver across 100+ Bangalore areas.</p>
 
 <h2>Step 5 — Pay on Delivery</h2>
 <p>Payment is confirmed via WhatsApp before dispatch. Delivery charges are paid to the rider on arrival. No COD — we dispatch within 10-15 minutes of payment confirmation.</p>

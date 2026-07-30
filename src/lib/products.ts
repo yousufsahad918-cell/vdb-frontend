@@ -46,7 +46,7 @@ export const products: Product[] = [
     subCategory: "Disposable",
     features: ["600 Puffs", "2ml E-Liquid", "20mg Nicotine Salt", "Draw Activated", "No Charging Required", "Compact Design"],
     metaTitle: "Elfbar 600 Disposable Vape — Buy in Bangalore | ₹999 | VapeDeliveryBangalore",
-    metaDescription: "Buy Elfbar 600 disposable vape in Bangalore at ₹999. Perfect beginner vape, 600 puffs, 7 flavours. 45-min delivery to BTM, HSR, Koramangala & 20+ areas.",
+    metaDescription: "Buy Elfbar 600 disposable vape in Bangalore at ₹999. Perfect beginner vape, 600 puffs, 7 flavours. 45-min delivery to BTM, HSR, Koramangala & 100+ areas.",
     nicotine: "20mg Nicotine Salt",
     inStock: false,
   },

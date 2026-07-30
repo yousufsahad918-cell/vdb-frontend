@@ -59,7 +59,7 @@ export default function ProductsPage() {
           Buy Vapes & Tobacco in Bangalore
         </h1>
         <p style={{ color: "var(--muted)", fontSize: "0.88rem", marginBottom: 24 }}>
-          {filtered.length} products · Fast delivery across 20+ Bangalore areas
+          {filtered.length} products · Fast delivery across 100+ Bangalore areas
         </p>
 
         {/* Category filter */}
