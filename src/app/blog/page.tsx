@@ -3,9 +3,27 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/blogs";
 
 export const metadata: Metadata = {
-  title: "Vape Blog — Bangalore Delivery Guide | VapeDeliveryBangalore.com",
-  description: "Guides, area coverage, product reviews and delivery info for vape delivery across Bangalore. Koramangala, Whitefield, BTM, HSR, Electronic City and more.",
+  title: "Vape Blog — Buy Vapes in Bangalore | Delivery Guide, Product Reviews & Area Coverage",
+  description: "Everything about buying vapes in Bangalore — product reviews, area delivery guides, brand comparisons, and how to order. Covering Koramangala, Whitefield, BTM, HSR, Indiranagar, Electronic City and 100+ areas.",
   alternates: { canonical: "https://vapedeliverybangalore.com/blog" },
+  keywords: [
+    "vape blog bangalore",
+    "buy vapes in bangalore",
+    "vape delivery guide bangalore",
+    "elfbar review bangalore",
+    "lost mary bangalore review",
+    "vape in bangalore guide",
+    "best vapes bangalore",
+    "vape shop bangalore blog",
+    "nicotine pouches bangalore",
+    "disposable vape bangalore guide",
+  ],
+  openGraph: {
+    title: "Vape Blog — Buy Vapes in Bangalore | VapeDeliveryBangalore.com",
+    description: "Product reviews, area guides and delivery info for vapes across Bangalore.",
+    url: "https://vapedeliverybangalore.com/blog",
+    type: "website",
+  },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
