@@ -71,17 +71,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
-        <meta name="theme-color" content="#14532d" />
+        <meta name="theme-color" content="#ff6a00" />
         <meta name="geo.region" content="IN-KA" />
         <meta name="geo.placename" content="Bangalore" />
         <meta name="geo.position" content="12.9716;77.5946" />
         <meta name="ICBM" content="12.9716, 77.5946" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeDeliveryBangalore.com","url":"https://vapedeliverybangalore.com","telephone":"+916282878843","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"320","bestRating":"5"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Rahul S."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Ordered Elfbar Raya D1 to Koramangala and it arrived in 38 minutes. 100% original product."},{"@type":"Review","author":{"@type":"Person","name":"Priya K."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Best vape delivery in Bangalore. Delivered to Indiranagar in 40 mins. Original products."},{"@type":"Review","author":{"@type":"Person","name":"Arjun M."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Got Caliburn G4 delivered to Whitefield in 42 mins. Sealed and original. Highly recommend."}]}` }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeDeliveryBangalore.com","url":"https://vapedeliverybangalore.com","telephone":"+916282878843","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"320","bestRating":"5"},}` }} />
       </head>
       <body suppressHydrationWarning>
         <CartProvider>
