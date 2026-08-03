@@ -11,7 +11,7 @@ const RATE_LIMIT: Record<string, { count: number; time: number }> = {};
 const WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS = 60; // max 60 requests per minute per IP
 
-const WA_NUMBER = "916282878843";
+const WA_NUMBER = "919074445985";
 const WA_ALERT_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}`;
 
 async function sendAlert(ip: string, reason: string, ua: string) {

@@ -89,7 +89,7 @@ export default function Footer() {
                 { label: "Home", href: "/" },
                 { label: "All Products", href: "/products" },
                 { label: "Blog & Guides", href: "/blog" },
-                { label: "Order on WhatsApp", href: typeof window !== "undefined" ? (window as any).__waUrl || "https://wa.me/916282878843" : "https://wa.me/916282878843" },
+                { label: "Order on WhatsApp", href: typeof window !== "undefined" ? (window as any).__waUrl || "https://wa.me/919074445985" : "https://wa.me/919074445985" },
               ].map(l => (
                 <Link key={l.href} href={l.href}
                   target={l.href.startsWith("http") ? "_blank" : undefined}
