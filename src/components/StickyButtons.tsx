@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const FALLBACK = "916282878843";
+const FALLBACK = "919074445985";
 const WA_MSG = "?text=Hi%20VapeDeliveryBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 export default function StickyButtons() {
