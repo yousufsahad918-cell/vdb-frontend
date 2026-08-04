@@ -17,7 +17,7 @@ export default function CartDrawer() {
     return encodeURIComponent(msg);
   };
 
-  const waUrl = "https://wa.me/919074445985?text=" + buildMessage();
+  const waUrl = "https://wa.me/916282878843?text=" + buildMessage();
 
   if (!isOpen) return null;
 

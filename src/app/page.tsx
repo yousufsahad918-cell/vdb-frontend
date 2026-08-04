@@ -20,7 +20,7 @@ const FEATURES = [
 ];
 
 export default function HomePage() {
-  const WHATSAPP_NUMBER = "919074445985";
+  const WHATSAPP_NUMBER = "916282878843";
   return (
     <>
       {/* HERO */}
@@ -147,7 +147,7 @@ export default function HomePage() {
         "name": "VapeDeliveryBangalore",
         "description": "Vape delivery service in Bangalore. 30-45 min delivery across 100+ areas.",
         "url": "https://vapedeliverybangalore.com",
-        "telephone": "+919074445985",
+        "telephone": "+916282878843",
         "areaServed": "Bangalore",
         "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" },
         "openingHours": "Mo-Su 10:00-22:00",
