@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/lib/cart";
 import CartDrawer from "@/components/CartDrawer";
+import BottomNav from "@/components/BottomNav";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vapedeliverybangalore.com"),
@@ -85,7 +86,7 @@ export default function RootLayout({
         <meta name="geo.placename" content="Bangalore" />
         <meta name="geo.position" content="12.9716;77.5946" />
         <meta name="ICBM" content="12.9716, 77.5946" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeDeliveryBangalore.com","url":"https://vapedeliverybangalore.com","telephone":"+916282878843","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"320","bestRating":"5"},}` }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeDeliveryBangalore.com","url":"https://vapedeliverybangalore.com","telephone":"+919074445985","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"320","bestRating":"5"},}` }} />
       </head>
       <body suppressHydrationWarning>
         <CartProvider>
@@ -94,6 +95,7 @@ export default function RootLayout({
           <Footer />
         <CartDrawer />
         </CartProvider>
+      <BottomNav />
       </body>
     </html>
   );

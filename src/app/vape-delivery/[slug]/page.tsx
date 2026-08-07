@@ -54,7 +54,7 @@ function getSeoContent(name: string): string {
   return `Vape delivery in ${name}, Bangalore is available 7 days a week with 30-45 minute turnaround. We cover every lane, society, and apartment in ${name} — Elfbar disposables from Rs 1,199, Caliburn pod systems, ZYN nicotine pouches at Rs 1,299, and more. 100% original products, discreet packaging, WhatsApp ordering.`;
 }
 
-const WA = "https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore.%20Please%20confirm%20availability";
+const WA = "https://wa.me/919074445985?text=Hi%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore.%20Please%20confirm%20availability";
 
 const FEATURED = [
   { name: "Elfbar Raya D1", price: "\u20b92,399", badge: "BEST SELLER", img: "/products/raya-d1.webp", slug: "elfbar-raya-d1" },

@@ -1,4 +1,4 @@
-export const DEFAULT_WHATSAPP = "916282878843";
+export const DEFAULT_WHATSAPP = "919074445985";
 
 export async function getWhatsAppNumber(): Promise<string> {
   return DEFAULT_WHATSAPP;
@@ -7,10 +7,10 @@ export async function getWhatsAppNumber(): Promise<string> {
 export const CITY = "Bangalore";
 
 export const WHATSAPP = {
-  number: "916282878843",
-  url: "https://wa.me/916282878843",
+  number: "919074445985",
+  url: "https://wa.me/919074445985",
   orderLink: (productName?: string, flavour?: string) => {
-    const base = "https://wa.me/916282878843";
+    const base = "https://wa.me/919074445985";
     const city = "Bangalore";
     const greetings = ["Hi", "Hey", "Hello", "Hi there"];
     const confirmPhrases = [
