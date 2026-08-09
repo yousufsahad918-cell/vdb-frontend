@@ -30,7 +30,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: base, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1 },
     { url: `${base}/products`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
-        { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+        
+  { url: `${base}/elfbar-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+  { url: `${base}/lost-mary-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+  { url: `${base}/zyn-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+  { url: `${base}/caliburn-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+  { url: `${base}/disposable-vapes-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.85 },
+  { url: `${base}/nicotine-pouches-bangalore`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.85 },
+  { url: `${base}/reviews`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+  { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
     ...productPages,
     ...locationPages,
     ...blogPages,
