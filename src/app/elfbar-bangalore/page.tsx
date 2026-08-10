@@ -21,7 +21,7 @@ export default function Page() {
         </div>
       </div>
       <div style={{ maxWidth: 700, margin: "0 auto", padding: "24px 16px" }}>
-        <a href={`https://wa.me/919074445985?text=Hi%2C%20I%20want%20to%20order%20Elfbar%20vape%20in%20Bangalore.%20Please%20confirm%20availability.`}
+        <a href={`https://wa.me/916282878843?text=Hi%2C%20I%20want%20to%20order%20Elfbar%20vape%20in%20Bangalore.%20Please%20confirm%20availability.`}
           target="_blank" rel="noopener noreferrer"
           style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "12px 24px", borderRadius: 8, fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", marginBottom: 24 }}>
           ⚡ Order on WhatsApp

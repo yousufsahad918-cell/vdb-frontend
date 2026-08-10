@@ -67,7 +67,7 @@ export default function BottomNav() {
               <div style={{ position: "absolute", bottom: "-4px", left: "50%", transform: "translateX(-50%)", width: 0, height: 0, borderLeft: "4px solid transparent", borderRight: "4px solid transparent", borderTop: "4px solid #25D366" }} />
             </div>
           )}
-          <a href={`https://wa.me/919074445985?text=${encodeURIComponent(msg)}`}
+          <a href={`https://wa.me/916282878843?text=${encodeURIComponent(msg)}`}
             target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "3px", textDecoration: "none" }}>
             <span style={{ fontSize: "20px", lineHeight: 1 }}>💬</span>

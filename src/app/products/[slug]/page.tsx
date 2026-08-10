@@ -49,7 +49,7 @@ function buildOrderMessage(productName: string, price: string, flavour: string) 
 }
 
 export default function ProductPage({ params }: Props) {
-  const WHATSAPP_NUMBER = "919074445985";
+  const WHATSAPP_NUMBER = "916282878843";
   const product = products.find(p => p.slug === params.slug);
   if (!product) notFound();
 
