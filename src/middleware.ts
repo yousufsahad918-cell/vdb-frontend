@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const MAINTENANCE = true;
+const MAINTENANCE = false;
 
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
