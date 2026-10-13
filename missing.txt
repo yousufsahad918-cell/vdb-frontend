@@ -1,0 +1,11 @@
+/vape-delivery/church-street-bangalore
+/vape-delivery/ulsoor-bangalore
+/vape-delivery/tumkur-road-bangalore
+/vape-delivery/varthur-bangalore
+/vape-delivery/frazer-town-bangalore
+/vape-delivery/mahadevapura-bangalore
+/vape-delivery/nagarbhavi-bangalore
+/vape-delivery/outer-ring-road-bangalore
+/vape-delivery/panathur-bangalore
+/vape-delivery/vijayanagar-bangalore
+/vape-delivery/yeshwanthpur-bangalore
