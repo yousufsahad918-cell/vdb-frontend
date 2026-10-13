@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 const TARGET = "vapebangalore.com";
 
+// VDB blog slugs → VB blog slugs
+const BLOG_MAP: Record<string, string> = {
+  "caliburn-g4-bangalore": "how-to-use-caliburn-g4",
+  "nasty-vape-bangalore": "best-vapes-bangalore-2025",
+};
+
 // VDB slugs with -bangalore suffix → VB slugs without
 const SLUG_MAP: Record<string, string> = {
   "church-street-bangalore": "church-street",
@@ -22,6 +28,15 @@ export function middleware(req: NextRequest) {
   if (host === TARGET) return NextResponse.next();
 
   let pathname = req.nextUrl.pathname;
+
+  // Rewrite blog slugs
+  const blogMatch = pathname.match(/^\/blog\/(.+)$/);
+  if (blogMatch) {
+    const slug = blogMatch[1];
+    if (BLOG_MAP[slug]) {
+      pathname = `/blog/${BLOG_MAP[slug]}`;
+    }
+  }
 
   // Rewrite -bangalore suffixed area slugs
   const areaMatch = pathname.match(/^\/vape-delivery\/(.+)$/);
