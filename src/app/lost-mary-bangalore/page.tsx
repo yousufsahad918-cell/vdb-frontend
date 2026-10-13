@@ -36,6 +36,15 @@ export default function Page() {
             </Link>
           ))}
         </div>
+        <div style={{ marginTop: "24px", padding: "16px", background: "#f0faf3", borderRadius: "8px", border: "1px solid #bbf7d0" }}>
+          <p style={{ fontSize: "0.85rem", color: "#166534" }}>
+            Also available on our main site:{" "}
+            <a href="https://vapebangalore.com" style={{ color: "#15803d", fontWeight: 700, textDecoration: "underline" }}>
+              VapeBangalore.com
+            </a>
+            {" "}— Bangalore&apos;s most trusted vape delivery service.
+          </p>
+        </div>
       </div>
     </main>
   );
