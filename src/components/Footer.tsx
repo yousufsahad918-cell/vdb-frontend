@@ -104,7 +104,7 @@ export default function Footer() {
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
           <p style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)" }}>
-            © 2026 VapeDeliveryBangalore.com. Fast vape delivery in Bangalore.
+            © 2026 VapeDeliveryBangalore.com. Also visit our main site: <a href="https://vapebangalore.com" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "underline" }}>VapeBangalore.com</a>
           </p>
           <p style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)" }}>
             30-45 min delivery · 100+ areas · WhatsApp orders
