@@ -1,16 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const MAINTENANCE = false;
-
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  if (path.startsWith("/_next") || path.startsWith("/favicon") || path.includes(".") || path === "/maintenance") {
+
+  // Skip static assets
+  if (
+    path.startsWith("/_next") ||
+    path.startsWith("/favicon") ||
+    path.includes(".")
+  ) {
     return NextResponse.next();
   }
-  if (MAINTENANCE) {
-    return NextResponse.rewrite(new URL("/maintenance", req.url));
-  }
-  return NextResponse.next();
+
+  // 301 redirect everything to vapebangalore.com
+  return NextResponse.redirect(
+    `https://vapebangalore.com${path}`,
+    { status: 301 }
+  );
 }
 
 export const config = {
