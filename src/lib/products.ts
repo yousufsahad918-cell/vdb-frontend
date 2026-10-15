@@ -462,7 +462,7 @@ export const products: Product[] = [
   },
   {
     name: "Drum Bright Blue Tobacco",
-    ug: "drum-bright-blue-tobacco",
+    slug: "drum-bright-blue-tobacco",
     puffs: "50g",
     price: "₹1,199",
     originalPrice: "₹1,499",
