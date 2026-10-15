@@ -392,21 +392,14 @@ export default function ProductGrid() {
                     <div style={{ flex: 1 }} />
 
                     {/* Action button */}
-                    {isOutOfStock ? (
-                      <button
-                        onClick={() => { setNotifyProduct(product.name); setNotifyPhone(""); setNotifyDone(false); }}
-                        style={{ width: "100%", padding: "10px", background: "var(--green)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                    <a
+                        href={`https://wa.me/916282878843?text=${encodeURIComponent("Hi, I want to order " + product.name + " in Bangalore. Please confirm availability.")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ width: "100%", padding: "10px", background: "#25D366", border: "none", borderRadius: 8, color: "#fff", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
-                        🔔 Notify Me
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleAddToCart(product)}
-                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--green)", border: "none", borderRadius: 8, color: justAdded ? "#fff" : "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
-                      >
-                        {justAdded ? "✓ Added!" : selectedFlavour ? "+ Add to Cart" : "Select Flavour"}
-                      </button>
-                    )}
+                        ⚡ Quick Order
+                      </a>
                   </div>
                 </div>
               );
