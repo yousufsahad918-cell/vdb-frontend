@@ -3,25 +3,25 @@ import { SHOP_URL } from "./locations";
 export interface Product {
   name: string;
   slug: string;
-  puffs: string;
+  puffs?: string;
   price: string;
-  originalPrice: string;
-  discount: string;
-  description: string;
-  longDescription: string;
-  flavourNote: string;
-  badge: string;
-  gradient: string;
-  image: string;
-  flavours: string[];
-  brand: string;
-  category: string;
-  subCategory: string;
-  features: string[];
-  metaTitle: string;
-  metaDescription: string;
-  nicotine: string;
-  inStock: boolean;
+  originalPrice?: string;
+  discount?: string;
+  description?: string;
+  longDescription?: string;
+  flavourNote?: string;
+  badge?: string;
+  gradient?: string;
+  image?: string;
+  flavours?: string[];
+  brand?: string;
+  category?: string;
+  subCategory?: string;
+  features?: string[];
+  metaTitle?: string;
+  metaDescription?: string;
+  nicotine?: string;
+  inStock?: boolean;
 }
 
 export const products: Product[] = [
