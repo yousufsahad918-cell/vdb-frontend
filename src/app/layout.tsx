@@ -4,7 +4,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/lib/cart";
 import CartDrawer from "@/components/CartDrawer";
-import BottomNav from "@/components/BottomNav";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vapedeliverybangalore.com"),
@@ -95,7 +94,6 @@ export default function RootLayout({
           <Footer />
         <CartDrawer />
         </CartProvider>
-      <BottomNav />
       </body>
     </html>
   );
