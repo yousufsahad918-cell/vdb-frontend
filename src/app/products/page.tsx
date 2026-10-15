@@ -91,7 +91,7 @@ export default function ProductsPage() {
               <Link key={product.slug} href={`/products/${product.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, overflow: "hidden", height: "100%" }}>
                   <div style={{ position: "relative", height: 160, background: "var(--bg-3)" }}>
-                    <Image src={product.image} alt={product.name} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
+                    <Image src={product.image ?? ""} alt={product.name} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
                     <div style={{ position: "absolute", top: 8, left: 8, background: "var(--green)", color: "var(--btn-text)", borderRadius: 20, padding: "2px 8px", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-display)" }}>
                       {product.discount}
                     </div>

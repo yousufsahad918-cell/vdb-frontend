@@ -108,7 +108,7 @@ export default function ProductGrid() {
       product_id: product.name.toLowerCase().replace(/\s+/g, "-"),
       name: product.name,
       price: basePrice,
-      image: product.image,
+      image: product.image ?? "",
     });
     const key = product.name;
     setAddedMap(prev => ({ ...prev, [key]: true }));
@@ -339,7 +339,7 @@ export default function ProductGrid() {
                   <Link href={`/products/${product.slug}`} style={{ textDecoration: "none", display: "block" }}>
                   <div className="product-image" style={{ position: "relative", height: 180, overflow: "hidden", background: "#0d0f14", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Image
-                      src={product.image}
+                      src={product.image ?? ""}
                       alt={product.name}
                       fill
                       style={{ objectFit: "contain", objectPosition: "center", padding: 10 }}
@@ -457,7 +457,7 @@ export default function ProductGrid() {
               <button onClick={() => setFlavourSheet(null)} style={{ background: "var(--bg-3)", border: "1px solid var(--border)", color: "var(--muted)", borderRadius: 8, padding: "6px 10px", cursor: "pointer" }}>✕</button>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8, marginBottom: 16 }}>
-              {(getOverride(sheetProduct.name)?.flavours?.length ? getOverride(sheetProduct.name)!.flavours : sheetProduct.flavours).map(flavour => {
+              {(getOverride(sheetProduct.name)?.flavours?.length ? getOverride(sheetProduct.name)!.flavours : (sheetProduct.flavours ?? [])).map(flavour => {
                 const isSelected = selectedFlavours[sheetProduct.name] === flavour;
                 return (
                   <button key={flavour} onClick={() => setSelectedFlavours(prev => ({ ...prev, [sheetProduct.name]: flavour }))}

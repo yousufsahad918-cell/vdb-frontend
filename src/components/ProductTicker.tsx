@@ -153,7 +153,7 @@ export default function ProductTicker() {
             >
               <div className="ticker-img-wrap">
                 <Image
-                  src={product.image}
+                  src={product.image ?? ""}
                   alt={product.name}
                   fill
                   style={{ objectFit: "contain" }}

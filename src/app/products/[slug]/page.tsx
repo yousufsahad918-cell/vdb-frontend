@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [
       "vape in bangalore", "vapes in bangalore", "vape delivery bangalore",
       "buy vape bangalore", "vape near me bangalore", product.name,
-      product.brand, `${product.brand} bangalore`, "disposable vape bangalore",
+      (product.brand ?? ""), `${product.brand ?? ""} bangalore`, "disposable vape bangalore",
       "vape shop bangalore", "order vape bangalore", "fast vape delivery bangalore"
     ],
     openGraph: {
@@ -62,7 +62,7 @@ export default function ProductPage({ params }: Props) {
     "Tobacco": "#a16207",
     "Pod Device": "#a78bfa",
   };
-  const catColor = categoryColor[product.category] || "#16a34a";
+  const catColor = categoryColor[product.category ?? ""] || "#16a34a";
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: 80 }}>
@@ -139,7 +139,7 @@ export default function ProductPage({ params }: Props) {
           marginBottom: 20,
         }}>
           <Image
-            src={product.image}
+            src={product.image ?? ""}
             alt={`${product.name} — Buy in Bangalore | VapeDeliveryBangalore`}
             fill
             style={{ objectFit: "contain", padding: 20 }}
@@ -221,7 +221,7 @@ export default function ProductPage({ params }: Props) {
 
         {/* ── FEATURES ── */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
-          {product.features.map(f => (
+          {(product.features ?? []).map(f => (
             <span key={f} style={{
               background: "var(--bg-3)", border: "1px solid var(--border)",
               borderRadius: 8, padding: "6px 12px",
@@ -237,9 +237,9 @@ export default function ProductPage({ params }: Props) {
         <OrderButton
           productName={product.name}
           basePrice={product.price}
-          flavour={product.flavours[0]}
+          flavour={(product.flavours ?? [])[0]}
           whatsappNumber={WHATSAPP_NUMBER}
-          allFlavours={product.flavours}
+          allFlavours={product.flavours ?? []}
         />
         <Link href="/#products" style={{
           display: "block", textAlign: "center",
@@ -367,7 +367,7 @@ export default function ProductPage({ params }: Props) {
                     borderRadius: 12, overflow: "hidden",
                   }}>
                     <div style={{ position: "relative", height: 140, background: "var(--bg-3)" }}>
-                      <Image src={p.image} alt={`${p.name} — Buy in Bangalore`} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
+                      <Image src={p.image ?? ""} alt={`${p.name} — Buy in Bangalore`} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
                     </div>
                     <div style={{ padding: "10px 12px" }}>
                       <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", marginBottom: 4, lineHeight: 1.2 }}>
