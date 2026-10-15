@@ -42,7 +42,7 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound();
 
   const related = blogPosts
-    .filter((p) => p.slug !== post.slug && p.category === post.category)
+    .filter((p) => p.slug !== post.slug && (p.category ?? "") === post.category)
     .slice(0, 3);
 
   const catColor = CATEGORY_COLORS[post.category] || "#ff6a00";

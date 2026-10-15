@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const filtered = products.filter(p => ["ZYN", "Velo"].includes(p.brand));
+  const filtered = products.filter(p => ["ZYN", "Velo"].includes(p.brand ?? ""));
 
   return (
     <main style={{ minHeight: "100vh", background: "#f6faf7", paddingBottom: 80 }}>

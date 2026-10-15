@@ -31,7 +31,7 @@ export default function ProductsPage() {
   const filtered = products.filter(p => {
     const inStock = overrides[p.name] !== undefined ? overrides[p.name] : p.inStock;
     if (!inStock) return false;
-    const catMatch = activeCategory === "All" || p.category === activeCategory;
+    const catMatch = activeCategory === "All" || (p.category ?? "") === activeCategory;
     const brandMatch = activeBrand === "All" || p.brand === activeBrand;
     const subMatch = activeSub === "All" || p.subCategory === activeSub;
     return catMatch && brandMatch && subMatch;

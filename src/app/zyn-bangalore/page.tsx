@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const filtered = products.filter(p => p.brand === "ZYN");
+  const filtered = products.filter(p => (p.brand ?? "") === "ZYN");
 
   return (
     <main style={{ minHeight: "100vh", background: "#f6faf7", paddingBottom: 80 }}>
