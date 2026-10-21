@@ -1,4 +1,3 @@
-import FlashSale from "@/components/FlashSale";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/lib/locations";
@@ -34,7 +33,6 @@ export default function HomePage() {
       <ProductGrid />
 
       {/* WHY CHOOSE US */}
-      <div style={{ padding: "16px 20px 0" }}><FlashSale /></div>
       <section className="section" style={{ background: "var(--bg-2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="container">
           <p className="section-label">Why Choose Us</p>

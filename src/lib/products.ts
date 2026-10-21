@@ -29,7 +29,7 @@ export const products: Product[] = [
     name: "Elfbar Raya D1",
     slug: "elfbar-raya-d1",
     puffs: "13,000 Puffs",
-    price: "₹2,599",
+    price: "₹2,699",
     originalPrice: "₹2,749",
     discount: "15% OFF",
     description: "Watermelon Ice · Mesh Coil · Rechargeable",
