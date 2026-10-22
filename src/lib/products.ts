@@ -48,9 +48,6 @@ export const products: Product[] = [
     nicotine: "20mg Nicotine Salt",
     inStock: true,
   },
-
-
-  // ── ELFBAR MOONNIGHT ─────────────────────────────────────────────────────────
   {
     slug: "iget-goz-b40000",
     name: "IGET GOZ B40000",
@@ -90,6 +87,29 @@ export const products: Product[] = [
     gradient: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)",
     metaTitle: "Marbo 25000 Bangalore — Buy Online | VapeDeliveryBangalore.com",
     metaDescription: "Buy Marbo 25000 in Bangalore. 25,000 puffs, smart screen display. 30-45 min delivery.",
+  },
+
+
+  // ── ELFBAR MOONNIGHT ─────────────────────────────────────────────────────────
+  {
+    slug: "iget-goz-b40000",
+    name: "IGET GOZ B40000",
+    brand: "IGET",
+    category: "Disposable",
+    puffs: "40,000",
+    price: "₹3,799",
+    originalPrice: "₹4,299",
+    discount: "12%",
+    nicotine: "50mg",
+    image: "/img-compressed/iget-goz-b40000.jpg",
+    inStock: true,
+    flavours: ["Watermelon Ice", "Blueberry Ice", "Mango Ice", "Strawberry Ice"],
+    description: "40,000 puffs, dual mesh coil, adjustable airflow, Type-C fast charging.",
+    longDescription: "The IGET GOZ B40000 delivers 40,000 puffs with dual mesh coil, adjustable airflow, real-time battery display and Type-C fast charging.",
+    badge: "40K PUFFS",
+    gradient: "linear-gradient(135deg, #06b6d4 0%, #0284c7 100%)",
+    metaTitle: "IGET GOZ B40000 Bangalore — Buy Online | VapeDeliveryBangalore.com",
+    metaDescription: "Buy IGET GOZ B40000 in Bangalore. 40,000 puffs, dual mesh coil, Type-C charging. 30-45 min delivery.",
   },
 
   {
