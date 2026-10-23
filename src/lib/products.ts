@@ -179,7 +179,7 @@ export const products: Product[] = [
     metaTitle: "Elfbar BC 10000 — Buy in Bangalore | 10,000 Puffs | ₹2,199 | VapeDeliveryBangalore",
     metaDescription: "Buy Elfbar BC 10000 in Bangalore. 10,000 puffs, transparent design, mesh coil. 45-min delivery. ₹2,199.",
     nicotine: "20mg Nicotine Salt",
-    inStock: false,
+    inStock: true,
   },
   {
     slug: "tesiyi-ak-50k",
