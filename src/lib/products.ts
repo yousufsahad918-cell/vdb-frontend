@@ -338,7 +338,7 @@ export const products: Product[] = [
     name: "Elfbar BC 10000",
     slug: "elfbar-bc-10000",
     puffs: "10,000 Puffs",
-    price: "₹1,999",
+    price: "₹2,499",
     originalPrice: "₹2,499",
     discount: "15% OFF",
     description: "Blueberry Mint · Mesh Coil · Type-C Rechargeable",
