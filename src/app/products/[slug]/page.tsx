@@ -118,7 +118,41 @@ export default function ProductPage({ params }: Props) {
         },
       })}} />
 
-      {/* Breadcrumb */}
+      {/* BreadcrumbList Schema */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vapedeliverybangalore.com" },
+          { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://vapedeliverybangalore.com/products" },
+          { "@type": "ListItem", "position": 3, "name": product.name, "item": `https://vapedeliverybangalore.com/products/${product.slug}` },
+        ]
+      })}} />
+
+      {/* FAQPage Schema */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `How do I buy ${product.name} in Bangalore?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `Order ${product.name} on WhatsApp. We deliver to your address in Bangalore in 30-45 minutes. 100% original product guaranteed.` }
+          },
+          {
+            "@type": "Question",
+            "name": `What is the price of ${product.name} in Bangalore?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${product.name} is priced at ${product.price} in Bangalore with free delivery in 30-45 minutes from VapeDeliveryBangalore.com.` }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this product 100% original?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All products on VapeDeliveryBangalore.com are 100% original sourced from authorised distributors. Every product comes in original sealed manufacturer packaging." }
+          },
+        ]
+      })}} />
+
+      {/* Breadcrumb */}}
       <div style={{ padding: "14px 20px 0", maxWidth: 680, margin: "0 auto" }}>
         <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
           <Link href="/" style={{ color: "var(--muted)", textDecoration: "none" }}>Home</Link>
