@@ -152,7 +152,7 @@ export default function ProductPage({ params }: Props) {
         ]
       })}} />
 
-      {/* Breadcrumb */}}
+      {/* Breadcrumb */}
       <div style={{ padding: "14px 20px 0", maxWidth: 680, margin: "0 auto" }}>
         <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
           <Link href="/" style={{ color: "var(--muted)", textDecoration: "none" }}>Home</Link>
