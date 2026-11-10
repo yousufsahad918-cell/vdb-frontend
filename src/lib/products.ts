@@ -631,7 +631,7 @@ export const products: Product[] = [
     name: "Natural American Spirit",
     slug: "natural-american-spirit-tobacco",
     puffs: "50g",
-    price: "₹1,199",
+    price: "₹1,299",
     originalPrice: "₹1,499",
     discount: "23% OFF",
     description: "100% Additive-Free · Whole Leaf Tobacco · Natural Blend",
