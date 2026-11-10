@@ -537,7 +537,7 @@ export const products: Product[] = [
     name: "Velo Freezing Peppermint",
     slug: "velo-freezing-peppermint",
     puffs: "Nicotine Pouches",
-    price: "₹999",
+    price: "₹1,299",
     originalPrice: "₹1,249",
     discount: "23% OFF",
     description: "Freezing Peppermint · Nicotine Pouches · Smoke-Free",
