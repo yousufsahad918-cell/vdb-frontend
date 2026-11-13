@@ -2,6 +2,8 @@ export interface Location {
   name: string;
   slug: string;
   sublocations: string[];
+  landmarks?: string[];
+  metaDescription?: string;
   localNote: string;
 }
 
