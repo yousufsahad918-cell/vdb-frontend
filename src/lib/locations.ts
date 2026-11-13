@@ -1,3 +1,5 @@
+export const SHOP_URL = "https://vapedeliverybangalore.com";
+
 export interface Location {
   name: string;
   slug: string;
