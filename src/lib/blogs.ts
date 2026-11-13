@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
       { name: "Indiranagar", slug: "indiranagar" },
       { name: "Whitefield", slug: "whitefield" },
     ],
-    content: \`
+    content: `
 <h2>The Ultimate Vaping Guide for 2027 in Bangalore</h2>
 <p>As we step into 2027, the vaping landscape in Bangalore is evolving faster than ever. From advanced mesh coil technology to high-capacity disposable designs, here is everything you need to know to stay ahead of the curve.</p>
 <h3>1. The Rise of High-Puff Disposables</h3>
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
       { name: "HSR Layout", slug: "hsr-layout" },
       { name: "Jayanagar", slug: "jayanagar" },
     ],
-    content: \`
+    content: `
 <h2>Vaping in December: Best Flavours for Bangalore's Climate</h2>
 <p>December in Bangalore is magical. The scorching heat fades, replaced by pleasant, cool breezes and slightly humid mornings. This unique climate shift is the perfect time to rotate your vape flavours to match the weather.</p>
 <h3>1. Refreshing Mints & Icy Blends</h3>
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
       { name: "Electronic City", slug: "electronic-city" },
       { name: "Hebbal", slug: "hebbal" },
     ],
-    content: \`
+    content: `
 <h2>2027 Beginner to Pro Vaping Guide: December Edition</h2>
 <p>Whether you are completely new to vaping or looking to upgrade your setup this December, navigating the world of vapes can be overwhelming. This guide breaks down your journey from your very first puff to becoming a seasoned pro.</p>
 <h3>Step 1: The Beginner (Your First Disposable)</h3>
