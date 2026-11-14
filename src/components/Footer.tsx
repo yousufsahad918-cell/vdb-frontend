@@ -111,6 +111,21 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    
+          <div style={{ marginTop: "32px", paddingTop: "24px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
+            <p style={{ fontSize: "0.7rem", color: "var(--muted)", marginBottom: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Our Pan-India Delivery Network
+            </p>
+            <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
+              <a href="https://vapebangalore.com" target="_blank" rel="noopener" style={{ fontSize: "0.85rem", color: "var(--green)", fontWeight: 600, textDecoration: "none" }}>
+                🏙️ VapeBangalore.com
+              </a>
+              <a href="https://vapeinmumbai.com" target="_blank" rel="noopener" style={{ fontSize: "0.85rem", color: "var(--green)", fontWeight: 600, textDecoration: "none" }}>
+                🌊 VapeInMumbai.com
+              </a>
+            </div>
+          </div>
+
+        </footer>
   );
 }
