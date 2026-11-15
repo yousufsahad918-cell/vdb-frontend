@@ -5,3 +5,11 @@ node_modules/
 *.tsbuildinfo
 .env*
 .vercel
+/*.py
+/*.sh
+/*.csv
+/*.txt
+/*.js
+node_modules/
+.next/
+.vercel/
