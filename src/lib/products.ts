@@ -1072,47 +1072,50 @@ export const products: Product[] = [
   },
 
   {
-    slug: "iget-move-50k",
     name: "IGET Move 50K",
-    brand: "IGET",
-    category: "Disposable",
-    price: "4199",
-    puffCount: "50000",
-    nicotine: "Low (2%)",
-    battery: "850mAh",
-    charging: "Type-C",
-    flavours: [{ name: "Blue Razz Ice", color: "#3b82f6" }, { name: "Watermelon Ice", color: "#10b981" }],
-    image: "/products/iget-move-50k.webp",
-    inStock: true,
+    slug: "iget-move-50k",
+    puffs: "50,000",
+    price: "₹4,199",
+    description: "Premium Dual Flavour · Low Nicotine · Rechargeable",
+    longDescription: "The IGET Move 50K sets the gold standard for premium vapes in Bangalore. Featuring innovative dual-flavour technology, it allows you to switch between two distinct flavour profiles in one sleek device. Formulated with a lower nicotine strength compared to standard Elfbar or high-nicotine disposables, it offers a much smoother, milder throat hit. This makes it the perfect choice for doctors, engineers, business professionals, and high-end customers in premium residential areas (like Koramangala, HSR Layout, and Whitefield) who are looking to gradually reduce their nicotine intake, enjoy a refined vaping experience, or transition away from vaping altogether.",
+    flavourNote: "Switch between two premium flavour profiles seamlessly",
     badge: "PREMIUM DUAL FLAVOUR",
+    gradient: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+    image: "/img-compressed/iget-move-50k.jpg",
+    flavours: ["Blue Razz Ice", "Watermelon Ice", "Mango Ice", "Mixed Berries"],
+    brand: "IGET",
+    category: "Vape",
+    subCategory: "Disposable",
+    features: ["50,000 Puffs", "Dual Flavour Technology", "Low Nicotine Strength", "Rechargeable Type-C", "Premium Build Quality", "Ideal for Professionals"],
     metaTitle: "IGET Move 50K - Premium Dual Flavour Low Nicotine Vape | VapeDeliveryBangalore",
     metaDescription: "Buy IGET Move 50K in Bangalore. Premium dual-flavour, low nicotine disposable vape ideal for professionals in Koramangala, HSR & Whitefield. 30-min delivery.",
-    excerpt: "Premium dual-flavour device with lower nicotine. Ideal for professionals in premium Bangalore areas seeking a refined, low-nicotine experience.",
-    longDescription: "The IGET Move 50K sets the gold standard for premium vapes in Bangalore. Featuring innovative dual-flavour technology, it allows you to switch between two distinct flavour profiles in one sleek device. Formulated with a lower nicotine strength compared to standard Elfbar or high-nicotine disposables, it offers a much smoother, milder throat hit. This makes it the perfect choice for doctors, engineers, business professionals, and high-end customers in premium residential areas (like Koramangala, HSR Layout, and Whitefield) who are looking to gradually reduce their nicotine intake, enjoy a refined vaping experience, or transition away from vaping altogether, without sacrificing premium build quality or reliability.",
-    specs: { "Puffs": "50,000", "Nicotine": "Low (2%)", "Charging": "Type-C", "Battery": "850mAh" }
+    nicotine: "Low (2%)",
+    inStock: true
   },
   {
-    slug: "crown-bar-50k",
     name: "Crown Bar 50K",
-    brand: "Crown Bar",
-    category: "Disposable",
-    price: "3899",
-    puffCount: "50000",
-    nicotine: "Low (2%)",
-    battery: "650mAh",
-    charging: "Type-C",
-    flavours: [{ name: "Strawberry Kiwi", color: "#ec4899" }, { name: "Cool Mint", color: "#06b6d4" }],
-    image: "/products/crown-bar-50k.webp",
-    inStock: true,
+    slug: "crown-bar-50k",
+    puffs: "50,000",
+    price: "₹3,899",
+    description: "Low Nicotine · Beginner Friendly · Mesh Coil",
+    longDescription: "The Crown Bar 50K is the ultimate low-nicotine disposable vape in Bangalore. Formulated with a lower nicotine concentration than traditional Elfbar or standard IGET devices, it provides a gentle, satisfying experience without the harsh throat hit. Highly recommended for beginners, casual vapers, or anyone using vaping as a stepping stone to quit nicotine entirely.",
+    flavourNote: "Smooth, gentle flavour with zero harshness",
     badge: "BEGINNER FRIENDLY",
+    gradient: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+    image: "/img-compressed/crown-bar-50k.jpg",
+    flavours: ["Strawberry Kiwi", "Cool Mint", "Peach Ice", "Grape Ice"],
+    brand: "Crown Bar",
+    category: "Vape",
+    subCategory: "Disposable",
+    features: ["50,000 Puffs", "Reduced Nicotine", "Type-C Fast Charging", "Mesh Coil Technology", "Ideal for Quitting"],
     metaTitle: "Crown Bar 50K - Low Nicotine Beginner Friendly Vape | VapeDeliveryBangalore",
     metaDescription: "Buy Crown Bar 50K in Bangalore. The ultimate low-nicotine, beginner-friendly disposable vape for those looking to reduce intake or quit. Fast 30-min delivery.",
-    excerpt: "Low nicotine alternative to Elfbar. Best for beginners and users wanting to reduce nicotine intake or stop vaping.",
-    longDescription: "The Crown Bar 50K is the ultimate low-nicotine disposable vape in Bangalore. Formulated with a lower nicotine concentration than traditional Elfbar or standard IGET devices, it provides a gentle, satisfying experience without the harsh throat hit. Highly recommended for beginners, casual vapers, or anyone using vaping as a stepping stone to quit nicotine entirely.",
-    specs: { "Puffs": "50,000", "Nicotine": "Low (2%)", "Charging": "Type-C", "Battery": "650mAh" }
+    nicotine: "Low (2%)",
+    inStock: true
   }
 
 ];
+
 
 export function getRelatedProducts(currentSlug: string, limit: number = 4) {
   const others = products.filter((p) => p.slug !== currentSlug);
