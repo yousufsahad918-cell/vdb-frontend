@@ -966,3 +966,7 @@ export const locations: Location[] = [
   }
 
 ];
+
+export function getLocationBySlug(slug: string) {
+  return locations.find((loc) => loc.slug === slug);
+}

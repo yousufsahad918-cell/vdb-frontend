@@ -1113,3 +1113,8 @@ export const products: Product[] = [
   }
 
 ];
+
+export function getRelatedProducts(currentSlug: string, limit: number = 4) {
+  const others = products.filter((p) => p.slug !== currentSlug);
+  return others.slice(0, limit);
+}
