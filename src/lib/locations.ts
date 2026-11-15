@@ -938,11 +938,31 @@ export const locations: Location[] = [
     landmarks: ["Toit Indiranagar", "Byg Brewski Koramangala", "UB City Mall", "Hard Rock Cafe"],
     metaDescription: "Pre-gaming or winding down? Fast, discreet vape & ZYN delivery to top pubs and bars in Indiranagar, Koramangala, and UB City in 30-45 mins.",
     localNote: "Pre-gaming or winding down at Bangalore's best pubs and bars? Whether you are at Toit in Indiranagar, Byg Brewski in Koramangala, or near UB City, we deliver premium, 100% original vapes and nicotine pouches discreetly to your location in 30-45 minutes. Avoid the hassle, order on WhatsApp, and enjoy your night."
+  },
+
+  {
+    name: "Major Hospitals & Clinics: Manipal, Apollo, Fortis & Narayana",
+    slug: "hospital-clinic-vape-delivery-bangalore",
+    sublocations: ["Old Airport Road", "Bannerghatta Road", "Whitefield", "Jayanagar", "Sarjapur Road"],
+    landmarks: ["Manipal Hospital", "Apollo Hospitals", "Fortis Hospital", "Narayana Health"],
+    metaDescription: "Discreet, fast vape & nicotine pouch delivery to major hospitals and clinics in Bangalore. Perfect for doctors and medical staff on long shifts.",
+    localNote: "Working a long shift at Manipal, Apollo, Fortis, or Narayana Health? We provide fast, 100% discreet vape and nicotine pouch delivery to hospital staff rooms, clinics, and nearby residences in 30-45 minutes. ZYN, Velo, and premium disposables are perfect for stress relief during demanding medical shifts. Seamless, professional WhatsApp ordering with plain packaging."
+  },
+  {
+    name: "Premium & Pre-Owned Car Showrooms: Bannerghatta, Whitefield & Hebbal",
+    slug: "car-showroom-vape-delivery-bangalore",
+    sublocations: ["Bannerghatta Road", "Whitefield", "Hebbal", "Marathahalli", "Yeshwanthpur"],
+    landmarks: ["Porsche Centre Bangalore", "BMW Bannerghatta", "Mercedes-Benz Whitefield", "Spinny/CarDekho Hubs"],
+    metaDescription: "Fast, discreet vape delivery to premium and pre-owned car showrooms in Bangalore. Keep your staff stocked with original products in 30-45 mins.",
+    localNote: "Managing a premium or pre-owned car showroom in Bangalore? Whether you are at Porsche Centre, BMW Bannerghatta, or a busy used car hub in Hebbal/Yeshwanthpur, we deliver original vapes and nicotine pouches directly to your showroom office or staff lounge in 30-45 minutes. Keep your team stocked with discreet, high-quality products via seamless WhatsApp ordering."
+  },
+  {
+    name: "Premium Car Wash & Detailing Centres: HSR, Koramangala & Indiranagar",
+    slug: "car-wash-detailing-vape-delivery-bangalore",
+    sublocations: ["HSR Layout", "Koramangala", "Indiranagar", "Whitefield", "Sarjapur Road"],
+    landmarks: ["Detailing Masters", "Supreme Detailing", "Local Premium Car Wash Hubs", "GoMechanic"],
+    metaDescription: "Reliable vape and nicotine pouch delivery to car wash and detailing centres across Bangalore. Fast 30-45 min dispatch to HSR, Koramangala, and Indiranagar.",
+    localNote: "Running a car wash or premium detailing centre in Bangalore? We know your team works long, hands-on hours. Get fast, discreet delivery of original vapes, Elfbar disposables, and ZYN nicotine pouches right to your facility in HSR, Koramangala, or Indiranagar in 30-45 minutes. No app needed, just WhatsApp us your location for rapid dispatch."
   }
 
 ];
-
-
-export function getLocationBySlug(slug: string) {
-  return locations.find((loc) => loc.slug === slug);
-}
