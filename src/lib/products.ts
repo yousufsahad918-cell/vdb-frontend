@@ -1081,7 +1081,7 @@ export const products: Product[] = [
     flavourNote: "Switch between two premium flavour profiles seamlessly",
     badge: "PREMIUM DUAL FLAVOUR",
     gradient: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
-    image: "/img-compressed/iget-move-50k.jpg",
+    image: "/img-compressed/iget-move-50k.webp",
     flavours: ["Mr Blue", "Blueberry", "Mango Ice", "Mixed Berries"],
     brand: "IGET",
     category: "Vape",
