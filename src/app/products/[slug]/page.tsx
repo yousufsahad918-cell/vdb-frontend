@@ -14,6 +14,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = products.find(p => p.slug === params.slug);
+  const dynamicFAQs = getLongTailFAQs(product);
   if (!product) return {};
   return {
     title: product.metaTitle,
@@ -48,9 +49,39 @@ function buildOrderMessage(productName: string, price: string, flavour: string) 
   );
 }
 
+
+const getLongTailFAQs = (product: any) => {
+  const { name, brand, category } = product;
+  const puffs = product.puffs || product.puffCount || "high puff count";
+  const nicotine = product.nicotine || "standard";
+  const charging = product.charging || "Type-C";
+  if (category === "Vape" || category === "Disposable") {
+    return [
+      { q: `How many puffs does the ${name} actually last in real-world use in Bangalore?`, a: `While the ${name} is rated for up to ${puffs} puffs, real-world usage depends on draw length. For average users in Bangalore, it typically lasts 1 to 2 weeks of regular use, offering exceptional value.` },
+      { q: `Is the ${name} rechargeable, and what type of charging does it use?`, a: `Yes, the ${name} features a built-in rechargeable battery with ${charging} fast charging, ensuring you can top up the battery and enjoy the e-liquid until the very last puff.` },
+      { q: `What is the nicotine strength of the ${name}?`, a: `The ${name} contains ${nicotine} nicotine, providing a smooth, satisfying throat hit. We strictly source 100% authentic products with batch tracking.` },
+      { q: `How can I verify if my ${name} is 100% authentic in Bangalore?`, a: `Every genuine ${brand} device comes with a scratch-off QR code on the packaging. Simply scan it with your smartphone to verify its authenticity on the official ${brand} website. We only source directly from authorized distributors.` }
+    ];
+  } else if (category === "Nicotine Pouches") {
+    return [
+      { q: `How do I use ${name} correctly for the best experience?`, a: `Simply place a pouch between your gum and upper lip. The ${name} will release a steady, discreet stream of nicotine and flavour for up to 30-45 minutes without any smoke, vapour, or spitting.` },
+      { q: `How long does a can of ${name} typically last?`, a: `A standard can of ${name} contains 20 pouches. Depending on your usage, a single can usually lasts a regular user about 2 to 3 days, making it a highly cost-effective alternative.` },
+      { q: `Does ${name} contain tobacco leaf?`, a: `No, ${name} is a tobacco-free nicotine pouch. It contains pharmaceutical-grade nicotine, plant-based fibers, flavourings, and sweeteners, offering a clean, discreet experience.` },
+      { q: `Can I carry ${name} to the office or on a flight in Bangalore?`, a: `Yes! Since ${name} produces no vapour, smoke, or smell, it is completely discreet and perfectly suitable for use in offices, meetings, and during flights.` }
+    ];
+  } else {
+    return [
+      { q: `What devices are compatible with ${name}?`, a: `The ${name} is highly versatile and works excellently with most standard pod systems. Check the packaging for specific device recommendations.` },
+      { q: `How should I store my ${name} to maintain flavour in Bangalore's climate?`, a: `For the best flavour longevity, store your ${name} in a cool, dark place away from direct sunlight. Ensure the cap is tightly sealed to prevent oxidation.` },
+      { q: `Is ${name} safe and 100% authentic?`, a: `Yes, we only stock 100% authentic products sourced from authorized distributors. Every item has batch tracking and authenticity verification.` },
+      { q: `How fast is delivery for ${name} in Bangalore?`, a: `We deliver ${name} across all major Bangalore areas (Koramangala, HSR, Whitefield, Indiranagar, etc.) in 30-45 minutes via secure, discreet packaging.` }
+    ];
+  }
+};
 export default function ProductPage({ params }: Props) {
   const WHATSAPP_NUMBER = "916282878843";
   const product = products.find(p => p.slug === params.slug);
+  const dynamicFAQs = getLongTailFAQs(product);
   if (!product) notFound();
 
   const related = getRelatedProducts(product.slug, 4);
@@ -133,23 +164,11 @@ export default function ProductPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": `How do I buy ${product.name} in Bangalore?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `Order ${product.name} on WhatsApp. We deliver to your address in Bangalore in 30-45 minutes. 100% original product guaranteed.` }
-          },
-          {
-            "@type": "Question",
-            "name": `What is the price of ${product.name} in Bangalore?`,
-            "acceptedAnswer": { "@type": "Answer", "text": `${product.name} is priced at ${product.price} in Bangalore with free delivery in 30-45 minutes from VapeDeliveryBangalore.com.` }
-          },
-          {
-            "@type": "Question",
-            "name": "Is this product 100% original?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All products on VapeDeliveryBangalore.com are 100% original sourced from authorised distributors. Every product comes in original sealed manufacturer packaging." }
-          },
-        ]
+        "mainEntity": dynamicFAQs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+        }))
       })}} />
 
       {/* Breadcrumb */}
@@ -418,6 +437,21 @@ export default function ProductPage({ params }: Props) {
           </div>
         )}
       </div>
+    
+      {/* DYNAMIC LONG-TAIL FAQ SECTION */}
+      <section style={{ padding: "40px 0", background: "var(--bg-2, #f8fafc)", borderTop: "1px solid var(--border, #e2e8f0)" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 16px" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text, #0f172a)", marginBottom: "20px" }}>Frequently Asked Questions About {product.name}</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            {dynamicFAQs.map((faq, i) => (
+              <div key={i} style={{ background: "var(--bg, #ffffff)", border: "1px solid var(--border, #e2e8f0)", borderRadius: "8px", padding: "16px" }}>
+                <p style={{ fontSize: "0.95rem", fontWeight: 600, color: "var(--text, #0f172a)", marginBottom: "8px" }}>{faq.q}</p>
+                <p style={{ fontSize: "0.9rem", color: "var(--muted, #64748b)", lineHeight: 1.6 }}>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
