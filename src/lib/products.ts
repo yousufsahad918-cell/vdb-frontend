@@ -751,7 +751,7 @@ export const products: Product[] = [
     originalPrice: "₹4,374",
     discount: "21% OFF",
     description: "50,000 Puffs · 26ml · Dual Screen · Airflow Control · 3-Mode",
-    longDescription: "The Nasty Bolt WTF is the highest puff-count vape available for delivery in Bangalore — 50,000 puffs with 26ml of e-liquid. Extra fast charging in under 25 minutes, airflow control for personalised draw, dual screens showing flavour and battery, and 3-mode selection. The ultimate device for serious vapers in Bangalore.",
+    longDescription: "The Nasty Bolt WTF 50K redefines power and performance. Engineered for heavy vapers and flavor chasers in Bangalore, it features a massive 26ml e-liquid capacity, a stunning dual-screen display for battery and juice levels, and adjustable airflow for a customized draw. With up to 50,000 puffs and rapid Type-C charging, it’s the ultimate long-lasting disposable device.",
     flavourNote: "Grape Ice and Blue Razz Lemonade — bold and electric",
     badge: "MOST POWERFUL",
     gradient: "linear-gradient(135deg, #7c3aed 0%, #eab308 100%)",
@@ -761,10 +761,11 @@ export const products: Product[] = [
     category: "Vape",
     subCategory: "High Puff",
     features: ["50,000 Puffs", "26ml E-Liquid", "Extra Fast Charging (<25min)", "1000mAh Battery", "Airflow Control", "Dual Screen", "3-Mode Selection", "Double Mesh Coil"],
-    metaTitle: "Nasty Bolt WTF 50K — Buy in Bangalore | 50,000 Puffs | ₹2,999 | VapeDeliveryBangalore",
-    metaDescription: "Buy Nasty Bolt WTF in Bangalore. 50,000 puffs, 26ml, dual screen, airflow control. Most powerful vape. ₹2,999.",
+    metaTitle: "Nasty Bolt WTF 50K - 50000 Puffs Dual Screen Vape | VapeBangalore",
+    metaDescription: "Buy Nasty Bolt WTF 50K in Bangalore. Massive 50,000 puffs, dual screen display, adjustable airflow & 26ml capacity. Fast delivery. 100% authentic.",
     nicotine: "20mg Nicotine Salt",
     inStock: true,
+    isBestseller: true,
   },
 
   // ── CALIBURN — POD DEVICES ───────────────────────────────────────────────────
