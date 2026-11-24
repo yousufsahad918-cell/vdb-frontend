@@ -22,6 +22,7 @@ export interface Product {
   metaDescription: string;
   nicotine: string;
   inStock: boolean;
+  isBestseller?: boolean;
 }
 
 export const products: Product[] = [
