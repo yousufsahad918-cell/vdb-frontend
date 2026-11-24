@@ -290,7 +290,7 @@ export default function ProductPage({ params }: Props) {
         <OrderButton
           productName={product.name}
           basePrice={product.price}
-          flavour={(product.flavours ?? [])[0]}
+          flavour={(product.flavours ?? [])[0]?.name || ""}
           whatsappNumber={WHATSAPP_NUMBER}
           allFlavours={product.flavours ?? []}
         />
