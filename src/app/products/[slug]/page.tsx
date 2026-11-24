@@ -292,7 +292,7 @@ export default function ProductPage({ params }: Props) {
           basePrice={product.price}
           flavour={(product.flavours ?? [])[0]?.name || ""}
           whatsappNumber={WHATSAPP_NUMBER}
-          allFlavours={product.flavours ?? []}
+          allFlavours={product.flavours?.map((f: any) => f.name) ?? []}
         />
         <Link href="/#products" style={{
           display: "block", textAlign: "center",
