@@ -7,6 +7,7 @@ export interface Product {
   category: string;
   price: string;
   originalPrice?: string;
+  discount?: string;
   puffCount?: number;
   nicotine?: string;
   battery?: string;
