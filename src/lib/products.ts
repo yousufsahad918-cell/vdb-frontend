@@ -13,7 +13,7 @@ export interface Product {
   badge?: string;
   gradient?: string;
   image: string;
-  flavours: string[];
+  flavours: { name: string; color: string }[];
   brand: string;
   category: string;
   subCategory?: string;
