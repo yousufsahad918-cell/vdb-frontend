@@ -430,11 +430,12 @@ export default function ProductGrid() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8, marginBottom: 16 }}>
               {(getOverride(sheetProduct.name)?.flavours?.length ? getOverride(sheetProduct.name)!.flavours : (sheetProduct.flavours ?? [])).map(flavour => {
-                const isSelected = selectedFlavours[sheetProduct.name] === flavour;
+                const flavourName = typeof flavour === 'string' ? flavour : flavour.name;
+                const isSelected = selectedFlavours[sheetProduct.name] === flavourName;
                 return (
-                  <button key={flavour} onClick={() => setSelectedFlavours(prev => ({ ...prev, [sheetProduct.name]: flavour }))}
+                  <button key={flavourName} onClick={() => setSelectedFlavours(prev => ({ ...prev, [sheetProduct.name]: flavourName }))}
                     style={{ padding: "10px 12px", borderRadius: 10, textAlign: "left", border: isSelected ? "1.5px solid var(--green)" : "1px solid var(--border)", background: isSelected ? "var(--green-glow)" : "var(--bg-3)", color: isSelected ? "var(--green)" : "var(--text)", fontSize: "0.82rem", cursor: "pointer", WebkitTapHighlightColor: "transparent" }}>
-                    {flavour}
+                    {flavourName}
                   </button>
                 );
               })}
