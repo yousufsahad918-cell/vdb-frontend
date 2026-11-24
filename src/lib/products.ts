@@ -27,6 +27,31 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    slug: "nasty-bolt-wtf-50k",
+    name: "Nasty Bolt WTF 50K",
+    brand: "Nasty",
+    category: "Disposable",
+    price: "₹4,199",
+    originalPrice: "₹5,499",
+    puffCount: 50000,
+    nicotine: "20mg",
+    inStock: true,
+    isBestseller: true,
+    badge: "MOST POWERFUL",
+    gradient: "linear-gradient(135deg, #7c3aed 0%, #eab308 100%)",
+    image: "/img-compressed/nasty-bolt.jpg",
+    flavours: [
+      { name: "Grape Ice", color: "#a855f7" },
+      { name: "Blue Razz Lemonade", color: "#3b82f6" },
+      { name: "Watermelon Ice", color: "#ef4444" }
+    ],
+    excerpt: "50,000 Puffs · Dual Screen Display · Adjustable Airflow · Type-C Fast Charge · 26ml Capacity",
+    longDescription: "The Nasty Bolt WTF 50K redefines power and performance for Bangalore vapers. Featuring a massive 26ml e-liquid capacity, a stunning dual-screen display for real-time battery and juice levels, and adjustable airflow for a customized draw. With rapid Type-C charging, it’s the ultimate long-lasting disposable device.",
+    metaTitle: "Nasty Bolt WTF 50K - 50000 Puffs Dual Screen Vape | VapeDeliveryBangalore",
+    metaDescription: "Buy Nasty Bolt WTF 50K in Bangalore. Massive 50,000 puffs, dual screen display, adjustable airflow & 26ml capacity. Fast delivery. 100% authentic.",
+    specs: { "Puffs": "50,000", "Capacity": "26ml", "Display": "Dual Screen", "Charging": "Type-C" }
+  },
+  {
     name: "IGET Move 50K",
     slug: "iget-move-50k",
     puffs: "50,000",
@@ -132,7 +157,6 @@ export const products: Product[] = [
     metaTitle: "Marbo 25000 Bangalore — Buy Online | VapeDeliveryBangalore.com",
     metaDescription: "Buy Marbo 25000 in Bangalore. 25,000 puffs, smart screen display. 30-45 min delivery.",
   },
-
 
   // ── ELFBAR MOONNIGHT ─────────────────────────────────────────────────────────
 
@@ -480,7 +504,6 @@ export const products: Product[] = [
     inStock: true,
   },
 
-
   // ── YUOTO THANOS ─────────────────────────────────────────────────────────────
   {
     name: "Yuoto Thanos",
@@ -744,32 +767,54 @@ export const products: Product[] = [
   },
 
   // ── NASTY ────────────────────────────────────────────────────────────────────
+  // ── CALIBURN — POD DEVICES ───────────────────────────────────────────────────
   {
-    name: "Nasty Bolt WTF 50K",
-    slug: "nasty-bolt-wtf-50k",
-    puffs: "50,000 Puffs",
-    price: "₹4,199",
-    originalPrice: "₹5,499",
-    discount: "21% OFF",
-    description: "50,000 Puffs · 26ml · Dual Screen · Airflow Control · 3-Mode",
-    longDescription: "The Nasty Bolt WTF 50K redefines power and performance. Engineered for heavy vapers and flavor chasers in Bangalore, it features a massive 26ml e-liquid capacity, a stunning dual-screen display for battery and juice levels, and adjustable airflow for a customized draw. With up to 50,000 puffs and rapid Type-C charging, it's the ultimate long-lasting disposable device.",
-    flavourNote: "Grape Ice and Blue Razz Lemonade — bold and electric",
-    badge: "MOST POWERFUL",
-    gradient: "linear-gradient(135deg, #7c3aed 0%, #eab308 100%)",
-    image: "/img-compressed/nasty-bolt.png",
-    flavours: ["Grape Ice", "Blue Razz Lemonade", "Watermelon Ice", "Mango Ice", "Strawberry Kiwi", "Peach Ice", "Lychee Ice"],
-    brand: "Nasty",
-    category: "Vape",
-    subCategory: "High Puff",
-    features: ["50,000 Puffs", "26ml E-Liquid", "Extra Fast Charging (<25min)", "1000mAh Battery", "Airflow Control", "Dual Screen", "3-Mode Selection", "Double Mesh Coil"],
-    metaTitle: "Nasty Bolt WTF 50K - 50000 Puffs Dual Screen Vape | VapeDeliveryBangalore",
-    metaDescription: "Buy Nasty Bolt WTF 50K in Bangalore. Massive 50,000 puffs, dual screen display, adjustable airflow & 26ml capacity. Fast delivery. 100% authentic.",
-    nicotine: "20mg Nicotine Salt",
+    slug: "caliburn-g3-pro",
+    name: "Caliburn G3 Pro",
+    brand: "Caliburn",
+    category: "Pod Device",
+    price: "₹7,200",
+    originalPrice: "₹8,999",
+    battery: "1000mAh",
+    charging: "Type-C",
     inStock: true,
     isBestseller: true,
+    badge: "FLAGSHIP",
+    gradient: "linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%)",
+    image: "/img-compressed/caliburn-g3-pro.jpg",
+    flavours: [
+      { name: "Use with any Nic Salt", color: "#6b7280" }
+    ],
+    excerpt: "1000mAh · 35W · Full Animated Screen · Custom Wallpapers · Premium Build",
+    longDescription: "The Caliburn G3 Pro is the pinnacle of pod vaping in Bangalore. Featuring a stunning full animated TFT screen, 35W adjustable output, and a robust 1000mAh battery. Custom animated wallpapers and G3 Pro coil technology deliver an unmatched, rich flavor experience.",
+    metaTitle: "Caliburn G3 Pro — Buy in Bangalore | Premium Pod Device | ₹7,200 | VapeDeliveryBangalore",
+    metaDescription: "Buy Caliburn G3 Pro in Bangalore. 35W output, full animated screen, 1000mAh battery. Fast 30-45 min delivery. ₹7,200.",
+    specs: { "Battery": "1000mAh", "Output": "35W", "Display": "Animated TFT", "Charging": "Type-C" }
   },
-
-  // ── CALIBURN — POD DEVICES ───────────────────────────────────────────────────
+  {
+    slug: "caliburn-air",
+    name: "Caliburn Air",
+    brand: "Caliburn",
+    category: "Pod Device",
+    price: "₹5,800",
+    originalPrice: "₹7,200",
+    battery: "900mAh",
+    charging: "Type-C",
+    isNew: true,
+    inStock: true,
+    isBestseller: true,
+    badge: "NEW ARRIVAL",
+    gradient: "linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%)",
+    image: "/img-compressed/caliburn-air.jpg",
+    flavours: [
+      { name: "Use with any Nic Salt", color: "#6b7280" }
+    ],
+    excerpt: "900mAh · Ultra-Lightweight · Draw & Button Activated · Type-C Fast Charge",
+    longDescription: "The Caliburn Air is the perfect blend of portability and performance. Featuring a sleek, ultra-lightweight design, 900mAh battery, and dual activation (draw and button), it delivers smooth, consistent flavor with every puff. Ideal for on-the-go vapers in Bangalore.",
+    metaTitle: "Caliburn Air — Buy in Bangalore | Ultra-Light Pod Device | ₹5,800 | VapeDeliveryBangalore",
+    metaDescription: "Buy Caliburn Air in Bangalore. Ultra-lightweight, 900mAh battery, dual activation. Fast 30-45 min delivery. ₹5,800.",
+    specs: { "Battery": "900mAh", "Activation": "Draw & Button", "Charging": "Type-C", "Weight": "Ultra-Light" }
+  },
   {
     name: "Caliburn KOKO GK3",
     slug: "caliburn-koko-gk3",
@@ -1047,29 +1092,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    name: "Caliburn G3 Pro",
-    slug: "caliburn-g3-pro",
-    puffs: "N/A",
-    price: "₹7,999",
-    originalPrice: "₹9,999",
-    discount: "20% OFF",
-    description: "OLED Display · 5-35W · Pro-FOCS 3.0",
-    longDescription: "The Uwell Caliburn G3 Pro is the most advanced Caliburn yet. Featuring a large OLED display, adjustable wattage from 5-35W, and Pro-FOCS 3.0 flavor technology, it delivers a premium vaping experience in a sleek form factor.",
-    flavourNote: "Compatible with your favourite nic salts",
-    badge: "New",
-    gradient: "linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%)",
-    image: "/img-compressed/caliburn-g3-pro.png",
-    flavours: [],
-    brand: "Caliburn",
-    category: "Vape",
-    subCategory: "Pod System",
-    features: ["OLED Display", "5-35W Output", "Pro-FOCS 3.0", "1000mAh Battery", "Type-C Charging"],
-    metaTitle: "Uwell Caliburn G3 Pro — Buy in Bangalore | ₹6,800 | VapeDeliveryBangalore",
-    metaDescription: "Buy Uwell Caliburn G3 Pro in Bangalore. OLED display, 35W output, Pro-FOCS 3.0. Fast delivery across Bangalore. ₹6,800.",
-    nicotine: "Compatible with nic salts",
-    inStock: true,
-  },
-  {
     name: "Caliburn GK2",
     slug: "caliburn-gk2",
     puffs: "N/A",
@@ -1117,7 +1139,6 @@ export const products: Product[] = [
   },
 
   ];
-
 
 export function getRelatedProducts(currentSlug: string, limit: number = 4) {
   const others = products.filter((p) => p.slug !== currentSlug);
