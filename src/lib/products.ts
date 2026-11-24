@@ -24,6 +24,8 @@ export interface Product {
   metaDescription: string;
   specs: Record<string, string>;
   inStock: boolean;
+  subCategory?: string;
+  [key: string]: any; // Allows dynamic properties like rating, reviews, etc.
 }
 
 export const products: Product[] = [
