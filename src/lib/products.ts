@@ -3,26 +3,26 @@ import { SHOP_URL } from "./locations";
 export interface Product {
   name: string;
   slug: string;
-  puffs: string;
+  brand: string;
+  category: string;
   price: string;
   originalPrice?: string;
-  discount?: string;
-  description?: string;
-  longDescription?: string;
-  flavourNote?: string;
+  puffCount?: number;
+  nicotine?: string;
+  battery?: string;
+  charging?: string;
+  isNew?: boolean;
+  isBestseller?: boolean;
   badge?: string;
   gradient?: string;
   image: string;
   flavours: { name: string; color: string }[];
-  brand: string;
-  category: string;
-  subCategory?: string;
-  features?: string[];
+  excerpt: string;
+  longDescription: string;
   metaTitle: string;
   metaDescription: string;
-  nicotine: string;
+  specs: Record<string, string>;
   inStock: boolean;
-  isBestseller?: boolean;
 }
 
 export const products: Product[] = [
